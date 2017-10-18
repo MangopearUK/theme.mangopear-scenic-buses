@@ -50,7 +50,7 @@
 
 
 
-	<main class="o-panel">
+	<main class="o-panel" id="main">
 		<div class="o-container">
 			<p style="text-align: center; font-style: italic; font-weight: 300; font-size: 1.3em;">Seriously, this website is coming pretty soon.</p>
 			<p style="text-align: center; font-style: italic; font-weight: 300; font-size: 1.3em;">Check back in about a month or so or follow <a href="https://twitter.com/MangopearUK/" target="_blank">@MangopearUK</a> on Twitter for more info.</p>
