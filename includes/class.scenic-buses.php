@@ -83,6 +83,7 @@ if (! class_exists('Scenic')) :
 		 * 		[i] 	Define our settings
 		 * 		[ii]	Register actions
 		 * 		[iii]	Include helper functions
+		 * 		[iv]	Include other components, views and functionality
 		 */
 		
 		public function initialize() {
@@ -121,6 +122,9 @@ if (! class_exists('Scenic')) :
 
 
 			include_once('includes.functions.scenic-helpers.php');							// [iii]
+
+
+			include_once('views/views.masthead.php');										// [iv]
 		}
 
 
