@@ -57,8 +57,8 @@ if (! function_exists('scenic_output_masthead')) :
 		$defaults = array(
 			'image'			=> get_field('masthead__image'),
 			'title__style'	=> get_field('masthead__title-style'),
-			'title__line-1'	=> get_field('masthead__title'),
-			'title__line-2'	=> get_field('masthead__title--line-2'),
+			'title'			=> get_field('masthead__title'),
+			'title__sub'	=> get_field('masthead__title--line-2'),
 			'content'		=> get_field('masthead__content'),
 			'link__text'	=> get_field('masthead__link')
 		);
@@ -89,11 +89,11 @@ if (! function_exists('scenic_output_masthead')) :
 					<div class="c-masthead__container">
 						<h1 class="c-masthead__title">
 							<?php if ($args['title__style'] == 'double') : ?>
-								<span class="c-masthead__title-line--sub"><?php echo $args['title__line-1']; ?></span>
+								<span class="c-masthead__title-line--sub"><?php echo $args['title__sub']; ?></span>
 							<?php endif; ?>
 							
 
-							<span class="c-masthead__title-line--main"><?php echo $args['title__line-2']; ?></span>
+							<span class="c-masthead__title-line--main"><?php echo $args['title']; ?></span>
 						</h1>
 
 
@@ -101,7 +101,7 @@ if (! function_exists('scenic_output_masthead')) :
 
 
 						<a href="#main" class="o-button  c-masthead__button">
-							<span class="o-button__content"><?php the_field('masthead__link'); ?></span>
+							<span class="o-button__content"><?php echo $args['link__text']; ?></span>
 							<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo HILDON_SPRITE; ?>#arrow-down"/></svg>
 						</a>
 					</div><!-- /.c-masthead__container -->
