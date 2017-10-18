@@ -1,0 +1,227 @@
+/**
+ * [Object] Notifications
+ *
+ * @category	Component
+ * @package		hildon
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright	2016: Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	1.1.2
+ * @version   	1.1.0
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 1.1.0
+ *          Rewritten complete component styles to allow it to snap to the top of the window when scrolled.
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]	Container
+ * [2]	Dismiss button (optional)
+ * [3]	Content
+ * [4]	Action for notification (optional)
+ */
+
+
+/**
+ * [1]	Wrapper
+ */
+
+.o-notification {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	@include rempx(max-height, 200px);
+	@include mangui-transition(ease-in-out 350ms all);
+
+
+	+ .o-notification {
+		@include rempx(margin-top, 10px);
+	}
+
+
+	&--has-dismiss {
+		.o-notification__container {
+			@include rempx(padding-left, 70px);
+		}
+	}
+
+
+	&--has-space-top    { @include rempx(margin-top, 25px); }
+	&--has-space-bottom { @include rempx(margin-bottom, 25px); }
+
+
+
+
+
+	&.is-hidden {
+		margin: 0;
+		max-height: 0;
+
+
+		.o-notification__container {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			@include rempx(margin-top, -60px);
+		}
+	}
+
+
+	&.is-not-relevant {
+		.o-notification__container {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			@include rempx(margin-top, -60px);
+		}
+	}
+
+
+	&.is-snapped {
+		.o-notification__container {
+			position: fixed;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+			@include rempx(top, 77px);
+		}
+	}
+}
+
+
+	.o-notification__container {
+		@extend %u-clearfix;
+		z-index: 4999;
+		position: relative;
+		border-left: 5px solid;
+		box-shadow: 0 2px 4px rgba(0,0,0,0);
+		@include rempx(padding, 10px 20px);
+		@include mangui-transition(ease-in-out 350ms all);
+	}
+
+
+
+
+
+	/**
+	 * [2]	Dismiss button (optional)
+	 */
+	
+	.o-notification__dismiss {
+		top: 0;
+		left: 0;
+		position: absolute;
+
+
+		.o-button {
+			color: currentColor;
+			display: inline-block;
+			background: rgba(0,0,0,0.2);
+			@include rempx(margin, 10px);
+			@include rempx(width, 40px);
+			@include rempx(height, 40px);
+			@include rempx(padding-top, 7px);
+			@include mangui-transition(ease-in-out 350ms all);
+
+
+			&:hover {
+				background: rgba(0,0,0,0.4);
+			}
+		}
+	}
+
+
+
+
+
+	/**
+	 * [3]	Content
+	 */
+	
+	.o-notification__content {
+		float: left;
+		display: inline-block;
+		@include rempx(margin, 8px 0);
+	}
+
+
+		.o-notification__message {
+			margin: 0;
+			text-align: left;
+		}
+
+
+
+
+
+	/**
+	 * [4]	Action for notification (optional)
+	 */
+	
+	.o-notification__action {
+		float: right;
+		@include rempx(margin-left, 20px);
+	
+
+		.o-button {
+			font-weight: bold;
+			font-style: italic;
+			color: currentColor;
+			display: inline-block;
+			background: rgba(0,0,0,0.2);
+			@include rempx(padding, 0 20px);
+			@include rempx(line-height, 40px);
+			@include rempx(margin-right, -10px);
+			@include mangui-transition(ease-in-out 350ms all);
+
+
+			&:hover {
+				background: rgba(0,0,0,0.4);
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Variations
+ */
+
+.o-notification--positive {
+	.o-notification__container {
+		color: #FFF;
+		background: $green;
+		border-left-color: $green--shade;
+	}
+}
+
+
+.o-notification--negative {
+	.o-notification__container {
+		color: #FFF;
+		background: $red;
+		border-left-color: $red--shade;
+	}
+}
+
+
+.o-notification--neutral {
+	.o-notification__container {
+		color: $grey--dark;
+		background: $grey--lighter;
+		border-left-color: $grey--light;
+	}
+}

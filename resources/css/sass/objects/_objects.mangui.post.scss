@@ -1,0 +1,67 @@
+/**
+ * Post object
+ *
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
+
+.o-post {
+    display: block;
+    @extend %u-clearfix;
+}
+
+    .o-post__image {
+        float: left;
+        margin-right: $mangui-vertical-rhythm;
+        @include mangui-breakpoint(portable) { margin-right: 0; }
+    }
+
+
+    .o-post__title {
+        text-align: left;
+        @include rempx(margin-top, 10px);
+    }
+
+
+    /**
+     * Reversed image location (right instead of left).
+     */
+    
+    .o-post__image--rev {
+        float: right;
+        margin-left: $mangui-vertical-rhythm;
+        @include mangui-breakpoint(portable) { margin-left: 0; }
+    }
+
+        .o-post__image img,
+        .o-post__image--rev img {
+            display: block;
+        }
+
+
+    .o-post__body {
+        overflow: hidden;
+
+        @include mangui-breakpoint(portable) {
+            float: left;
+            width: 100%;
+            @include rempx(max-width, 600px);
+            @include rempx(padding, 10px 10px 0);
+        }
+    }
+
+        .o-post__body,
+        .o-post__body > :last-child{
+            margin-bottom: 0;
+        }
+
+
+    /**
+     * `.img`s in `.islet`s need an appropriately sized margin.
+     */
+    .o-islet .o-post__image {
+        margin-right: $mangui-vertical-rhythm;
+    }
+    .o-islet .o-post__image--rev {
+        margin-left: $mangui-vertical-rhythm;
+    }

@@ -1,0 +1,13 @@
+/**
+ * Mixin to include relevant font styles for the "Cinzel" font family.
+ */
+
+@mixin hildon-cinzel ($bold: false) {
+	font-family: Cinzel, Droid Serif, Times New Roman, Times, serif;
+	
+	@if $bold == true {
+		font-weight: 600;
+	} @else {
+		font-weight: 400;
+	}
+}

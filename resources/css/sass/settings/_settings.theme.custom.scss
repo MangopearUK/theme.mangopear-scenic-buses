@@ -1,0 +1,59 @@
+/**
+ * Fonts
+ */
+
+$font--core: 'Droid Serif', Georgia, Times New Roman, Times, serif;
+$font--playfair: 'Playfair Display', 'Cinzel', 'Droid Serif', Georgia, Times New Roman, Times, serif;
+
+
+
+
+
+
+/**
+ * Setting up default transition values
+ *
+ * [1]	Default transition duration
+ */
+
+$transition--default: 350ms;
+
+
+
+
+
+/**
+ * Breakpoints
+ */
+
+$mangui-breakpoints:	(
+							'palm' '(max-width: 520px)',
+							'lap' '(min-width: 521px) and (max-width: 1149px)',
+							'portable' '(max-width: 1149px)',
+							'desk' '(min-width: 1150px)'
+						);
+
+$breakpoints:			(
+							'palm' '(max-width: 520px)',
+							'lap' '(min-width: 521px) and (max-width: 1149px)',
+							'portable' '(max-width: 1149px)',
+							'desk' '(min-width: 1150px)'
+						);
+
+
+
+
+/**
+ * Fonts
+ */
+
+$font-core: Merriweather, sans-serif;
+$font-campton: Campton-Web, $font-core;
+$font-headings: Campton-Web, $font-core;
+
+
+@font-face {
+	font-style: normal;
+	font-family: 'Campton-Web';
+	src: url(../fonts/campton/campton--book.woff) format('woff');
+}

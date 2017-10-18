@@ -1,0 +1,29 @@
+/**
+ * Default transform mixin
+ */
+
+@mixin mangui-transform($transition...) {
+    -webkit-transform: $transition;
+       -moz-transform: $transition;
+        -ms-transform: $transition;
+         -o-transform: $transition;
+            transform: $transition;
+}
+
+
+@mixin mangui-transform-origin($transition...) {
+    -webkit-transform-origin: $transition;
+       -moz-transform-origin: $transition;
+        -ms-transform-origin: $transition;
+         -o-transform-origin: $transition;
+            transform-origin: $transition;
+}
+
+
+@mixin mangui-transform-style($transition...) {
+    -webkit-transform-style: $transition;
+       -moz-transform-style: $transition;
+        -ms-transform-style: $transition;
+         -o-transform-style: $transition;
+            transform-style: $transition;
+}

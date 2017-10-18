@@ -1,0 +1,272 @@
+/**
+ * [Component] Masthead > Header > WooCommerce variant
+ *
+ * This is the mastead component of the WooCommerce templates - the 
+ * very stripped back version.
+ *
+ * @category	Component
+ * @package		hildon
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright	2017 Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	1.6.0
+ * @version   	1.6.0
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]	Header > Wrappers
+ * [2]	Top row > Logo
+ * [3]	Top row > Secure checkout
+ */
+
+
+/**
+ * [1]	Header > Wrappers
+ */
+
+body.has-woo-header {
+	@include rempx(padding-top, 126px);
+	@include mangui-breakpoint("max-width: 1200px") { @include rempx(padding-top, 116px); }
+	@include mangui-breakpoint("max-width:  800px") { @include rempx(padding-top, 106px); }
+	@include mangui-breakpoint("max-width:  500px") { @include rempx(padding-top,  77px); }
+}
+
+
+.c-woo-header {
+	top: 0;
+	left: 50%;												// []
+	width: 100%;											// []
+	z-index: 20000;											// []
+	position: fixed;										// []
+	background: #FFF;										// []
+	border: 1px solid rgba(0,0,0,0.2);						// []
+	border-top: 0;											// []
+	box-shadow: 0 3px 10px rgba(0,0,0,0.075);				// []
+	@include rempx(max-width, 1500px);						// []
+	@include rempx(margin-left, -750px);					// []
+
+
+	@include mangui-breakpoint("max-width: 1500px") {
+		margin-left: -50%;
+
+		&--top {
+			border-left: 0;
+			border-right: 0;
+		}
+	}
+
+
+	&--progress {
+		z-index: 19999;										// []
+		overflow: hidden;
+		position: absolute;									// []
+		@include rempx(top, 63px);							// []
+		@include rempx(max-width, 1410px);					// []
+		@include rempx(margin-left, -705px);				// []
+
+
+		@include mangui-breakpoint("max-width: 1500px") {
+			width: 96%;
+			margin-left: -48%;
+		}
+
+
+		@include mangui-breakpoint("max-width: 600px") {
+			width: 100%;
+			border-left: 0;
+			border-right: 0;
+			margin-left: -50%;
+		}
+
+
+		@include mangui-breakpoint("max-width: 500px") { @include rempx(top, 44px); }
+	}
+}
+
+
+
+
+
+	/**
+	 * [2]	Top row > Logo
+	 */
+	
+	.c-woo-header__logo {
+		color: $blue--dark;
+		display: inline-block;
+		@include rempx(margin, 0 25px);
+		@include rempx(padding, 16px 20px 14px);
+		
+
+		@include mangui-breakpoint("max-width: 500px") {
+			@include rempx(margin, 0 5px);
+			@include rempx(padding, 13px 10px 7px);			
+		}
+
+
+		&:hover, &:active, &:focus {
+			color: $blue--medium;
+		}
+	}
+
+
+		.c-woo-header__logo-asset {
+			@include mangui-breakpoint("max-width: 500px") {
+				@include rempx(width, 90px);
+				@include rempx(height, 17px);
+			}
+		}
+
+
+
+
+
+	/**
+	 * [3]	Top row > Secure checkout
+	 */
+	
+	.c-woo-header__secure {
+		color: $green;
+		text-align: right;
+		@include rempx(padding, 10px 25px);
+		@include mangui-breakpoint("max-width: 500px") { @include rempx(padding, 10px 20px); }
+	}
+
+
+		.c-woo-header__secure-asset {
+			display: inline-block;
+			@include rempx(margin, 8px 5px -5px 0);
+
+
+			@include mangui-breakpoint("max-width: 500px") {
+				@include rempx(width, 16px);
+				@include rempx(height, 16px);
+				@include rempx(margin, 0 5px -3px 0);
+			}
+		}
+
+
+		.c-woo-header__secure-text {
+			margin: 0;
+			display: inline-block;
+			font-family: $font--playfair;
+			@include rempx(font-size, 17px);
+			@include mangui-breakpoint("max-width: 500px") { @include rempx(font-size, 14px); }
+		}
+
+
+
+
+
+	/**
+	 * [4]	Progress
+	 */
+	
+	.c-woo-header--progress {
+		&--review .c-woo-header-progress__stage--review {
+			&::after { background: $green; }
+			.c-woo-header-progress__label { color: #FFF; }
+		}
+
+
+		&--delivery .c-woo-header-progress__stage--delivery {
+			&::after { background: $green; }
+			.c-woo-header-progress__label { color: #FFF; }
+		}
+
+
+		&--payment .c-woo-header-progress__stage--payment {
+			&::after { background: $green; }
+			.c-woo-header-progress__label { color: #FFF; }
+		}
+
+
+		&--confirmation .c-woo-header-progress__stage--confirmation {
+			&::after { background: $green; }
+			.c-woo-header-progress__label { color: #FFF; }
+		}
+	}
+
+
+		.c-woo-header-progress {
+
+		}
+
+
+			.c-woo-header-progress__stage {
+				position: relative;
+
+
+				&::after {
+					top: 0;
+					width: 100%;
+					z-index: 99;
+					content: '';
+					height: 100%;
+					position: absolute;
+					background: $grey--lighter;
+					border-left: 1px solid $grey--light;
+					border-right: 1px solid $grey--light;
+					@include rempx(left, 12px);
+					@include mangui-transform(skew(-25deg));
+				}
+
+
+				@include mangui-breakpoint("max-width: 800px") {
+					&--review {
+						width: 23%;
+						@include mangui-breakpoint("max-width: 500px") { @include rempx(padding-left, 29px); }
+					}
+					
+
+					&--delivery     { width: 23%; }
+					&--payment      { width: 23%; }
+					
+
+					&--confirmation {
+						width: 31%;
+						@include mangui-breakpoint("max-width: 500px") { @include rempx(padding-right, 5px); }
+					}
+				}
+			}
+
+
+				.c-woo-header-progress__label {
+					margin: 0;
+					z-index: 100;
+					font-weight: bold;
+					position: relative;
+					text-align: center;
+					font-family: $font--playfair;
+					@include rempx(font-size, 18px);
+					@include rempx(padding, 8px 0 2px);
+					@include mangui-breakpoint("max-width: 800px") { @include rempx(font-size, 16px); }
+					
+
+					@include mangui-breakpoint("max-width: 500px") {
+						@include rempx(font-size, 14px);
+						@include rempx(padding, 6px 0 0);
+					}
+					
+
+					@include mangui-breakpoint("max-width: 360px") {
+						@include rempx(font-size, 12px);
+						@include rempx(padding, 7px 0 0);
+					}
+				}
+
+
+					.c-woo-header-progress__link {
+						color: inherit;
+						border-bottom: 1px solid transparent;
+						@include mangui-transition(ease-in-out 450ms all);
+
+
+						&:hover {
+							color: inherit;
+							border-bottom-color: inherit;
+						}
+					}

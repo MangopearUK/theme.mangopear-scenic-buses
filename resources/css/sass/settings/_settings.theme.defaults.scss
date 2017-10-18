@@ -1,0 +1,10 @@
+$mangui-is-responsive--large: 	true;
+$mangui-max-width: 				1150px;
+
+
+$mangui-breakpoints:	(
+							'palm' '(max-width: 520px)',
+							'lap' '(min-width: 521px) and (max-width: 1150px)',
+							'portable' '(max-width: 1150px)',
+							'desk' '(min-width: 1151px)'
+						);

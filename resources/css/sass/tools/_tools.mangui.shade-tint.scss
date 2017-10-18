@@ -1,0 +1,19 @@
+/**
+ * Slightly lighten a colour
+ */
+
+@function mangui-tint($colour, $percentage) {
+  @return mix($colour, white, (100-$percentage));
+}
+
+
+
+
+
+/**
+ * Slightly lighten a colour
+ */
+
+@function mangui-shade($colour, $percentage) {
+  @return mix($colour, black, (100-$percentage));
+}

@@ -1,0 +1,33 @@
+@mixin mangui-placeholder () {
+	/**
+	 * Webkit styling
+	 */
+	&::-webkit-input-placeholder {
+	    @content;
+	}
+	 
+	/**
+	 * Firefox 4 upto 18 - by default FF reduces the opacity so need to set opacity:1 to override this
+	 */
+	&:-moz-placeholder {
+	    opacity: 1;
+	    @content;
+	}
+	 
+	 
+	/**
+	 * Firefox 19+ - by default FF reduces the opacity so need to set opacity:1 to override this
+	 */
+	&::-moz-placeholder {
+	    opacity: 1;
+	    @content;
+	}
+	 
+	 
+	/**
+	 * Internet Explorer 10+
+	 */
+	&:-ms-input-placeholder {
+	    @content;
+	}
+}

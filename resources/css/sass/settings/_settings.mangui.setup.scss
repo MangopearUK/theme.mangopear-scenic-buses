@@ -1,0 +1,36 @@
+/**
+ * Theme settings
+ *
+ * [1]	Let's override the default variables with $mangui- ones
+ * 
+ */
+
+
+
+
+
+/**
+ * [1]	Let's override the default variables with $mangui- ones
+ *
+ * 		[a]	CSS Wizardry Grids
+ */
+
+
+
+
+
+	 /**
+	  * [a] CSS Wizardry Grids
+	  */
+
+	$use-markup-fix:		$mangui-use-markup-fix;
+	$responsive:			$mangui-is-responsive;
+	$mobile-first:			$mangui-is-mobile-first;
+	$gutter:				$mangui-gutter;
+	$use-silent-classes:	$mangui-use-silent-classes;
+	$push:					$mangui-use-push;
+	$pull:					$mangui-use-pull;
+	$breakpoints:			$mangui-breakpoints;
+	$breakpoint-has-widths:	$mangui-breakpoint-has-widths;
+	$breakpoint-has-push:	$mangui-breakpoint-has-push;
+	$breakpoint-has-pull:	$mangui-breakpoint-has-pull;

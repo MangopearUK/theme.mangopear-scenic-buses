@@ -1,0 +1,100 @@
+/**
+ * Greys
+ */
+
+$grey--lighter: #F0F0F0;
+$grey--light: #BABABA;
+$grey--medium: #999999;
+$grey--dark: #2B3335;
+$grey--darker: #1B1C1D;
+
+
+
+
+
+/**
+ * Blues
+ */
+
+$blue--lighter: #36baca;
+$blue--light: #1cb6c3;
+$blue--medium: #129da9;
+$blue--dark: #127b83;
+$blue--darker: #093f43;
+
+
+
+
+
+/**
+ * Other colours
+ */
+
+$green: #10b675;
+$green--shade: #089f64;
+$yellow: #ead408;
+$orange: #e5540d;
+$pink: #a8205b;
+$red: #c81212;
+$purple: #6f5499;
+
+
+
+
+
+/**
+ * Brand colours
+ */
+
+$colour--brand-gardbus: 	#008237;
+$colour--brand-jeakins: 	#001B4C;
+$colour--brand-theuvg: 		#2F2F2F;
+$colour--brand-edge:		#8077ba;
+$colour--brand-youthview: 	#1988dc;
+$colour--brand-winnallca:	#1988dc;
+$colour--brand-devpod: 		#01aeef;
+$colour--brand-silk: 		#166d98;
+$colour--brand-journee: 	#ec6c1b;
+$colour--brand-tutors:		#25396C;
+$colour--brand-dekkabus:	#bb3118;
+$colour--brand-hildon:		#00014e;
+
+
+$link-pod-brands: (
+	'gardbus' 	$colour--brand-gardbus,
+	'jeakins' 	$colour--brand-jeakins,
+	'theuvg' 	$colour--brand-theuvg,
+	'edge' 		$colour--brand-edge,
+	'youthview' $colour--brand-youthview,
+	'winnallca' $colour--brand-winnallca,
+	'devpod' 	$colour--brand-devpod,
+	'silk' 		$colour--brand-silk,
+	'journee' 	$colour--brand-journee
+);
+
+
+
+
+
+/**
+ * Friendly names for variables
+ */
+
+$colour--type-default: $grey--dark;
+$colour--heading-default: $blue--light;
+
+$colour--links: $blue--light;
+$colour--links-hover: $blue--darker;
+$colour--text: $grey--medium;
+
+
+
+
+
+/**
+ * Pod colours
+ */
+
+$pod-style--background: #FFF;
+$pod-style--border: 1px solid #EAEAEA;
+$pod-style--box-shadow: 0 2px 3px rgba(0,0,0,0.04);

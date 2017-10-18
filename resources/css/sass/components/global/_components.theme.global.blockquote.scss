@@ -1,0 +1,127 @@
+/**
+ * [Component] Global > Big blockquotes
+ *
+ * A big, heavily stylised blockquote to be used in panels.
+ *
+ * @category	Component
+ * @package		hildon
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright	2017 Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	1.6.0
+ * @version   	1.6.0
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]	Blockquote wrapper
+ * [2]	Blockquote > Icons
+ * [2]	Blockquote > Content
+ * [2]	Blockquote > Footer
+ */
+
+
+/**
+ * [1]	Blockquote wrapper
+ */
+
+.c-big-blockquote {
+	margin: 0;
+	color: #FFF;
+	quotes: none;
+	position: relative;
+	background: $blue--medium;
+	font-family: $font--playfair;
+	background: -moz-linear-gradient(-45deg, $blue--medium 0%, #2aadd8 100%);
+	background: -webkit-linear-gradient(-45deg, $blue--medium 0%,#2aadd8 100%);
+	background: linear-gradient(135deg, $blue--medium 0%,#2aadd8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$blue--medium', endColorstr='#2aadd8',GradientType=1 );
+	@include rempx(padding, 150px 40px 0);
+}
+
+
+
+
+
+	/**
+	 * [2]	Blockquote > Icons
+	 */
+	
+	.c-big-blockquote__icon {
+		left: 0;
+		right: 0;
+		line-height: 1;
+		display: block;
+		font-weight: bold;
+		position: absolute;
+		text-align: center;
+		font-style: normal;
+		@include rempx(top, 25px);
+		@include rempx(height, 125px);
+		@include rempx(font-size, 200px);
+	}
+
+
+
+
+
+	/**
+	 * [3]	Blockquote > Content
+	 */
+	
+	.c-big-blockquote__content {
+		margin: 0 auto;
+		font-size: 1.35em;
+		@include rempx(max-width, 500px);
+
+
+		p {
+			text-align: center;
+		}
+	}
+
+
+
+
+
+	/**
+	 * [4]	Blockquote > Footer
+	 */
+	
+	.c-big-blockquote__footer {
+		text-align: center;
+		@include rempx(margin, 40px 0 0);
+		@include rempx(padding, 0 0 60px);
+
+
+		&::before {
+			content: '';
+			text-align: center;
+			display: inline-block;
+			border-top: 1px solid rgba(255,255,255,.5);
+			border-bottom: 1px solid rgba(255,255,255,.35);
+			@include rempx(height, 5px);
+			@include rempx(width, 125px);
+			@include rempx(margin, 0 0 25px);
+		}
+
+
+		p {
+			margin: 0;
+			font-size: 1.1em;
+			text-align: center;
+		}
+	}
+
+
+		.c-big-blockquote__footer__location {
+			font-size: 1.1em;
+		}
+
+
+		.c-big-blockquote__footer__name {
+			font-size: 1.2em;
+			font-weight: bold;
+		}

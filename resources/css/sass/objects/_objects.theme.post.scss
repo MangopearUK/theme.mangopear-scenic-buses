@@ -1,0 +1,46 @@
+/**
+ * Media object (overrides)
+ */
+
+.o-post + .o-post {
+	border-top: 1px solid $grey--light;
+	@include rempx(margin-top, 40px);
+	@include rempx(padding-top, 40px);
+}
+
+
+.o-post__title {
+	font-style: italic;
+	@include rempx(font-size, 21px);
+}
+
+ .o-post__body {
+    p {
+        text-align: left;
+    }
+}
+
+
+.o-post__button {
+	font-style: italic;
+	@include rempx(font-size, 18px);
+
+
+	.o-button__icon {
+		@include rempx(margin-top, 3px);
+	}
+}
+
+
+.o-post__image-link {
+	display: inline-block;
+	background: #FFF;
+	border: 1px solid $grey--medium;
+	@include rempx(padding, 3px);
+	@include mangui-transition(ease-in-out border $transition--default);
+
+
+	&:hover {
+		border-color: $blue--light;
+	}
+}

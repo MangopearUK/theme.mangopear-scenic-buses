@@ -1,0 +1,91 @@
+/**
+ * Breakpoints, using our $mangui-breakpoints variable
+ */
+
+
+
+
+
+/**
+ * This is where the magic happens...
+ *
+ * [a]	Name our mixins and pass a variable. The value of this variable can be either 
+ * 		a value from the $mangui-breakpoints variable or a custom one, such as:
+ * 			@include mangui-breakpoint(desk) { ... }
+ * 			@include mangui-breakpoint("min-width: 401px) and (max-width: 480px") { ... }
+ * [b]	Reset a variable required for our conditional statement to work
+ * [c]	Loop through each breakpoint in $mangui-breakpoints
+ * [d]	Get the 'name' and 'declaration' from each breakpoint
+ * [e]	If the name of the breakpoint matches our mixin variable
+ * [f]	Tell the variable we've found it, so it doesn't continue through the if()
+ * [g]	Output our media query, using the breakpoint declaration and the content provided
+ * 		within the @include
+ * [h]	If $point did not match any of the breakpoints within $mangui-breakpoints
+ * [i]	Create a media query using the value of $point
+ */
+
+@mixin mangui-breakpoint($point) { // [a]
+	$mangui-found-breakpoint: false; // [b]
+
+	@each $mangui-breakpoint in $mangui-breakpoints { // [c]
+		$name: nth($mangui-breakpoint, 1); // [d]
+		$declaration: nth($mangui-breakpoint, 2); // [d]
+
+		@if $point == $name { // [e]
+			$mangui-found-breakpoint: true; // [f]
+
+			@media #{$declaration} { // [g]
+				@content; // [g]
+			}
+		}
+	}
+	
+
+	@if not $mangui-found-breakpoint { // [h]
+		@media ($point) { // [i]
+			@content;
+		}
+	}
+}
+
+
+
+
+
+/**
+ * Example usage:
+ */
+
+/*
+
+	@include mangui-breakpoint(desk) {
+		.desk {
+			display: none;
+		}
+	}
+
+	@include mangui-breakpoint(lap) {
+		.lap {
+			display: none;
+		}
+	}
+
+	@include mangui-breakpoint(portable) {
+		.portable {
+			display: none;
+		}
+	}
+
+	@include mangui-breakpoint(palm) {
+		.palm {
+			display: none;
+		}
+	}
+
+	@include mangui-breakpoint("min-width: 401px) and (max-width: 480px") {
+		.custom {
+			display: none;
+		}
+	}
+
+ */

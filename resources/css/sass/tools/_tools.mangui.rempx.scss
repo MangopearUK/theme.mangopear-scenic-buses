@@ -1,0 +1,95 @@
+/**
+ * SASS mixing for REM with fallback for IE8
+ *
+ * @since 0.1.0-alpha
+ */
+
+
+
+
+
+/**
+ * Base font size (can be overwritten in /theme/)
+ */
+
+$rem-base-font-size: 16!default;
+
+
+
+
+
+/**
+ * [1] - The mixin relies on a function to parse the integer from a value with a unit
+ * 
+ * @param  {integer} $n
+ * @return {integer}
+ */
+@function parseInt ($n)
+{
+	@return $n / ($n * 0 + 1);
+}
+
+
+
+
+
+/**
+ * [2] - We define a list of values for both units
+ * [3] - We iterate through each value in the given parameter $values
+ * [4] - If the value is either auto or 0, we append it to the list as-is
+ * [5] - If the value as a unit, we split it to get the unit and the raw value
+ * [6] - We append according values to the lists depending on the unit of the given value
+ * [7] - We output the result
+ */
+
+@mixin rempx ($property, $values)
+{
+	$px:	(); // [2]
+	$rem:	(); // [2]
+
+
+	@each $value in $values // [3]
+	{
+		@if $value == 0 or $value == auto // [4]
+		{
+			$px:	append($px,  $value);
+			$rem:	append($rem, $value);
+		}
+
+		@else
+		{
+			$unit: unit($value); // [5]
+			$val: parseInt($value); // [5]
+
+			@if $unit == "px" // [6]
+			{
+				$px:	append($px, $value);
+				$rem:	append($rem, ($val / $rem-base-font-size * 1rem));
+			}
+
+			@if $unit == "rem" // [6]
+			{
+				$px:	append($px, ($val * $rem-base-font-size * 1px));
+				$rem:	append($rem, $value);
+			}
+		}
+	}
+
+
+	#{$property}: $px; // [7]
+	#{$property}: $rem; // [7]
+}
+
+
+
+
+
+/**
+ * Usage
+ */
+
+/*
+body {
+	@include rem(font-size, 1.6rem);
+}
+*/

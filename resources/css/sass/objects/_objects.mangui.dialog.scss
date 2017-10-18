@@ -1,0 +1,36 @@
+.o-dialog {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15000;
+    position: fixed;
+
+
+    &[aria-hidden=true] {
+        display: none;
+    }
+}
+
+    .o-dialog__overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        background: rgba(0,0,0,0.85);
+    }
+
+    .o-dialog__content {
+        top: 50%;
+        left: 50%;
+        width: 95%;
+        overflow: auto;
+        max-height: 90%;
+        background: #FFF;
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        @include rempx(padding, 40px 50px);
+        @include mangui-breakpoint(palm) { @include rempx(padding, 40px 20px); }
+    }
+

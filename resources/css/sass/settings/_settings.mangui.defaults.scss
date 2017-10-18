@@ -1,0 +1,71 @@
+/**
+ * Theme settings
+ *
+ * [1]	Is this site responsive?
+ * [2]	Sizes
+ * [3]	Grid setup
+ */
+
+
+
+
+
+/**
+ * [1]	Is the site responsive?
+ *
+ * [a]	Let's default to yes. If false, ignore the rest of this section
+ * [b]	Are we building the site mobile first? If true, .grid__item(s) 
+ * 		will be set to 100% width
+ * [c]	Define whether we're going bigger than the default 960px grid
+ */
+
+$mangui-is-responsive: 			true !default; // [a]
+$mangui-is-mobile-first: 		false !default; // [b]
+
+$mangui-is-responsive--large: 	false !default; // [c]
+
+
+
+
+
+/**
+ * [2]	Sizes
+ *
+ * [a]	Let's define our breakpoints
+ * [b]	What's the largest width our site will be?
+ */
+
+$mangui-breakpoints:			(
+									'palm' '(max-width: 480px)',
+									'lap' '(min-width: 481px) and (max-width: 1023px)',
+									'portable' '(max-width: 1023px)',
+									'desk' '(min-width: 1024px)'
+								) !default;
+
+$mangui-breakpoint-has-widths:	('palm', 'lap', 'portable', 'desk') !default;
+$mangui-breakpoint-has-push:	('palm', 'lap', 'portable', 'desk') !default;
+$mangui-breakpoint-has-pull:	('palm', 'lap', 'portable', 'desk') !default;
+$mangui-max-width: 				960px !default;
+$mangui-vertical-rhythm:		24px !default;
+$mangui-base-font-size:			16px !default;
+$mangui-base-line-height:		24px !default;
+
+
+
+
+
+/**
+ * [3]	Grid setup
+ *
+ * [a]	Comment should really go here
+ * [b]	And here
+ * [c]	And here...
+ * [d]	I probably should comment this code?
+ * [e]	Just added this one, maybe document it too?
+ */
+
+$mangui-use-pull: 				false !default; // [a]
+$mangui-use-push:				false !default; // [b]
+$mangui-use-silent-classes:		false !default; // [c]
+$mangui-use-markup-fix:			false !default; // [d]
+$mangui-gutter:					$mangui-vertical-rhythm !default; // [e]

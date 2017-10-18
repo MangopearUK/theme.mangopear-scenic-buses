@@ -1,0 +1,39 @@
+/**
+ * [3]	Hide content in an accessible way:
+ * 		
+ * 		To be used to hide strings of text in a
+ * 		way that screen readers and search engines
+ * 		can still access the content.
+ *
+ * 		@link https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+ */
+
+.u-hide,
+%u-hide,
+.u-invisible,
+%u-invisible {
+	padding: 0 !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px) !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+
+	@each $name in $breakpoint-has-widths {
+		.u-#{$name}--hide {
+			@include mangui-breakpoint($name) {
+				padding: 0 !important;
+				width: 1px !important;
+				height: 1px !important;
+				margin: -1px !important;
+				overflow: hidden !important;
+				position: absolute !important;
+				clip: rect(1px 1px 1px 1px) !important;
+				clip: rect(1px, 1px, 1px, 1px) !important;
+			}
+		}
+	}
