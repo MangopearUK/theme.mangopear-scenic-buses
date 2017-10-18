@@ -18,12 +18,19 @@
 
 
 	/**
-	 * Output page title
-	 *
-	 * @see /themes/mangopear/functions/source/mangopear/mangopear.output.page-title.php
+	 * Output page masthead
 	 */
 	
-	mangopear_output_page_title($show_title = true, $show_breadcrumb = true, $title_content = 'Bus &amp; train routes');
+	scenic_output_masthead(
+		array(
+			'image'			=> get_field('masthead__image'),
+			'title__style'	=> 'single',
+			'title'			=> 'All routes',
+			'title__sub'	=> '',
+			'content'		=> 'Content to come here, soon!',
+			'link__text'	=> 'Find your next adventure'
+		)
+	);
 	
 ?>
 
