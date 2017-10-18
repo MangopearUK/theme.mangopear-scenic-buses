@@ -57,8 +57,8 @@ if (! function_exists('scenic_output_masthead')) :
 		$defaults = array(
 			'image'			=> get_field('masthead__image'),
 			'title__style'	=> get_field('masthead__title-style'),
-			'title'			=> get_field('masthead__title'),
-			'title__sub'	=> get_field('masthead__title--line-2'),
+			'title'			=> get_field('masthead__title--line-2'),
+			'title__sub'	=> get_field('masthead__title'),
 			'content'		=> get_field('masthead__content'),
 			'link__text'	=> get_field('masthead__link')
 		);
