@@ -31,8 +31,7 @@
 
 .c-masthead {
 	background: #FFF;
-	@include mangui-breakpoint("max-width: 1500px") { @include rempx(margin-top, 72px); }
-	@include mangui-breakpoint(portable) { @include rempx(margin-top, 46px); }
+	@include rempx(margin-top, 69px);
 }
 
 

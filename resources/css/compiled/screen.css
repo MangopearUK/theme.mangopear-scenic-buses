@@ -497,18 +497,8 @@ body {
  */
 .c-masthead {
   background: #FFF;
-}
-@media (max-width: 1500px) {
-  .c-masthead {
-    margin-top: 72px;
-    margin-top: 4.5rem;
-  }
-}
-@media (max-width: 1149px) {
-  .c-masthead {
-    margin-top: 46px;
-    margin-top: 2.875rem;
-  }
+  margin-top: 69px;
+  margin-top: 4.3125rem;
 }
 
 .c-masthead__container {
