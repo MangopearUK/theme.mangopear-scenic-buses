@@ -1,0 +1,81 @@
+/**
+ * [Settings] Load in our bespoke web fonts
+ *
+ * @category	Component
+ * @package		scenic
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright	2017 Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	3.0.0
+ * @version   	3.0.0
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]	Set up @font-face
+ */
+
+
+/**
+ * [1]	Set up @font-face
+ *
+ * 		[i]		Thin
+ * 		[ii]	Extra Light
+ * 		[iii]	Light
+ * 		[iv]	Book
+ * 		[v]		Medium
+ * 		[vi]	Semi Bold
+ * 		[vii]	Bold
+ * 		[viii]	Extra Bold
+ * 		[ix]	Black
+ */
+
+$font-weights: (
+	'Campton Thin' 			'Campton-Thin' 			'thin' 			'100',
+	'Campton ExtraLight' 	'Campton-ExtraLight' 	'extra-light' 	'200',
+	'Campton Light' 		'Campton-Light' 		'light' 		'300',
+	'Campton Book' 			'Campton-Book' 			'book' 			'400',
+	'Campton Medium' 		'Campton-Medium' 		'medium' 		'500',
+	'Campton SemiBold' 		'Campton-SemiBold' 		'semi-bold' 	'600',
+	'Campton Bold' 			'Campton-Bold' 			'bold' 			'700',
+	'Campton ExtraBold' 	'Campton-ExtraBold' 	'extra-bold' 	'800',
+	'Campton Black' 		'Campton-Black' 		'black' 		'900'
+);
+
+
+@each $weight in $font-weights {
+	$label: 			nth($weight, 1);
+	$condensed-label: 	nth($weight, 2);
+	$name: 				nth($weight, 3);
+	$value: 			nth($weight, 4);
+
+
+	@font-face {
+		font-style: normal;
+		font-weight: #{$value};
+		font-family: 'Campton';
+
+		src: url('../../fonts/campton/#{$name}.eot');
+		src: local('#{$label}'), local('#{$condensed-label}'),
+		     url('../../fonts/campton/#{$name}.eot#iefix') format('embedded-opentype'),
+		     url('../../fonts/campton/#{$name}.woff2') format('woff2'),
+		     url('../../fonts/campton/#{$name}.woff') format('woff'),
+		     url('../../fonts/campton/#{$name}.ttf') format('truetype');
+	}
+
+
+	@font-face {
+		font-style: italic;
+		font-weight: #{$value};
+		font-family: 'Campton';
+
+		src: url('../../fonts/campton/#{$name}--italic.eot');
+		src: local('#{$label} Italic'), local('#{$condensed-label}Italic'),
+		     url('../../fonts/campton/#{$name}--italic.eot#iefix') format('embedded-opentype'),
+		     url('../../fonts/campton/#{$name}--italic.woff2') format('woff2'),
+		     url('../../fonts/campton/#{$name}--italic.woff') format('woff'),
+		     url('../../fonts/campton/#{$name}--italic.ttf') format('truetype');
+	}
+}

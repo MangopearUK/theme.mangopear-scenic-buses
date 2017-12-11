@@ -48,12 +48,30 @@ $breakpoints:			(
  */
 
 $font-core: Merriweather, sans-serif;
-$font-campton: Campton-Web, $font-core;
-$font-headings: Campton-Web, $font-core;
+$font-campton: Campton, $font-core;
+$font-headings: $font-campton;
 
 
 @font-face {
-	font-style: normal;
-	font-family: 'Campton-Web';
-	src: url(../fonts/campton/campton--book.woff) format('woff');
+	font-style: 100;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--extra-light.woff);
+}
+
+@font-face {
+	font-style: 300;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--light.woff);
+}
+
+@font-face {
+	font-style: 400;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--book.woff);
+}
+
+@font-face {
+	font-style: 500;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--semibold.woff);
 }

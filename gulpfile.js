@@ -46,7 +46,7 @@
 			.pipe(plugins.rubySass({ style: 'expanded', sourcemap: true }))
 			.pipe(plugins.autoprefixer('last 2 versions', 'ie 9', 'ios 6', 'android 4'))
 			.pipe(gulp.dest('resources/css/compiled'))
-			.pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
+	//		.pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
 			.pipe(gulp.dest('resources/css/compiled'))
 			.pipe(plugins.notify({ message: 'Your SCSS files have been processed and minified, ready for deployment.' }));
 	});

@@ -31,8 +31,7 @@
 
 .c-masthead {
 	background: #FFF;
-	@include mangui-breakpoint("max-width: 1500px") { @include rempx(margin-top, 72px); }
-	@include mangui-breakpoint(portable) { @include rempx(margin-top, 46px); }
+	@include rempx(margin-top, 69px);
 }
 
 
@@ -106,7 +105,7 @@
 	.c-masthead__title {
 		text-align: left;
 		line-height: 1.2;
-		font-family: $font--playfair;
+		font-family: $font-campton;
 		@include mangui-breakpoint(palm) { @include rempx(padding, 0 20px); }
 		@include mangui-breakpoint("max-width: 799px") { @include rempx(margin, 40px 0 0); }
 
@@ -153,7 +152,6 @@
 			display: block;
 			font-weight: bold;
 			position: relative;
-			font-style: italic;
 			color: $blue--light;
 			@include rempx(font-size, 60px);
 			@include mangui-breakpoint("max-width: 1500px") { @include rempx(font-size, 54px); }
@@ -209,7 +207,7 @@
 	.c-masthead__button {
 		margin: 1em 0;
 		font-size: 1.5em;
-		font-family: $font--playfair;
+		font-family: $font-campton;
 		@include mangui-breakpoint("max-width: 1500px") { font-size: 1.25em; }
 		@include mangui-breakpoint(palm) { @include rempx(margin-left, 20px); }
 

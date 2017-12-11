@@ -35,6 +35,7 @@
 
 	@import "settings/settings.theme.defaults";
 	@import "settings/settings.theme.custom";
+	@import "settings/settings.theme.fonts";
 	@import "settings/settings.theme.colours";
 
 
@@ -141,8 +142,6 @@
 
 	// Masthead
 	@import "components/masthead/components.masthead.header";
-	@import "components/masthead/components.masthead.navigation";
-	@import "components/masthead/components.masthead.header.woocommerce";
 
 
 	// Global elements
