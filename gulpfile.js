@@ -30,8 +30,11 @@
 	/**
  	 * [1]	Load plugins
  	 */
+ 	
+ 	const sass = require('gulp-ruby-sass');
 	 
 	var gulp = require('gulp'),
+	    notify = require("gulp-notify"),
 	 	plugins = require('gulp-load-plugins')({ camelize: true }),
 		lr = require('tiny-lr'),
 		server = lr();
@@ -42,13 +45,13 @@
 	 */
 	
 	gulp.task('styles', function() {
-		return gulp.src('resources/css/sass/*.scss')
-			.pipe(plugins.rubySass({ style: 'expanded', sourcemap: true }))
-			.pipe(plugins.autoprefixer('last 2 versions', 'ie 9', 'ios 6', 'android 4'))
+		return sass('resources/css/sass/*.scss', {
+			style: 'compressed'
+		})
+			.on('error', sass.logError)
+			.pipe(plugins.autoprefixer('last 2 versions', 'ie 10', 'ios 6', 'android 4'))
 			.pipe(gulp.dest('resources/css/compiled'))
-	//		.pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
-			.pipe(gulp.dest('resources/css/compiled'))
-			.pipe(plugins.notify({ message: 'Your SCSS files have been processed and minified, ready for deployment.' }));
+			.pipe(plugins.notify({ title: 'MangUI', message: 'Your SASS and CSS has been processed.' }));
 	});
 
 
@@ -63,7 +66,7 @@
 			.pipe(plugins.rename({ suffix: '.min' }))
 			.pipe(plugins.uglify())
 			.pipe(gulp.dest('resources/js/compiled'))
-			.pipe(plugins.notify({ message: 'Your JavaScript plugin files have been processed, ready for deployment.' }));
+			.pipe(plugins.notify({ title: 'MangUI', message: 'Your JavaScript plugins have been processed.' }));
 	});
 
 
@@ -72,7 +75,7 @@
 	 */
 	
 	gulp.task('scripts', function() {
-		return gulp.src(['!resources/js/source/plugins.js', 'resources/js/source/*.js'])
+		return gulp.src(['resources/js/source/*.js', '!resources/js/source/plugins.js'])
 			.pipe(plugins.jshint('.jshintrc'))
 			.pipe(plugins.jshint.reporter('default'))
 			.pipe(plugins.concat('global.js'))
@@ -80,8 +83,8 @@
 			.pipe(plugins.rename({ suffix: '.min' }))
 			.pipe(plugins.uglify())
 			.pipe(gulp.dest('resources/js/compiled'))
-			.pipe(plugins.notify({ message: 'Your JavaScript source files have been processed, ready for deployment.' }));
-	});
+			.pipe(plugins.notify({ title: 'MangUI', message: 'Your JavaScript scripts have been processed.' }));
+		});
 
 
 	/**
@@ -92,7 +95,7 @@
 		return gulp.src('resources/images/**/*', '!resources/images/**/*.psd')
 			.pipe(plugins.cache(plugins.imagemin({ optimizationLevel: 7, progressive: true, interlaced: true })))
 			.pipe(gulp.dest('resources/images'))
-			.pipe(plugins.notify({ message: 'Your images have been minified, ready for deployment.' }));
+			.pipe(plugins.notify({ title: 'MangUI', message: 'Your images have been processed.' }));
 	});
 
 
@@ -107,7 +110,7 @@
 	
 	gulp.task('watch', function() {
 		gulp.watch('resources/css/sass/**/*.scss', ['styles']); // [b]
-		gulp.watch('resources/js/plugins/*.js', ['plugins']); // [c]
+		gulp.watch('resources/js/vendor/*.js', ['plugins']); // [c]
 		gulp.watch('resources/js/source/*.js', ['scripts']); // [c]
 		gulp.watch('resources/images/**/*', ['images']); // [d]
 	});
