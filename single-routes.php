@@ -26,14 +26,22 @@
 ?>
 
 
-	<main class="o-panel" id="main">
-		<div class="o-container">
-			<div class="o-grid">
-				<div class="o-grid__item  u-three-quarters  u-portable--one-whole  c-resources__col--main">
-					<?php the_content(); ?>
-				</div><!-- /.o-grid__item -->
-			</div><!-- /.o-grid -->
-		</div><!-- /.o-container -->
+	<main class="o-panel  o-panel--gutterless" id="main">
+		<article class="o-panel">
+			<div class="o-container">
+				<div class="o-grid">
+					<div class="o-grid__item  u-three-quarters  u-portable--one-whole  c-resources__col--main">
+						<?php the_content(); ?>
+					</div><!-- /.o-grid__item -->
+				</div><!-- /.o-grid -->
+			</div><!-- /.o-container -->
+		</article>
+
+
+
+
+
+		<?php comments_template(); ?>
 	</main><!-- /.o-panel -->
 
 
