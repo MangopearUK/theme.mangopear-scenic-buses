@@ -19,31 +19,8 @@
 ?>
 
 
-	<header class="c-home">
-		<h1 class="c-home__title">
-			<?php
-
-				$blue_chars = array('W', 'e', 'l', 'c', 'o', 'm', 'e', ' ', 't', 'o', ' ', 'S', 'c', 'e', 'n', 'i', 'c', ' ', 'B', 'u', 's', 'e', 's');
-
-				echo '<pre>';
-					foreach ($blue_chars as $char) { echo '<span class="c-home__char  c-home__char--green">' . $char . '</span>'; }
-				echo '</pre>';
-
-			?>
-		</h1>
-
-
-		<p class="c-home__description">
-			This exciting new website is still being built - so check back later please. It'll be full of the best bus and train routes in the United Kingdom.
-		</p>
-
-
-		<div class="c-home__actions">
-			<a href="/blog/" class="o-button  o-button--circular  c-home__action">
-				<span class="o-button__text">Read the blog</span>
-				<svg class="o-button__icon" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow-right"/></svg>
-			</a>
-		</div><!-- /.c-home__actions -->
+	<header class="c-scenic-home">
+		<h1 style="text-align: center; margin: 3em 1em 0;">Website is coming very soon. Stay tuned!</h1>
 	</header><!-- /.c-home-panel -->
 
 
