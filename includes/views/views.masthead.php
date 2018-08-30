@@ -102,7 +102,7 @@ if (! function_exists('scenic_output_masthead')) :
 
 						<a href="#main" class="o-button  c-masthead__button">
 							<span class="o-button__content"><?php echo $args['link__text']; ?></span>
-							<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#arrow-down"/></svg>
+							<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow-down"/></svg>
 						</a>
 					</div><!-- /.c-masthead__container -->
 				</div><!-- /.c-masthead__content -->
