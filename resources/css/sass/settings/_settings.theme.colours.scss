@@ -1,100 +1,82 @@
 /**
- * Greys
+ * [Settings] Colours
+ *
+ * A range of variables defining colours to be used in the Scenic Buses theme.
+ *
+ * @category	Component
+ * @package		scenic-buses
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright  	2018 Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	1.0.0
+ * @version   	1.0.0
  */
 
-$grey--lighter: #F0F0F0;
-$grey--light: #BABABA;
-$grey--medium: #999999;
-$grey--dark: #2B3335;
-$grey--darker: #1B1C1D;
+
+/**
+ * CONTENTS
+ *
+ * [1]	Scenic > Shades of green
+ * [2]	Mangopear > Shades of blue
+ * [3]	Mangopear > Shades of grey
+ * [4]	Other colours
+ */
+
+
+/**
+ * [1]	Scenic > Shades of green
+ */
+
+$scenic-green--lighter:	#7DE784;
+$scenic-green--light:	#30CC4F;
+$scenic-green--medium:	#17AB34;
+$scenic-green--dark:	#17912F;
+$scenic-green--darker:	#005212;
 
 
 
 
 
 /**
- * Blues
+ * [2]	Mangopear > Shades of blue
  */
 
-$blue--lighter: #36baca;
-$blue--light: #1cb6c3;
-$blue--medium: #129da9;
-$blue--dark: #127b83;
-$blue--darker: #093f43;
+$blue--lighter: 	#36BACA;
+$blue--light: 		#1CB6C3;
+$blue--medium: 		#129DA9;
+$blue--dark: 		#127B83;
+$blue--darker: 		#093F43;
 
 
 
 
 
 /**
- * Other colours
+ * [3]	Mangopear > Shades of grey
  */
 
-$green: #10b675;
-$green--shade: #089f64;
-$yellow: #ead408;
-$orange: #e5540d;
-$pink: #a8205b;
-$red: #c81212;
-$purple: #6f5499;
+$grey--lighter: 	#F0F0F0;
+$grey--light: 		#BABABA;
+$grey--medium: 		#999999;
+$grey--dark: 		#2B3335;
+$grey--darker: 		#1B1C1D;
 
 
 
 
 
 /**
- * Brand colours
+ * [4]	Other colours
  */
 
-$colour--brand-gardbus: 	#008237;
-$colour--brand-jeakins: 	#001B4C;
-$colour--brand-theuvg: 		#2F2F2F;
-$colour--brand-edge:		#8077ba;
-$colour--brand-youthview: 	#1988dc;
-$colour--brand-winnallca:	#1988dc;
-$colour--brand-devpod: 		#01aeef;
-$colour--brand-silk: 		#166d98;
-$colour--brand-journee: 	#ec6c1b;
-$colour--brand-tutors:		#25396C;
-$colour--brand-dekkabus:	#bb3118;
-$colour--brand-hildon:		#00014e;
+$red: 			#c81212;
+$red--shade: 	#960202;
 
+$green: 		$scenic-green--medium;
+$green--shade: 	$scenic-green--darker;
 
-$link-pod-brands: (
-	'gardbus' 	$colour--brand-gardbus,
-	'jeakins' 	$colour--brand-jeakins,
-	'theuvg' 	$colour--brand-theuvg,
-	'edge' 		$colour--brand-edge,
-	'youthview' $colour--brand-youthview,
-	'winnallca' $colour--brand-winnallca,
-	'devpod' 	$colour--brand-devpod,
-	'silk' 		$colour--brand-silk,
-	'journee' 	$colour--brand-journee
-);
+$yellow: 		#ead408;
+$orange: 		#e5540d;
 
-
-
-
-
-/**
- * Friendly names for variables
- */
-
-$colour--type-default: $grey--dark;
-$colour--heading-default: $blue--light;
-
-$colour--links: $blue--light;
-$colour--links-hover: $blue--darker;
-$colour--text: $grey--medium;
-
-
-
-
-
-/**
- * Pod colours
- */
-
-$pod-style--background: #FFF;
-$pod-style--border: 1px solid #EAEAEA;
-$pod-style--box-shadow: 0 2px 3px rgba(0,0,0,0.04);
+$pink: 			#a8205b;
+$purple: 		#6f5499;
