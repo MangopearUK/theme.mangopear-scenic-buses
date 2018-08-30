@@ -236,3 +236,4 @@
 	 */
 	
 	define(SEARCH_BAR_STRING, 'Search routes or destinations');
+	define(BROWSER_TAB_COLOUR, '#17912F');
