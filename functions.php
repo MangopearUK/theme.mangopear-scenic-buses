@@ -31,6 +31,7 @@
 	 * [11]	Remove height and width attrs from images
 	 * [12]	Remove support for 4.4's responsive images.
 	 * [13]	Add definition for our SVG sprite document
+	 * [14]	Define search bar string
 	 */
 	
 
@@ -223,3 +224,16 @@
 	 */
 	
 	define('SCENIC_SPRITE', get_site_url() . '/sprites/scenic-icons.svg');			// [a]
+
+
+
+
+
+	/**
+	 * [14]	Define search bar string
+	 *
+	 * 		@since  4.0.0
+	 */
+	
+	define(SEARCH_BAR_STRING, 'Search routes or destinations');
+	define(BROWSER_TAB_COLOUR, '#17912F');

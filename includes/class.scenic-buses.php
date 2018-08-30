@@ -125,6 +125,7 @@ if (! class_exists('Scenic')) :
 
 
 			include_once('views/views.masthead.php');										// [iv]
+			include_once('views/views.component.route.php');								// [iv]
 		}
 
 
