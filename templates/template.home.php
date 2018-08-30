@@ -19,24 +19,7 @@
 ?>
 
 
-	<header class="c-scenic-home">
-		<h1 style="text-align: center; margin: 3em 1em 0;">Website is coming very soon. Stay tuned!</h1>
-	</header><!-- /.c-home-panel -->
-
-
-
-
-
 	<main class="o-panel  o-panel--gutterless" id="main">
-		<div class="o-container">
-			<p style="text-align: center; font-style: italic; font-weight: 300; font-size: 1.3em;">Seriously, this website is coming pretty soon.</p>
-			<p style="text-align: center; font-style: italic; font-weight: 300; font-size: 1.3em;">Check back in about a month or so or follow <a href="https://twitter.com/MangopearUK/" target="_blank">@MangopearUK</a> on Twitter for more info.</p>
-		</div><!-- /.o-container -->
-
-
-
-
-
 		<?php
 
 			$routes_args = array(
