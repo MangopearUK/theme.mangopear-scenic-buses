@@ -45,10 +45,10 @@
 			<div class="o-container">
 				<div class="o-grid">
 					<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
-						<div class="o-content-slot  o-content-slot--footer">
-							<a href="https://mangopear.co.uk/contact/" class="o-content-slot__block-link">
-								<h2 class="u-hide">Get your free consultation</h2>
-								<p class="u-hide">With a free consultation from Mangopear creative, we can work together to ensure your marketing tools are working for you.</p>
+						<div class="o-content-slot  o-content-slot--scenic-sign-up">
+							<a href="/enroll/" class="o-content-slot__block-link">
+								<h2 class="u-hide">Are you an operator with a scenic bus route?</h2>
+								<p class="u-hide">Get in touch with us and we’ll add your route to the Scenic Great Britain website - for free!</p>
 							</a>
 						</div><!-- /.o-content-slot -->
 					</div><!-- /.o-grid__item -->
