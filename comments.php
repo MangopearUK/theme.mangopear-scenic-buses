@@ -104,50 +104,48 @@
 
 						<?php else : ?>
 							<div class="c-comment__form">
-								<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-									<?php if ($user_ID) : ?>
-										<p style="text-align: center;">You're currently logged in as <?php echo $user_identity; ?>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
+								<?php
+
+									/**
+									 * Output comments form
+									 */
 									
-
-									<?php else : ?>
-										<div class="o-form__field  o-form__field--name">
-											<label for="author" class="o-form__label">Your name: <?php if ($req) echo '<span class="frm_required">*</span>'; ?></label>
-											<div class="o-form__input"><input type="text" id="author" name="author" value="<?php echo $comment_author; ?>"></div>
-										</div><!-- /.o-form__field -->
-
-
-										<div class="o-form__field  o-form__field--name">
-											<label for="email" class="o-form__label">Your email address: <?php if ($req) echo '<span class="frm_required">*</span>'; ?></label>
-											<div class="o-form__input"><input type="email" id="email" name="email" value="<?php echo $comment_author_email; ?>"></div>
-										</div><!-- /.o-form__field -->
-
-
-										<div class="o-form__field  o-form__field--name">
-											<label for="url" class="o-form__label">Your website:</label>
-											<div class="o-form__input"><input type="text" id="url" name="url" value="<?php echo $comment_author_url; ?>"></div>
-										</div><!-- /.o-form__field -->
-									<?php endif; ?>
-
-
-									<div class="o-form__field  o-form__field--name">
-										<label for="comment" class="o-form__label">Your comment: <?php if ($req) echo '<span class="frm_required">*</span>'; ?></label>
-										<div class="o-form__input"><textarea name="comment" id="comment" cols="100%" rows="10"></textarea></div>
-									</div><!-- /.o-form__field -->
-
-
-									<div class="o-form__submit">
-										<div class="o-form__button">
-											<button class="o-button  o-button--primary  o-button--positive  o-button--submit" type="submit" id="submit" name="submit">
-												<span class="o-button__text">Post review</span>
-												<svg class="o-button__icon--right  o-icon--chevron-right" viewBox="0 0 36 36" width="24" height="24"><rect fill="currentColor" y="16.5" width="31.3" height="3"></rect><polygon fill="currentColor" points="19.2,31.9 17.3,29.6 31.3,18 17.3,6.4 19.2,4.1 36,18 "></polygon></svg>
-											</button>
-										</div>
-									</div>
+									$comment_form__args = array(
+										'fields'				=> 	array(
+																		'author'	=>	'<div class="o-form__field  o-form__field--name">' .
+																							'<label for="author" class="o-form__label">Your name: ' . ($req ? '<span class="required">*</span>' : '') . '</label>' .
+																							'<div class="o-form__input"><input type="text" id="author" name="author" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $html_req . '></div>' .
+																						'</div>',
+																		'email'		=>	'<div class="o-form__field  o-form__field--email">' .
+																							'<label for="email" class="o-form__label">Your email address: ' . ($req ? '<span class="required">*</span>' : '') . '</label>' .
+																							'<div class="o-form__input"><input type="email" id="email" name="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $html_req . '></div>' .
+																						'</div>',
+																		'url'		=>	'<div class="o-form__field  o-form__field--url">' .
+																							'<label for="url" class="o-form__label">Your website: ' . ($req ? '<span class="required">*</span>' : '') . '</label>' .
+																							'<div class="o-form__input"><input type="url" id="url" name="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200"></div>' .
+																						'</div>',
+																	),
+										'comment_field'			=> 	'<div class="o-form__field  o-form__field--comment">' .
+																		'<label for="comment" class="o-form__label">Your review: ' . ($req ? '<span class="required">*</span>' : '') . '</label>' .
+																		'<div class="o-form__input"><textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></div>' .
+																	'</div>',
+										'title_reply'			=> 	'Leave a review',
+										'title_reply_to'		=> 	'Reply to %s',
+										'submit_button'			=> 	'<button class="o-button  o-button--primary  o-button--positive  o-button--submit" type="submit" id="submit" name="submit">' .
+																		'<span class="o-button__text">Post review</span>' .
+																		'<svg class="o-button__icon--right  o-icon--chevron-right" viewBox="0 0 36 36" width="24" height="24"><rect fill="currentColor" y="16.5" width="31.3" height="3"></rect><polygon fill="currentColor" points="19.2,31.9 17.3,29.6 31.3,18 17.3,6.4 19.2,4.1 36,18 "></polygon></svg>' .
+																	'</button>',
+										'submit_field'			=> 	'<div class="o-form__submit">' .
+																		'<div class="o-form__button">%1$s %2$s' .
+																		'</div>' .
+																	'</div>',
+										'format'				=> 	'html5',
+									);
 
 
-									<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
-									<?php do_action('comment_form', $post->ID); ?>
-								</form>
+									comment_form($comment_form__args);
+
+								?>
 							</div><!-- /.c-comment__form -->
 						<?php endif; ?>
 					</div><!-- /.c-comments__form-wrapper -->
