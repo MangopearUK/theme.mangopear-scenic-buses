@@ -125,9 +125,50 @@
 							</p>
 						</div>
 					</section>
-
-
 				<?php endif; ?>
+
+
+
+
+
+			<?php else : ?>
+				<section class="c-comments__comments">
+					<ul class="c-comments__list">
+						<?php foreach ($comments as $comment) : ?>
+							<li class="c-comments__item" id="comment-<?php comment_ID(); ?>">
+								<article class="c-comments__comment">
+									<div class="c-comments__comment__content">
+										<?php
+
+											if ($comment->comment_approved == '0') : echo '<p>Your review is awaiting moderation.</p>';
+											else                                   : comment_text();
+											endif;
+
+										?>
+									</div>
+
+
+									<footer class="c-comments__comment__footer">
+										<div class="c-comments__comment__author">
+											<div class="c-comments__comment__author__avatar"><?php echo get_avatar($comment, '96'); ?></div>
+
+
+											<p class="c-comments__comment__author__name">
+												<span class="c-comments__comment__author__name-link"><?php comment_author_link() ?></span>
+												<br>
+												<a href="#comment-<?php comment_ID() ?>" class="c-comments__comment__date" title="Link directly to this review">
+													<time datetime="" class="c-comment__date"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?></time>
+												</a>
+											</p>
+										</div>
+									</footer>
+								</article>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</section>
+
+
 			<?php endif; ?>
 		</div><!-- /.o-container -->
 	</section>
