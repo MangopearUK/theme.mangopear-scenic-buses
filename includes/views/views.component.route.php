@@ -96,18 +96,18 @@ if (! function_exists('scenic_pod__route')) :
 
 
 					<div class="o-post__foot">
-						<?php if (get_field('opco')) : ?>
-							<p class="o-post__foot-item  o-post__opco">
-								<span class="o-post__foot-item__title">Operated by: </span>
-								<strong><?php the_field('opco'); ?></strong>
-							</p>
-						<?php endif; ?>
-
-
 						<?php if (get_field('days-of-operation')) : ?>
 							<p class="o-post__foot-item  o-post__operating-days">
 								<span class="o-post__foot-item__title">Runs: </span>
 								<strong><?php the_field('days-of-operation'); ?></strong>
+							</p>
+						<?php endif; ?>
+
+
+						<?php if (get_field('opco')) : ?>
+							<p class="o-post__foot-item  o-post__opco">
+								<span class="o-post__foot-item__title">Operated by: </span>
+								<strong><?php the_field('opco'); ?></strong>
 							</p>
 						<?php endif; ?>
 					</div><!-- /.o-post__foot -->
