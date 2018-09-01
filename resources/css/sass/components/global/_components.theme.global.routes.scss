@@ -15,6 +15,10 @@
  * CONTENTS
  *
  * [1]	Routes > Carousel > Change overflows
+ * [2]	Routes > Carousel > Controls
+ * [3]	Routes > Carousel > Fade inactive items out
+ * [4]	Routes > Carousel > Places of interest
+ * [5]	Routes > Single template > Header
  */
 
 
@@ -31,3 +35,212 @@
 	.owl-stage-outer { overflow: visible; }						// [b]
 		.o-flex__item { width: 100%; }							// [c]
 }
+
+
+
+
+
+/**
+ * [2]	Routes > Carousel > Controls
+ */
+
+.c-resources-row--routes {
+	padding-top: 0;
+	position: relative;
+
+
+	.owl-controls {
+		width: 100%;
+		max-width: 1150px;
+		@include mangui-breakpoint("max-width: 1300px") { display: none; }
+
+
+		.owl-nav {
+			.owl-prev, .owl-next {
+				outline: 0;
+				background: #FFF;
+				position: absolute;
+				text-align: center;
+				border: 1px solid #DDD;
+				top: calc(50% - 1.5rem);
+				box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+				@include mangui-transition(ease-in-out 350ms all);
+				@include rempx(width, 48px);
+				@include rempx(height, 48px);
+				@include rempx(border-radius, 48px);
+
+
+				&:hover, &:active, &:focus {
+					background: #f1f1f1;
+					border-color: #DFDFDF;
+					box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+				}
+
+
+				&:active, &:focus { border-color: $scenic-green--medium; }
+
+
+				.o-icon { margin: 0 0 -7px; }
+			}
+
+
+			.owl-prev { @include rempx(left, -62px); }
+			.owl-next { @include rempx(right, -74px); }
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [3]	Routes > Carousel > Fade inactive items out
+ */
+
+.c-resources-row--routes {
+	.owl-item {
+		@include mangui-transition(ease-in-out 350ms opacity);
+
+		&:not(.active) {
+			opacity: 0.25;
+			pointer-events: none;
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [4]	Routes > Carousel > Places of interest
+ */
+
+.c-resources-row--places {
+	.c-resources__links .o-posts__item {
+		&:hover, &:active, &:focus {
+			.o-post__title__sub { color: $grey--dark; }
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [5]	Routes > Single template > Header
+ */
+
+.c-route__header {
+	border-bottom: 5px solid $grey--lighter;
+	@include rempx(padding, 0 24px 30px);
+}
+
+
+	.c-route__destinations-title {
+		font-weight: 300;
+		line-height: 1.2;
+		color: $grey--dark;
+		text-align: center;
+		@include rempx(font-size, 36px);
+		@include rempx(margin, 30px 0 26px);
+	}
+
+
+		.c-route__destinations-title__intro {
+			color: $grey--medium;
+		}
+
+
+	.c-route__header__operator,
+	.c-route__header__days {
+		margin: 0;
+		text-align: center;
+	}
+
+
+	.c-route__header__actions {
+		@include rempx(margin, 31px 0 0);
+	}
+
+
+		.c-route__header__actions-wrap {
+			@include mangui-breakpoint("min-width: 551px") { display: flex; }
+		}
+
+
+			.c-route__link {
+				display: flex;
+				flex-grow:  1;
+				background: #FFF;
+				color: $grey--dark;
+				justify-content: center;
+				font-family: $font-campton;
+				border: 1px solid $grey--light;
+				@include rempx(font-size, 18px);
+				@include rempx(line-height, 36px);
+				@include rempx(padding, 12px 12px);
+				@include mangui-transition(ease-in-out 350ms all);
+
+
+				&:hover, &:focus, &:active {
+					color: $scenic-green--medium;
+					border-color: $scenic-green--medium;
+				}
+
+
+				&--timetable + .c-route__link--map { @include mangui-breakpoint("min-width: 551px") { @include rempx(margin-left, 10px); } }
+				&--map { @include mangui-breakpoint("max-width: 550px") { @include rempx(margin-top, 10px); } }
+			}
+
+
+		.c-route__header__actions__disclaimer {
+			font-weight: bold;
+			text-align: center;
+			background: $grey--lighter;
+			border: 1px solid $grey--light;
+			@include rempx(font-size, 12px);
+			@include rempx(margin, 10px 0 0);
+			@include rempx(padding, 3px 20px);
+		}
+
+
+
+
+
+/**
+ * [6]	Route > Single template > Gallery
+ */
+
+.c-route__gallery {
+	@include rempx(padding, 10px 24px);
+}
+
+
+	.c-route__gallery__images {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		@include rempx(margin, -10px -5px 30px);
+	}
+
+
+		.c-route__gallery__item {
+			margin: 0;
+			@include rempx(padding, 5px);
+
+			width: calc(100% / 7);
+			@include mangui-breakpoint("max-width: 1000px") { width: calc(100% / 6); }
+			@include mangui-breakpoint("max-width:  840px") { width: calc(100% / 5); }
+			@include mangui-breakpoint("max-width:  675px") { width: calc(100% / 4); }
+			@include mangui-breakpoint("max-width:  520px") { width: calc(100% / 3); }
+			@include mangui-breakpoint("max-width:  380px") { width: calc(100% / 2); }
+		}
+
+
+			.c-route__gallery__image-link {
+				@include mangui-transition(ease-in-out 350ms opacity);
+				&:hover, &:active, &:focus { opacity: .6; }
+			}
