@@ -138,13 +138,23 @@
 							<li class="c-comments__item" id="comment-<?php comment_ID(); ?>">
 								<article class="c-comments__comment">
 									<div class="c-comments__comment__content">
-										<?php
+										<?php if ($comment->comment_approved == '0') : ?>
+											<p>Your review is awaiting moderation.</p>
 
-											if ($comment->comment_approved == '0') : echo '<p>Your review is awaiting moderation.</p>';
-											else                                   : comment_text();
-											endif;
 
-										?>
+										<?php else : ?>
+											<?php if (get_field('review-title', 'comment_' . $comment->comment_ID)) : ?>
+												<pre>Review title value from CMS:<br><?php print_r(get_field('review-title', 'comment_' . $comment->comment_ID)); ?></pre>
+											<?php endif; ?>
+
+
+											<?php if (get_field('rating', 'comment_' . $comment->comment_ID)) : ?>
+												<pre>5 star rating value from CMS:<br><?php print_r(get_field('rating', 'comment_' . $comment->comment_ID)); ?></pre>
+											<?php endif; ?>
+
+
+											<?php comment_text(); ?>
+										<?php endif; ?>
 									</div>
 
 
