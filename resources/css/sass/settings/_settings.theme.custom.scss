@@ -1,16 +1,4 @@
 /**
- * Fonts
- */
-
-$font--core: 'Droid Serif', Georgia, Times New Roman, Times, serif;
-$font--playfair: 'Playfair Display', 'Cinzel', 'Droid Serif', Georgia, Times New Roman, Times, serif;
-
-
-
-
-
-
-/**
  * Setting up default transition values
  *
  * [1]	Default transition duration
@@ -50,6 +38,7 @@ $breakpoints:			(
 $font-core: Merriweather, sans-serif;
 $font-campton: Campton, $font-core;
 $font-headings: $font-campton;
+$font--playfair: $font-core;
 
 
 @font-face {
