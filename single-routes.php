@@ -69,6 +69,23 @@
 
 
 	<main class="o-panel  o-panel--gutterless" id="main">
+		<header class="c-route__header">
+			<div class="o-container  o-container--optimise-readability">
+				<h2 class="c-route__destinations-title">
+					<span class="c-route__destinations-title__intro">serving </span>
+					<?php the_field('route-description'); ?>
+				</h2>
+
+
+				<p class="c-route__header__operator">Operated by: <strong><?php the_field('opco'); ?></strong></p>
+				<p class="c-route__header__days">Service operates: <strong><?php the_field('days-of-operation'); ?></strong></p>
+			</div><!-- /.o-container -->
+		</header>
+
+
+
+
+
 		<?php if (have_rows('places')) : ?>
 			<section class="c-resources-row  c-resources-row--links  c-resources-row--routes  c-resources-row--places">
 				<div class="o-container">

@@ -18,6 +18,7 @@
  * [2]	Routes > Carousel > Controls
  * [3]	Routes > Carousel > Fade inactive items out
  * [4]	Routes > Carousel > Places of interest
+ * [5]	Routes > Single template > Header
  */
 
 
@@ -44,6 +45,7 @@
  */
 
 .c-resources-row--routes {
+	padding-top: 0;
 	position: relative;
 
 
@@ -122,3 +124,38 @@
 		}
 	}
 }
+
+
+
+
+
+/**
+ * [5]	Routes > Single template > Header
+ */
+
+.c-route__header {
+	border-bottom: 5px solid $grey--lighter;
+	@include rempx(padding, 0 0 30px);
+}
+
+
+	.c-route__destinations-title {
+		font-weight: 300;
+		line-height: 1.2;
+		color: $grey--dark;
+		text-align: center;
+		@include rempx(font-size, 36px);
+		@include rempx(margin, 30px 0 26px);
+	}
+
+
+		.c-route__destinations-title__intro {
+			color: $grey--medium;
+		}
+
+
+	.c-route__header__operator,
+	.c-route__header__days {
+		margin: 0;
+		text-align: center;
+	}
