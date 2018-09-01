@@ -15,6 +15,7 @@
  * CONTENTS
  *
  * [1]	Routes > Carousel > Change overflows
+ * [2]	Routes > Carousel > Controls
  */
 
 
@@ -30,4 +31,57 @@
 	overflow: hidden;											// [a]
 	.owl-stage-outer { overflow: visible; }						// [b]
 		.o-flex__item { width: 100%; }							// [c]
+}
+
+
+
+
+
+/**
+ * [2]	Routes > Carousel > Controls
+ */
+
+.c-resources-row--routes {
+	position: relative;
+
+
+	.owl-controls {
+		width: 100%;
+		max-width: 1150px;
+		@include mangui-breakpoint("max-width: 1300px") { display: none; }
+
+
+		.owl-nav {
+			.owl-prev, .owl-next {
+				outline: 0;
+				background: #FFF;
+				position: absolute;
+				text-align: center;
+				border: 1px solid #DDD;
+				top: calc(50% - 1.5rem);
+				box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+				@include mangui-transition(ease-in-out 350ms all);
+				@include rempx(width, 48px);
+				@include rempx(height, 48px);
+				@include rempx(border-radius, 48px);
+
+
+				&:hover, &:active, &:focus {
+					background: #f1f1f1;
+					border-color: #DFDFDF;
+					box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+				}
+
+
+				&:active, &:focus { border-color: $scenic-green--medium; }
+
+
+				.o-icon { margin: 0 0 -7px; }
+			}
+
+
+			.owl-prev { @include rempx(left, -62px); }
+			.owl-next { @include rempx(right, -74px); }
+		}
+	}
 }
