@@ -77,8 +77,19 @@
 				</h2>
 
 
-				<p class="c-route__header__operator">Operated by: <strong><?php the_field('opco'); ?></strong></p>
-				<p class="c-route__header__days">Service operates: <strong><?php the_field('days-of-operation'); ?></strong></p>
+				<?php if (get_field('days-of-operation--detailed')) : ?>
+					<p class="c-route__header__days">
+						<strong><?php the_field('days-of-operation--detailed'); ?></strong>
+					</p>
+				<?php endif; ?>
+
+
+				<?php if (get_field('opco')) : ?>
+					<p class="c-route__header__operator">
+						Operated by: 
+						<strong><?php the_field('opco'); ?></strong>
+					</p>
+				<?php endif; ?>
 			</div><!-- /.o-container -->
 		</header>
 
