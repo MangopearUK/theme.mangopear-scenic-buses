@@ -1,0 +1,33 @@
+/**
+ * [Component] Global > Routes
+ *
+ * @category	Component
+ * @package		scenic-buses
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright	2018 Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	1.0.0
+ * @version   	1.0.0
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]	Routes > Carousel > Change overflows
+ */
+
+
+/**
+ * [1]	Routes > Carousel > Change overflows
+ *
+ * 		[a]	Set row to hidden for cropping
+ * 		[b]	Set carousel cut off to be visible
+ * 		[c]	Fix sizing issues with pods
+ */
+
+.c-resources-row--routes {
+	overflow: hidden;											// [a]
+	.owl-stage-outer { overflow: visible; }						// [b]
+		.o-flex__item { width: 100%; }							// [c]
+}
