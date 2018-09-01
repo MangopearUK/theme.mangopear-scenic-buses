@@ -83,5 +83,38 @@ jQuery(document).ready(function($){
 			}
 		}
 	});
+
+
+
+
+
+	/**
+	 * [3]	Routes > Places of interest carousel
+	 */
+	
+	$('.js-carousel--places').owlCarousel({
+		margin: 		10,
+		navElement: 	'button',
+		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
+		                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-right"/></svg>'],
+		responsiveClass:true,
+		responsive:{
+			0 : {
+				items: 			1,
+				nav: 			false,
+				autoHeight: 	true
+			},
+			600:{
+				items: 			2,
+				nav: 			false,
+				autoHeight: 	false
+			},
+			900:{
+				items: 			3,
+				nav: 			true,
+				autoHeight: 	false
+			}
+		}
+	});
 	
 });

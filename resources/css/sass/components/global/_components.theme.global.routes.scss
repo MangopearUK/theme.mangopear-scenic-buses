@@ -17,6 +17,7 @@
  * [1]	Routes > Carousel > Change overflows
  * [2]	Routes > Carousel > Controls
  * [3]	Routes > Carousel > Fade inactive items out
+ * [4]	Routes > Carousel > Places of interest
  */
 
 
@@ -102,6 +103,22 @@
 		&:not(.active) {
 			opacity: 0.25;
 			pointer-events: none;
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [4]	Routes > Carousel > Places of interest
+ */
+
+.c-resources-row--places {
+	.c-resources__links .o-posts__item {
+		&:hover, &:active, &:focus {
+			.o-post__title__sub { color: $grey--dark; }
 		}
 	}
 }

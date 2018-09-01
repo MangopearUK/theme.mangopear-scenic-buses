@@ -69,15 +69,48 @@
 
 
 	<main class="o-panel  o-panel--gutterless" id="main">
-		<article class="o-panel">
-			<div class="o-container">
-				<div class="o-grid">
-					<div class="o-grid__item  u-three-quarters  u-portable--one-whole  c-resources__col--main">
-						<?php the_content(); ?>
-					</div><!-- /.o-grid__item -->
-				</div><!-- /.o-grid -->
-			</div><!-- /.o-container -->
-		</article>
+		<?php if (have_rows('places')) : ?>
+			<section class="c-resources-row  c-resources-row--links  c-resources-row--routes  c-resources-row--places">
+				<div class="o-container">
+					<header class="c-resources-row__header">
+						<h2 class="c-resources-row__title">Attractions along the route</h2>
+					</header>
+
+
+					<div class="c-resources__links  o-posts  o-posts--title-only">
+						<ul class="o-flex  o-posts__list  o-carousel--places  js-carousel--places">
+							<?php while (have_rows('places')) : the_row(); ?>
+								<li class="o-flex__item  c-useful-link">
+									<article class="o-posts__item  c-useful-link__wrap  has-overlay-link">
+										<div class="o-post">
+											<?php $sub_image = get_sub_field('image'); ?>
+											<?php if ($sub_image) : ?>
+												<img class="o-post__image" 
+													     alt="<?php the_sub_field('title'); ?>" 
+													     src="<?php echo $sub_image['sizes']['masthead--xs'] ?>">
+											<?php endif; ?>
+
+
+											<h3 class="o-post__title">
+												<?php the_sub_field('title'); ?>
+												<span class="o-post__title__sub"><?php the_sub_field('sub_title'); ?></span>
+											</h3>
+
+
+											<?php if (get_sub_field('description')) : ?>
+												<div class="o-post__excerpt">
+													<?php the_sub_field('description'); ?>
+												</div><!-- /.o-post__excerpt -->
+											<?php endif; ?>
+										</div>
+									</article>
+								</li>
+							<?php endwhile; ?>
+						</ul>
+					</div><!-- /.c-resources__links -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
 
 
 
