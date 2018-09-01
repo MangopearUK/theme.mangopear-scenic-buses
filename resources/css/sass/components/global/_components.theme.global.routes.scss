@@ -167,7 +167,7 @@
 
 
 		.c-route__header__actions-wrap {
-			display: flex;
+			@include mangui-breakpoint("min-width: 551px") { display: flex; }
 		}
 
 
@@ -191,7 +191,8 @@
 				}
 
 
-				&--timetable { @include rempx(margin-right, 40px); }
+				&--timetable + .c-route__link--map { @include mangui-breakpoint("min-width: 551px") { @include rempx(margin-left, 10px); } }
+				&--map { @include mangui-breakpoint("max-width: 550px") { @include rempx(margin-top, 10px); } }
 			}
 
 
