@@ -135,7 +135,7 @@
 
 .c-route__header {
 	border-bottom: 5px solid $grey--lighter;
-	@include rempx(padding, 0 0 30px);
+	@include rempx(padding, 0 24px 30px);
 }
 
 
