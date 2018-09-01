@@ -159,3 +159,48 @@
 		margin: 0;
 		text-align: center;
 	}
+
+
+	.c-route__header__actions {
+		@include rempx(margin, 31px 0 0);
+	}
+
+
+		.c-route__header__actions-wrap {
+			display: flex;
+		}
+
+
+			.c-route__link {
+				display: flex;
+				flex-grow:  1;
+				background: #FFF;
+				color: $grey--dark;
+				justify-content: center;
+				font-family: $font-campton;
+				border: 1px solid $grey--light;
+				@include rempx(font-size, 18px);
+				@include rempx(line-height, 36px);
+				@include rempx(padding, 12px 12px);
+				@include mangui-transition(ease-in-out 350ms all);
+
+
+				&:hover, &:focus, &:active {
+					color: $scenic-green--medium;
+					border-color: $scenic-green--medium;
+				}
+
+
+				&--timetable { @include rempx(margin-right, 40px); }
+			}
+
+
+		.c-route__header__actions__disclaimer {
+			font-weight: bold;
+			text-align: center;
+			background: $grey--lighter;
+			border: 1px solid $grey--light;
+			@include rempx(font-size, 12px);
+			@include rempx(margin, 10px 0 0);
+			@include rempx(padding, 3px 20px);
+		}

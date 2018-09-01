@@ -90,6 +90,31 @@
 						<strong><?php the_field('opco'); ?></strong>
 					</p>
 				<?php endif; ?>
+
+
+				<div class="c-route__header__actions">
+					<div class="c-route__header__actions-wrap">
+						<?php if (get_field('timetable--url')) : ?>
+							<a class="c-route__link  c-route__link--timetable" href="<?php the_field('timetable--url'); ?>" target="_blank">
+								<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#timetable"/></svg>
+								<span class="o-button__text">View timetable</span>
+							</a>
+						<?php endif; ?>
+
+
+						<?php if (get_field('map--url')) : ?>
+							<a class="c-route__link  c-route__link--map" href="<?php the_field('map--url'); ?>" target="_blank">
+								<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#map"/></svg>
+								<span class="o-button__text">View route map</span>
+							</a>
+						<?php endif; ?>
+					</div><!-- /.c-route__header__actions-wrap -->
+
+
+					<p class="c-route__header__actions__disclaimer">
+						Please check with operator's website before travelling.
+					</p>
+				</div><!-- /.c-route__header__actions -->
 			</div><!-- /.o-container -->
 		</header>
 
