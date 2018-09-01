@@ -205,3 +205,42 @@
 			@include rempx(margin, 10px 0 0);
 			@include rempx(padding, 3px 20px);
 		}
+
+
+
+
+
+/**
+ * [6]	Route > Single template > Gallery
+ */
+
+.c-route__gallery {
+	@include rempx(padding, 10px 24px);
+}
+
+
+	.c-route__gallery__images {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		@include rempx(margin, -10px -5px 30px);
+	}
+
+
+		.c-route__gallery__item {
+			margin: 0;
+			@include rempx(padding, 5px);
+
+			width: calc(100% / 7);
+			@include mangui-breakpoint("max-width: 1000px") { width: calc(100% / 6); }
+			@include mangui-breakpoint("max-width:  840px") { width: calc(100% / 5); }
+			@include mangui-breakpoint("max-width:  675px") { width: calc(100% / 4); }
+			@include mangui-breakpoint("max-width:  520px") { width: calc(100% / 3); }
+			@include mangui-breakpoint("max-width:  380px") { width: calc(100% / 2); }
+		}
+
+
+			.c-route__gallery__image-link {
+				@include mangui-transition(ease-in-out 350ms opacity);
+				&:hover, &:active, &:focus { opacity: .6; }
+			}

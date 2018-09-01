@@ -169,6 +169,34 @@
 
 
 
+		<?php $gallery = get_field('photo--gallery'); if ($gallery) : ?>
+			<section class="c-route__gallery">
+				<div class="o-container">
+					<header class="c-resources-row__header">
+						<h2 class="c-resources-row__title">Gallery</h2>
+					</header>
+
+
+					<div class="c-route__gallery__images">
+						<?php foreach ($gallery as $image) : ?>
+							<figure class="c-route__gallery__item">
+								<a href="<?php echo $image['url']; ?>" data-width="<?php echo $image['width']; ?>" data-height="<?php echo $image['height']; ?>" class="c-route__gallery__image-link">
+									<img class="c-route__gallery__image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>">
+									<noscript><img class="c-route__gallery__image" src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"></noscript>
+								</a>
+
+								<figcaption class="wp-caption-text  c-route__gallery__caption  u-hide"><?php echo $image['caption']; ?></figcaption>
+							</figure><!-- /.c-route__gallery__item -->
+						<?php endforeach; ?>
+					</div><!-- /.c-route__gallery__images -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
+
+
+
+
+
 		<?php comments_template(); ?>
 	</main><!-- /.o-panel -->
 
