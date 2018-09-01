@@ -69,8 +69,7 @@ if (! function_exists('scenic_pod__route')) :
 					<?php if (get_the_post_thumbnail_url(get_the_ID(), 'featured--medium')) : ?>
 						<img class="o-post__image" 
 							     alt="<?php the_title(); ?>" 
-							     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-							     data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'featured--medium'); ?>">
+							     src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'featured--medium'); ?>">
 					<?php endif; ?>
 
 

@@ -34,7 +34,7 @@
 		?>
 
 
-			<section class="c-resources-row  c-resources-row--links">
+			<section class="c-resources-row  c-resources-row--links  c-resources-row--routes">
 				<div class="o-container">
 					<header class="c-resources-row__header">
 						<h2 class="c-resources-row__title">All routes</h2>
@@ -42,9 +42,9 @@
 
 
 					<div class="c-resources__links  o-posts  o-posts--title-only">
-						<ul class="o-flex  o-posts__list">
-							<?php 
-												
+						<ul class="o-flex  o-posts__list  o-carousel--routes  js-carousel--routes">
+							<?php
+
 								while ($routes->have_posts()) :
 									$routes->the_post();
 									scenic_pod__route();

@@ -72,7 +72,7 @@
 																			'<div class="o-form__input"><input type="email" id="email" name="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $html_req . '></div>' .
 																		'</div>',
 														'url'		=>	'<div class="o-form__field  o-form__field--inline  o-form__field--url">' .
-																			'<label for="url" class="o-form__label">Your website: ' . ($req ? '<span class="required">*</span>' : '') . '</label>' .
+																			'<label for="url" class="o-form__label">Your website: </label>' .
 																			'<div class="o-form__input"><input type="url" id="url" name="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200"></div>' .
 																		'</div>',
 													),
