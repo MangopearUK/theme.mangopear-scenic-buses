@@ -266,6 +266,70 @@
 													</tbody>
 												</table>
 											<?php endif; ?>
+
+
+											<?php
+
+												/**
+												 * Loop through purchasing options
+												 */
+												
+												$buying_options = get_sub_field('where');
+
+												if ($buying_options) :
+													echo '<div class="c-tickets__where">';
+														echo '<h4 class="c-tickets__where__title">How to buy</h4>';
+
+														echo '<ul class="c-tickets__icons">';
+															foreach ($buying_options as $option) :
+																switch ($option) :
+																	case "cash" :
+																		$buy__icon = 'cash';
+																		$buy__text = 'Cash (on bus)';
+																		break;
+
+																	case "contactless" :
+																		$buy__icon = 'contactless';
+																		$buy__text = 'Contactless (on bus)';
+																		break;
+
+																	case "app" :
+																		$buy__icon = 'app';
+																		$buy__text = 'On the app';
+																		if (get_sub_field('details--app')) { $details = get_sub_field('details--app'); }
+																		break;
+
+																	case "smartcard" :
+																		$buy__icon = 'smartcard';
+																		$buy__text = 'Smartcard';
+																		if (get_sub_field('details--smartcard')) { $details = get_sub_field('details--smartcard'); }
+																		break;
+
+																	case "ticket-office" :
+																		$buy__icon = 'office';
+																		$buy__text = 'Ticket office';
+																		if (get_sub_field('details--ticket-office')) { $details = get_sub_field('details--ticket-office'); }
+																		break;
+																endswitch;
+
+
+																echo 	'<li class="c-tickets__icon">' .
+																			'<svg class="o-button__icon  o-button__icon--left" height="24" width="24" role="presentation"><use xlink:href="' . SCENIC_SPRITE . '#' . $buy__icon . '"/></svg>' .
+																			'<span class="o-button__text">' . $buy__text . '</span>';
+
+																			if ($details) {
+																			   echo '<div class="c-tickets__details">' .
+																						'<button class="c-tickets__details__button  js-tickets__details__button"><span class="c-tickets__details__button__icon">?</span><span class="u-hide"> Find out more</span></button>' .
+																						'<div role="tooltip" class="c-tickets__details__button__tooltip  js-tickets__details__reveal">' . $details . '</div>' .
+																					'</div>';
+																			}
+																echo	'</li>';
+															endforeach;
+														echo '</ul>';
+													echo '</div>';
+												endif;
+
+											?>
 										</div>
 									</article>
 								</li>

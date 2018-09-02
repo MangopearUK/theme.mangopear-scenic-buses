@@ -21,6 +21,7 @@
  * [5]	Route > Single template > Header
  * [6]	Route > Single template > Gallery
  * [7]	Route > Single template > Fares & tickets
+ * [8]	Route > Single template > Fares & tickets > How to buy
  */
 
 
@@ -262,8 +263,9 @@
 
 	.c-tickets__table {
 		border-top: 1px solid #E5E5E5;
+		border-bottom: 1px solid #E5E5E5;
 		@include rempx(font-size, 13px);
-		@include rempx(margin, 0 -23px -20px);
+		@include rempx(margin, 0 -23px);
 
 
 		th:last-child, td:last-child {
@@ -296,3 +298,129 @@
 			}
 		}
 	}
+
+
+
+
+
+/**
+ * [8]	Route > Single template > Fares & tickets > How to buy
+ */
+
+.c-tickets__where {
+
+}
+
+
+	.c-tickets__where__title {
+		font-weight: normal;
+		color: $scenic-green--dark;
+		@include rempx(margin, 13px 0 0);
+	}
+
+
+	.c-tickets__icons {
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		@include rempx(margin, 5px -10px -11px);
+	}
+
+
+		.c-tickets__icon {
+			color: $grey--dark;
+			position: relative;
+			width: calc(50% - 4px);
+			border: 1px solid #E3E3E3;
+			@include rempx(margin, 2px);
+			@include rempx(padding, 0 10px 4px);
+
+
+			.o-button__icon {
+				color: $scenic-green--medium;
+				@include rempx(margin, 4px 5px -8px 0);
+			}
+
+
+			.o-button__text {
+				font-weight: bold;
+				@include rempx(font-size, 12px);
+			}
+		}
+
+
+			.c-tickets__details {
+				position: absolute;
+				@include rempx(top, 3px);
+				@include rempx(right, -4px);
+				@include rempx(margin, -1px 0 0);
+
+
+				.c-tickets__details__button {
+					outline: 0;
+					background: #FFF;
+					font-weight: bold;
+					border-radius: 20px;
+					color: $scenic-green--medium;
+					border: 1px solid $grey--light;
+					box-shadow: 0 0 0 2px transparent;
+					@include rempx(width, 20px);
+					@include rempx(height, 20px);
+					@include rempx(font-size, 12px);
+					@include rempx(line-height, 18px);
+					@include rempx(margin, 0 0 0 -30px);
+					@include mangui-transition(ease-in-out 400ms all);
+
+
+					&:hover, &:active, &:focus { border-color: $scenic-green--dark; background: $scenic-green--medium; color: #FFF; }
+					&:active, &:focus { box-shadow: 0 0 0 2px $scenic-green--light; }
+
+
+					.c-tickets__details__button__icon {
+
+					}
+				}
+
+
+				.c-tickets__details__button__tooltip {
+					margin: 0;
+					opacity: 0;
+					z-index: 9999;
+					background: #FFF;
+					line-height: 1.3;
+					position: absolute;
+					pointer-events: none;
+					border: 1px solid $grey--medium;
+					box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+					@include rempx(right, -12px);
+					@include rempx(width, 202px);
+					@include rempx(bottom, 32px);
+					@include rempx(padding, 10px);
+					@include rempx(font-size, 12px);
+					@include mangui-transition(ease-in-out 400ms opacity);
+
+
+					&::after {
+						content: '';
+						background: #FFF;
+						position: absolute;
+						transform: rotate(45deg);
+						border-right: 1px solid $grey--medium;
+						border-bottom: 1px solid $grey--medium;
+						@include rempx(right, 25px);
+						@include rempx(width, 10px);
+						@include rempx(bottom, -6px);
+						@include rempx(height, 10px);
+					}
+
+
+					&.is-visible {
+						opacity: 1;
+						pointer-events: auto;
+					}
+
+
+					p { margin: 0; }
+				}
+			}
