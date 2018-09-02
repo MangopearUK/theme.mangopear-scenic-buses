@@ -18,7 +18,9 @@
  * [2]	Routes > Carousel > Controls
  * [3]	Routes > Carousel > Fade inactive items out
  * [4]	Routes > Carousel > Places of interest
- * [5]	Routes > Single template > Header
+ * [5]	Route > Single template > Header
+ * [6]	Route > Single template > Gallery
+ * [7]	Route > Single template > Fares & tickets
  */
 
 
@@ -244,3 +246,53 @@
 				@include mangui-transition(ease-in-out 350ms opacity);
 				&:hover, &:active, &:focus { opacity: .6; }
 			}
+
+
+
+
+
+/**
+ * [7]	Route > Single template > Fares & tickets
+ */
+
+.c-resources-row--tickets {
+	border-top: 5px solid #EEE;
+}
+
+
+	.c-tickets__table {
+		border-top: 1px solid #E5E5E5;
+		@include rempx(font-size, 13px);
+		@include rempx(margin, 0 -23px -20px);
+
+
+		th:last-child, td:last-child {
+			font-weight: bold;
+			@include rempx(padding, 4px 23px 4px 5px);
+		}
+
+
+		th:first-child { @include rempx(padding, 4px 5px 4px 23px); }
+		tbody th, tbody td { border-top: 1px solid #E5E5E5; }
+
+
+		.c-tickets__cell--title {
+			background: #F5F5F5;
+			color: $scenic-green--dark;
+			@include rempx(font-size, 14px);
+		}
+
+
+		.c-tickets__cell[scope="row"] {
+			color: $grey--dark;
+
+
+			.c-ticket__cell__note {
+				display: block;
+				font-weight: normal;
+				color: $grey--medium;
+				@include rempx(font-size, 11px);
+				@include rempx(margin, -4px 0 0);
+			}
+		}
+	}

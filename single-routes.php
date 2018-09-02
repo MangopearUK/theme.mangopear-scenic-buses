@@ -197,6 +197,89 @@
 
 
 
+		<?php if (have_rows('tickets')) : ?>
+			<section class="c-resources-row  c-resources-row--links  c-resources-row--routes  c-resources-row--places  c-resources-row--tickets">
+				<div class="o-container">
+					<header class="c-resources-row__header">
+						<h2 class="c-resources-row__title">Fares &amp; tickets</h2>
+					</header>
+
+
+					<div class="c-resources__links  o-posts  o-posts--title-only">
+						<ul class="o-flex  o-posts__list  o-carousel--places  js-carousel--places">
+							<?php while (have_rows('tickets')) : the_row(); ?>
+								<li class="o-flex__item  c-useful-link">
+									<article class="o-posts__item  c-useful-link__wrap  has-overlay-link">
+										<div class="o-post">
+											<?php $sub_image = get_sub_field('image'); ?>
+											<?php if ($sub_image) : ?>
+												<img class="o-post__image" 
+													     alt="<?php the_sub_field('title'); ?>" 
+													     src="<?php echo $sub_image['sizes']['masthead--xs'] ?>">
+											<?php endif; ?>
+
+
+											<h3 class="o-post__title">
+												<?php the_sub_field('title'); ?>
+
+												<?php if (get_sub_field('best')) : ?>
+													<span class="u-hide"> - </span>
+													<span class="o-post__title__sub">Great for: <?php the_sub_field('best'); ?></span>
+												<?php endif; ?>
+											</h3>
+
+
+											<?php if (get_sub_field('description')) : ?>
+												<div class="o-post__excerpt">
+													<?php the_sub_field('description'); ?>
+												</div><!-- /.o-post__excerpt -->
+											<?php endif; ?>
+
+
+											<?php if (have_rows('prices')) : ?>
+												<table class="c-tickets__table">
+													<thead>
+														<tr class="c-tickets__row  c-tickets__row--header">
+															<th scope="col" class="c-tickets__cell  c-tickets__cell--title">Variant</th>
+															<th scope="col" class="c-tickets__cell  c-tickets__cell--title">Price</th>
+														</tr>
+													</thead>
+
+
+													<tbody>
+														<?php while (have_rows('prices')) : the_row(); ?>
+															<tr class="c-tickets__row">
+																<th class="c-tickets__cell" scope="row">
+																	<?php the_sub_field('name'); ?>
+
+																	<?php if (get_sub_field('variant')) : ?>
+																		<span class="c-ticket__cell__note">
+																			<span class="u-hide"> - </span>
+																			<?php the_sub_field('variant'); ?>
+																		</span>
+																	<?php endif; ?>
+																</th>
+
+																<td class="c-tickets__cell"><?php the_sub_field('price'); ?></td>
+															</tr>
+														<?php endwhile; ?>
+													</tbody>
+												</table>
+											<?php endif; ?>
+										</div>
+									</article>
+								</li>
+							<?php endwhile; ?>
+						</ul>
+					</div><!-- /.c-resources__links -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
+
+
+
+
+
 		<?php comments_template(); ?>
 	</main><!-- /.o-panel -->
 
