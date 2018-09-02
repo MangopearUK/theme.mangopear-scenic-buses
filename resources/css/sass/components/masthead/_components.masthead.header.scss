@@ -234,7 +234,7 @@
 			@include rempx(width, 30px);
 			@include rempx(height, 30px);
 			@include rempx(border-radius, 30px);
-			@include rempx(margin, 4px 0 0 15px);
+			@include rempx(margin, 8px 0 -9px 15px);
 			@include mangui-transition(ease-in-out color 350ms, ease-in-out border-color 350ms);
 			@include mangui-breakpoint("max-width: 1500px") { @include rempx(margin-top, 0); }
 		}
