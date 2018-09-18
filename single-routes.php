@@ -286,29 +286,31 @@
 																	case "cash" :
 																		$buy__icon = 'cash';
 																		$buy__text = 'Cash (on bus)';
+																		$details   = '';
 																		break;
 
 																	case "contactless" :
 																		$buy__icon = 'contactless';
 																		$buy__text = 'Contactless (on bus)';
+																		$details   = '';
 																		break;
 
 																	case "app" :
 																		$buy__icon = 'app';
 																		$buy__text = 'On the app';
-																		if (get_sub_field('details--app')) { $details = get_sub_field('details--app'); }
+																		$details   = (get_sub_field('details--app')) ? $details = get_sub_field('details--app') : '';
 																		break;
 
 																	case "smartcard" :
 																		$buy__icon = 'smartcard';
 																		$buy__text = 'Smartcard';
-																		if (get_sub_field('details--smartcard')) { $details = get_sub_field('details--smartcard'); }
+																		$details   = (get_sub_field('details--smartcard')) ? $details = get_sub_field('details--smartcard') : '';
 																		break;
 
 																	case "ticket-office" :
 																		$buy__icon = 'office';
 																		$buy__text = 'Ticket office';
-																		if (get_sub_field('details--ticket-office')) { $details = get_sub_field('details--ticket-office'); }
+																		$details   = (get_sub_field('details--ticket-office')) ? $details = get_sub_field('details--ticket-office') : '';
 																		break;
 																endswitch;
 
