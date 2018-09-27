@@ -197,6 +197,155 @@
 
 
 
+		<?php if (have_rows('tickets')) : ?>
+			<section class="c-resources-row  c-resources-row--links  c-resources-row--routes  c-resources-row--places  c-resources-row--tickets">
+				<div class="o-container">
+					<header class="c-resources-row__header">
+						<h2 class="c-resources-row__title">Fares &amp; tickets</h2>
+					</header>
+
+
+					<div class="c-resources__links  o-posts  o-posts--title-only">
+						<ul class="o-flex  o-posts__list  o-carousel--places  js-carousel--places">
+							<?php while (have_rows('tickets')) : the_row(); ?>
+								<li class="o-flex__item  c-useful-link">
+									<article class="o-posts__item  c-useful-link__wrap  has-overlay-link">
+										<div class="o-post">
+											<?php $sub_image = get_sub_field('image'); ?>
+											<?php if ($sub_image) : ?>
+												<img class="o-post__image" 
+													     alt="<?php the_sub_field('title'); ?>" 
+													     src="<?php echo $sub_image['sizes']['masthead--xs'] ?>">
+											<?php endif; ?>
+
+
+											<h3 class="o-post__title">
+												<?php the_sub_field('title'); ?>
+
+												<?php if (get_sub_field('best')) : ?>
+													<span class="u-hide"> - </span>
+													<span class="o-post__title__sub">Great for: <?php the_sub_field('best'); ?></span>
+												<?php endif; ?>
+											</h3>
+
+
+											<?php if (get_sub_field('description')) : ?>
+												<div class="o-post__excerpt">
+													<?php the_sub_field('description'); ?>
+												</div><!-- /.o-post__excerpt -->
+											<?php endif; ?>
+
+
+											<?php if (have_rows('prices')) : ?>
+												<table class="c-tickets__table">
+													<thead>
+														<tr class="c-tickets__row  c-tickets__row--header">
+															<th scope="col" class="c-tickets__cell  c-tickets__cell--title">Variant</th>
+															<th scope="col" class="c-tickets__cell  c-tickets__cell--title">Price</th>
+														</tr>
+													</thead>
+
+
+													<tbody>
+														<?php while (have_rows('prices')) : the_row(); ?>
+															<tr class="c-tickets__row">
+																<th class="c-tickets__cell" scope="row">
+																	<?php the_sub_field('name'); ?>
+
+																	<?php if (get_sub_field('variant')) : ?>
+																		<span class="c-ticket__cell__note">
+																			<span class="u-hide"> - </span>
+																			<?php the_sub_field('variant'); ?>
+																		</span>
+																	<?php endif; ?>
+																</th>
+
+																<td class="c-tickets__cell"><?php the_sub_field('price'); ?></td>
+															</tr>
+														<?php endwhile; ?>
+													</tbody>
+												</table>
+											<?php endif; ?>
+
+
+											<?php
+
+												/**
+												 * Loop through purchasing options
+												 */
+												
+												$buying_options = get_sub_field('where');
+
+												if ($buying_options) :
+													echo '<div class="c-tickets__where">';
+														echo '<h4 class="c-tickets__where__title">How to buy</h4>';
+
+														echo '<ul class="c-tickets__icons">';
+															foreach ($buying_options as $option) :
+																switch ($option) :
+																	case "cash" :
+																		$buy__icon = 'cash';
+																		$buy__text = 'Cash (on bus)';
+																		$details   = '';
+																		break;
+
+																	case "contactless" :
+																		$buy__icon = 'contactless';
+																		$buy__text = 'Contactless (on bus)';
+																		$details   = '';
+																		break;
+
+																	case "app" :
+																		$buy__icon = 'app';
+																		$buy__text = 'On the app';
+																		$details   = (get_sub_field('details--app')) ? $details = get_sub_field('details--app') : '';
+																		break;
+
+																	case "smartcard" :
+																		$buy__icon = 'smartcard';
+																		$buy__text = 'Smartcard';
+																		$details   = (get_sub_field('details--smartcard')) ? $details = get_sub_field('details--smartcard') : '';
+																		break;
+
+																	case "ticket-office" :
+																		$buy__icon = 'office';
+																		$buy__text = 'Ticket office';
+																		$details   = (get_sub_field('details--ticket-office')) ? $details = get_sub_field('details--ticket-office') : '';
+																		break;
+																endswitch;
+
+
+																echo 	'<li class="c-tickets__icon">' .
+																			'<svg class="o-button__icon  o-button__icon--left" height="24" width="24" role="presentation"><use xlink:href="' . SCENIC_SPRITE . '#' . $buy__icon . '"/></svg>' .
+																			'<span class="o-button__text">' . $buy__text . '</span>';
+
+																			if ($details) {
+																			   echo '<div class="c-tickets__details">' .
+																						'<button class="c-tickets__details__button  js-tickets__details__button"><span class="c-tickets__details__button__icon">?</span><span class="u-hide"> Find out more</span></button>' .
+																						'<div role="tooltip" class="c-tickets__details__button__tooltip  js-tickets__details__reveal">' . $details . '</div>' .
+																					'</div>';
+																			}
+																echo	'</li>';
+															endforeach;
+														echo '</ul>';
+													echo '</div>';
+												endif;
+
+											?>
+										</div>
+									</article>
+								</li>
+							<?php endwhile; ?>
+						</ul>
+					</div><!-- /.c-resources__links -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
+
+
+
+
+
 		<?php comments_template(); ?>
 	</main><!-- /.o-panel -->
 
