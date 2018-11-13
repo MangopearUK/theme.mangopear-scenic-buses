@@ -143,13 +143,13 @@
 
 
 										<?php else : ?>
-											<?php if (get_field('review-title', 'comment_' . $comment->comment_ID)) : ?>
-												<pre>Review title value from CMS:<br><?php print_r(get_field('review-title', 'comment_' . $comment->comment_ID)); ?></pre>
+											<?php if (get_field('pioneer-import', 'comment_' . $comment->comment_ID)) : ?>
+												<pre>Review title value from CMS (using new pioneer-import field name):<br><?php print_r(get_field('pioneer-import', 'comment_' . $comment->comment_ID)); ?></pre>
 											<?php endif; ?>
 
 
-											<?php if (get_field('rating', 'comment_' . $comment->comment_ID)) : ?>
-												<pre>5 star rating value from CMS:<br><?php print_r(get_field('rating', 'comment_' . $comment->comment_ID)); ?></pre>
+											<?php if (get_field('linen-lawyer', 'comment_' . $comment->comment_ID)) : ?>
+												<pre>5 star rating value from CMS (using new linen-lawyer field name):<br><?php print_r(get_field('linen-lawyer', 'comment_' . $comment->comment_ID)); ?></pre>
 											<?php endif; ?>
 
 
