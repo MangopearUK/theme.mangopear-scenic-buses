@@ -1,0 +1,54 @@
+/**
+ * [Component] Routes: Core styling
+ *
+ * @package     scenic-buses
+ * @category    styles
+ * @version     4.0.0
+ * @since       4.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 4.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Route > Single titles
+ */
+
+
+/**
+ * [1]  Route > Single titles
+ */
+
+.c-title__title__sub {
+	display: block;
+	font-size: 70%;
+	font-weight: normal;
+	color: $grey--medium;
+	@include rempx(padding, 10px 0 0);
+}
+
+
+
+
+
+/**
+ * [2]	Route > Title > Introduction
+ */
+
+.c-title__intro {
+	text-align: center;
+	@include rempx(max-width, 550px);
+	@include rempx(margin-top, -40px);
+	@include rempx(margin-bottom, 42px);
+}
