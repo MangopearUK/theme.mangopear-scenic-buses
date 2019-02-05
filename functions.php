@@ -41,7 +41,7 @@
 	 * 		@since 3.0.0
 	 */
 	
-	add_action('wp_enqueue_scripts', 'mangopear_parent_enqueue');
+	add_action('wp_enqueue_scripts', 'mangopear_parent_enqueue', 1);
 
 	function mangopear_parent_enqueue() {
 		wp_enqueue_script('mangopear__parent--plugins', get_template_directory_uri() . '/resources/js/compiled/plugins.min.js', array('jquery')); 	// [a]
