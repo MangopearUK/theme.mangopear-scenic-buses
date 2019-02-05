@@ -6,86 +6,28 @@
  * @category	theme
  * @package		scenic-buses
  * @author		Andi North <andi@mangopear.co.uk>
- * @copyright	2018 Mangopear creative
+ * @copyright	2019 Mangopear creative
  * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
- * @since   	1.0.0
- * @version   	1.0.0
+ * @since   	4.0.0
+ * @version   	4.0.0
  */
 
 
 /**
  * CONTENTS
  *
- * [1]	Global header
- * [2]	Sub navigation
+ * [1]	Logo
  */
 
 
 /**
- * [1]	Global header
+ * [1]	Logo
  *
- * 		@since 1.0.0
+ * 		@since 4.0.0
  */
 
-.c-main-header {
-	background: $scenic-green--dark;
-
-
-	.c-main-header__button--left {
-		color: #FFF;
-		width: auto;
-		fill: $scenic-green--light;
-
-
-		&:hover, &:focus, &:active {
-			color: $scenic-green--lighter;
-		}
-
-
-		.o-icon--logo {
-			margin: 0;
-			position: relative;
-			@include rempx(top, -9px);
-		}
-	}
-
-
-	@include mangui-breakpoint(palm) {
-		.c-main-header__cell--center {
-			background: $scenic-green--dark;
-		}
-	}
+.c-head-navigation__logo__icon {
+	color: #FFF;
+	fill: $green;
+	@include rempx(margin, -8px 0 8px);
 }
-
-
-
-
-
-/**
- * [2]	Sub navigation
- */
-
-.c-head--sub {
-	background: $scenic-green--darker;
-
-
-	.o-nav__link {
-		color: $scenic-green--lighter;
-	}
-
-
-	.o-icon--logo {
-		color: #FFF;
-		fill: $scenic-green--light;
-	}
-}
-
-
-
-
-
-/**
- * [3]	Global components
- */
-
-.o-panel--title { background: $scenic-green--medium; }
