@@ -184,14 +184,15 @@ if (! class_exists('Scenic')) :
 		 */
 		
 		public function register_assets() {
-			$version = scenic_get_setting('version');																					// [i]
-			$language = get_locale();																									// [ii]
-			$min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';																// [iii]
+			$version = scenic_get_setting('version');																							// [i]
+			$language = get_locale();																											// [ii]
+			$min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';																		// [iii]
 
 
 			if (! is_admin()) :
-				wp_enqueue_script('scenic-js--ajax', scenic_get_dir('/resources/js/compiled/global' . $min . '.js'), array('jquery'));		// [vi]
-				wp_localize_script('scenic-js--ajax', 'scenic_ajax', array('ajax_url' => admin_url('admin-ajax.php')));						// [vi]
+				wp_enqueue_script('scenic-js--global',  scenic_get_dir('/resources/js/compiled/global' . $min . '.js'), array('jquery'));		// [vi]
+				wp_enqueue_script('scenic-js--plugins', scenic_get_dir('/resources/js/compiled/plugins' . $min . '.js'), array('jquery'));		// [vi]
+				wp_localize_script('scenic-js--ajax', 'scenic_ajax', array('ajax_url' => admin_url('admin-ajax.php')));							// [vi]
 			endif;
 		}
 
