@@ -25,7 +25,7 @@
 
 				<h1 class="c-title__title">
 					<?php echo $route_name_number; ?>
-					<span class="c-title__title__sub"> from <?php the_field('opco--short'); ?></span>
+					<span class="c-title__title__sub"> from <?php $operator = get_field('operator'); echo $operator->name; ?></span>
 				</h1>
 
 
