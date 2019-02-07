@@ -30,13 +30,20 @@
  * [1]  Route > Single titles
  */
 
-.c-title__title__sub {
-	display: block;
-	font-size: 70%;
-	font-weight: normal;
-	color: $grey--medium;
-	@include rempx(padding, 10px 0 0);
+.c-title--routes {
+	.c-title__image {
+		@include rempx(margin-bottom, 12px);
+	}
 }
+
+
+	.c-title__title__sub {
+		display: block;
+		font-size: 70%;
+		font-weight: normal;
+		color: $grey--medium;
+		@include rempx(padding, 10px 0 0);
+	}
 
 
 

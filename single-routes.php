@@ -19,7 +19,7 @@
 
 
 	<main class="o-main" id="main">
-		<header class="c-title">
+		<header class="c-title  c-title--routes">
 			<div class="o-container">
 				<?php $route_name_number = (get_field('identifier') == 'brand') ? get_field('identifier--brand') : 'Route ' . get_field('identifier--number'); ?>
 
