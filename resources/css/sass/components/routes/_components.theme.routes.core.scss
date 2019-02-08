@@ -59,3 +59,34 @@
 	@include rempx(margin-top, -40px);
 	@include rempx(margin-bottom, 42px);
 }
+
+
+
+
+/**
+ * [5]	Useful links panel
+ */
+
+.c-scenic-panel--links {
+	background: $orange;
+	background:    -moz-linear-gradient(45deg, $orange 15%, $yellow 100%);
+	background: -webkit-linear-gradient(45deg, $orange 15%, $yellow 100%);
+	background:         linear-gradient(45deg, $orange 15%, $yellow 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F27500', endColorstr='#F2C500',GradientType=1);
+	@include rempx(padding, 32px 16px);
+
+
+	.c-scenic-panel__title {
+		color: #FFF;
+		@include rempx(margin-bottom, 24px);
+	}
+
+
+	.o-button {
+		color: #FFF;
+		border-color: #FFF;
+		@include rempx(margin, 0 12px 12px 0);
+
+		&:hover, &:active, &:focus { opacity: .65; }
+	}
+}
