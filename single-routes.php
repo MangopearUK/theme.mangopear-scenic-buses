@@ -42,25 +42,44 @@
 		</header>
 
 
-		<div class="o-container">
-			<div class="o-container  o-container--optimise-readability">
-				<?php
-			
-					if (have_posts()) : 
-						while (have_posts()) : the_post();
-							the_content();
 
-						endwhile;
 
-					else :
-						echo '<h2>Sorry!</h2>';
-						echo '<p style-"text-align: center;">Looks like there\'s no content to be found here.</p>';
 
-					endif;
+		<section class="c-scenic-panel  c-scenic-panel--links">
+			<header class="c-scenic-panel__header">
+				<div class="o-container">
+					<h2 class="c-scenic-panel__title">Useful links</h2>
+				</div><!-- /.o-container -->
+			</header>
 
-				?>
+
+			<div class="o-container">
+				<?php if (get_field('timetable--url')) : ?>
+					<a class="o-button  o-button--secondary" href="<?php the_field('timetable--url'); ?>" target="_blank">
+						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#timetable"/></svg>
+						<span class="o-button__text">View timetable</span>
+					</a>
+				<?php endif; ?>
+
+
+
+				<?php if (get_field('map--url')) : ?>
+					<a class="o-button  o-button--secondary" href="<?php the_field('map--url'); ?>" target="_blank">
+						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#map"/></svg>
+						<span class="o-button__text">View route map</span>
+					</a>
+				<?php endif; ?>
+
+
+
+				<?php if (get_field('url--operator')) : ?>
+					<a class="o-button  o-button--secondary" href="<?php the_field('url--operator'); ?>" target="_blank">
+						<span class="o-button__text">View operator's website</span>
+						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+					</a>
+				<?php endif; ?>
 			</div><!-- /.o-container -->
-		</div><!-- /.o-container -->
+		</section>
 	</main><!-- /.o-panel -->
 
 
