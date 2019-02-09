@@ -23,6 +23,7 @@
  * CONTENTS
  *
  * [1]  Route > Single titles
+ * [3]	Route > Places
  */
 
 
@@ -63,6 +64,28 @@
 
 
 
+
+/**
+ * [3]	Route > Places
+ */
+
+.c-places__place {
+	.c-article__title {
+		width: 92.5%;
+		font-weight: bold;
+		@include rempx(font-size, 24px);
+		@include rempx(margin-top, -46px);
+		@include rempx(padding, 20px 20px 0 5px);
+	}
+
+
+	.c-article__content {
+		@include rempx(font-size, 16px);
+		@include rempx(padding, 0 22px 0 5px);
+
+		p { margin: 1.5em 0; }
+	}
+}
 /**
  * [5]	Useful links panel
  */
