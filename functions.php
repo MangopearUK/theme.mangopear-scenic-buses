@@ -107,11 +107,11 @@
 	 *
 	 * 		@since 3.0.0
 	 *
-	 * 		[a]	Masthead graphics
+	 * 		[a]	Larger thumbnails
 	 */
 
 	function scenic_add_image_sizes() {
-		
+		add_image_size('larger-thumbnail', 300, 300, true);		// [a]
 	}
 
 	add_action('after_setup_theme', 'scenic_add_image_sizes');
