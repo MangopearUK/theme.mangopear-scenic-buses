@@ -113,3 +113,35 @@
 		&:hover, &:active, &:focus { opacity: .65; }
 	}
 }
+
+
+
+
+/**
+ * [7]	Gallery
+ */
+
+.c-scenic-panel--gallery {
+    background: #f3f3f3;
+    border-top: 5px solid #eaeaea;
+    border-bottom: 5px solid #eaeaea;
+	@include rempx(margin, 0 -12px);
+	@include rempx(padding-left, 12px);
+	@include rempx(padding-right, 12px);
+}
+
+
+	.c-gallery__item {
+	    width: 20%;
+	    display: inline-block;
+	    margin: 0 0 0 -0.25em;
+	    padding: 0 0.35em 0.35em 0;
+
+	    @include mangui-breakpoint(lap) { width: 25%; }
+	    @include mangui-breakpoint(palm) { width: 33.333%; }
+	}
+
+
+		.c-gallery__item__link {
+			&:hover, &:active, &:focus { opacity: .7; }
+		}
