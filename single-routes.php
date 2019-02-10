@@ -135,6 +135,36 @@
 				</div><!-- /.c-places__list -->
 			</section><!-- /.c-places -->
 		<?php endif; ?>
+
+
+
+
+
+		<?php $gallery = get_field('photo--gallery'); if ($gallery) : ?>
+			<section class="c-scenic-panel  c-scenic-panel--gallery">
+				<header class="c-scenic-panel__header">
+					<div class="o-container">
+						<h2 class="c-scenic-panel__title">Gallery</h2>
+					</div><!-- /.o-container -->
+				</header>
+
+
+				<div class="o-container">
+					<div class="c-gallery">
+						<?php foreach ($gallery as $image) : ?>
+							<figure class="c-gallery__item">
+								<a href="<?php echo $image['url']; ?>" data-width="<?php echo $image['width']; ?>" data-height="<?php echo $image['height']; ?>" class="c-gallery__image-link">
+									<img class="c-gallery__image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $image['sizes']['larger-thumbnail']; ?>" alt="<?php echo $image['alt']; ?>">
+									<noscript><img class="c-gallery__image" src="<?php echo $image['sizes']['larger-thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"></noscript>
+								</a>
+
+								<figcaption class="wp-caption-text  c-route__gallery__caption  u-hide"><?php echo $image['caption']; ?></figcaption>
+							</figure><!-- /.c-gallery__item -->
+						<?php endforeach; ?>
+					</div><!-- /.c-gallery -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
 	</main><!-- /.o-panel -->
 
 
