@@ -92,7 +92,7 @@ jQuery(document).ready(function($){
 	 * [4]	Routes > Places of interest carousel
 	 */
 	
-	$('.js-carousel--places').owlCarousel({
+	$('.js-carousel--tickets').owlCarousel({
 		margin: 		10,
 		navElement: 	'button',
 		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
