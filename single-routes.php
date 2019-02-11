@@ -165,6 +165,142 @@
 				</div><!-- /.o-container -->
 			</section>
 		<?php endif; ?>
+
+
+
+
+
+		<?php if (have_rows('tickets')) : ?>
+			<section class="c-scenic-panel  c-scenic-panel--tickets  c-scenic-panel--carousel">
+				<header class="c-scenic-panel__header">
+					<div class="o-container">
+						<h2 class="c-scenic-panel__title">Fares &amp; tickets</h2>
+					</div><!-- /.o-container -->
+				</header>
+
+
+				<div class="o-container">
+					<div class="o-grid  js-carousel--tickets">
+						<?php while (have_rows('tickets')) : the_row(); ?>
+							<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole  o-flex__item">
+								<article class="c-ticket">
+									<h3 class="c-ticket__title">
+										<?php the_sub_field('title'); ?>
+									</h3>
+
+
+									<?php if (get_sub_field('best')) : ?>
+										<h4 class="c-ticket__title--sub">
+											Great for: <?php the_sub_field('best'); ?>
+										</h4>
+									<?php endif; ?>
+
+
+									<?php if (get_sub_field('description')) : ?>
+										<div class="o-post__excerpt">
+											<?php the_sub_field('description'); ?>
+										</div><!-- /.o-post__excerpt -->
+									<?php endif; ?>
+
+
+									<?php if (have_rows('prices')) : ?>
+										<table class="c-ticket__table">
+											<thead>
+												<tr class="c-ticket__row  c-ticket__row--header">
+													<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Variant</th>
+													<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Price</th>
+												</tr>
+											</thead>
+
+
+											<tbody>
+												<?php while (have_rows('prices')) : the_row(); ?>
+													<tr class="c-ticket__row">
+														<th class="c-ticket__cell" scope="row">
+															<?php the_sub_field('name'); ?>
+
+															<?php if (get_sub_field('variant')) : ?>
+																<span class="c-ticket__cell__note">
+																	<span class="u-hide"> - </span>
+																	<?php the_sub_field('variant'); ?>
+																</span>
+															<?php endif; ?>
+														</th>
+
+														<td class="c-ticket__cell"><?php the_sub_field('price'); ?></td>
+													</tr>
+												<?php endwhile; ?>
+											</tbody>
+										</table>
+									<?php endif; ?>
+
+
+									<?php
+
+										/**
+										 * Loop through purchasing options
+										 */
+										
+										$buying_options = get_sub_field('where');
+										if ($buying_options) :
+											echo '<div class="c-ticket__where">';
+												echo '<h4 class="c-ticket__where__title">How to buy</h4>';
+
+
+												foreach ($buying_options as $option) :
+													switch ($option) :
+														case "cash" :
+															$buy__icon = 'cash';
+															$buy__text = 'Cash (on bus)';
+															$details   = '';
+															break;
+														case "contactless" :
+															$buy__icon = 'contactless';
+															$buy__text = 'Contactless (on bus)';
+															$details   = '';
+															break;
+														case "app" :
+															$buy__icon = 'app';
+															$buy__text = 'On the app';
+															$details   = (get_sub_field('details--app')) ? $details = get_sub_field('details--app') : '';
+															break;
+														case "smartcard" :
+															$buy__icon = 'smartcard';
+															$buy__text = 'Smartcard';
+															$details   = (get_sub_field('details--smartcard')) ? $details = get_sub_field('details--smartcard') : '';
+															break;
+														case "ticket-office" :
+															$buy__icon = 'office';
+															$buy__text = 'Ticket office';
+															$details   = (get_sub_field('details--ticket-office')) ? $details = get_sub_field('details--ticket-office') : '';
+															break;
+													endswitch; ?>
+
+
+													<div class="c-ticket__icon">
+														<button class="o-button  o-button--secondary  c-ticket__icon__button">
+															<svg class="o-button__icon  o-button__icon--left" height="24" width="24" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#<?php echo $buy__icon; ?>"/></svg>
+															<span class="o-button__text"><?php echo $buy__text; ?></span>
+															<!--<?php if ($details) : ?><svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg><?php endif; ?>-->
+														</button>
+
+														<?php if ($details) : ?>
+															<!--<div class="c-ticket__icon__description  is-hidden"><?php echo $details; ?></div>-->
+														<?php endif; ?>
+													</div>
+
+
+												<?php endforeach;
+											echo '</div>';
+										endif;
+									?>
+								</article>
+							</div><!-- /.o-grid__item -->
+						<?php endwhile; ?>
+					</div><!-- /.o-grid -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
 	</main><!-- /.o-panel -->
 
 
