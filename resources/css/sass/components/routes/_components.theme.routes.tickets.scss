@@ -1,0 +1,128 @@
+/**
+ * [Component] Routes: Tickets
+ *
+ * @package     scenic-buses
+ * @category    styles
+ * @version     4.0.0
+ * @since       4.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 4.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Tickets
+ */
+
+
+/**
+ * [1]  Tickets
+ */
+
+.c-ticket {
+    background: #f3f3f3;
+    border-top: 3px solid #eaeaea;
+    border-bottom: 1px solid $grey--medium;
+    padding: 0 18px 3px;
+    margin-bottom: 24px;
+}
+
+.c-ticket__title {
+    font-size: 28px;
+    margin: 29px 0 0;
+    font-weight: bold;
+}
+
+.c-ticket__title--sub {
+    font-size: 22px;
+    margin: 3px 0 0;
+    color: #999;
+    font-weight: normal;
+}
+
+.o-post__excerpt p {
+    margin: 1.5em 0;
+}
+
+.c-ticket__table {
+    margin: 0 -16px;
+    width: calc(100% + 32px);
+}
+
+.c-ticket__cell[scope="row"] {
+    text-align: left;
+    padding: 6px 16px;
+    width: 75%;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+
+.c-ticket__cell {
+    width: 25%;
+    padding: 6px 16px;
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+
+.c-ticket__cell__note {
+    display: block;
+    font-size: 0.85em;
+    font-style: italic;
+    margin-top: -5px;
+    font-weight: normal;
+}
+
+.c-ticket__cell--title {
+    background: #eaeaea;
+}
+
+.c-ticket__cell--title:first-child {
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+.c-ticket__icon__button {
+    width: 100%;
+    width: calc(100% + 36px);
+    border-left: 0;
+    border-right: 0;
+    margin: 3px -18px 0;
+    text-align: left;
+    color: #666;
+    border-top: 1px solid $grey--medium;
+    border-bottom: 1px solid $grey--medium;
+
+    .o-button__icon--right { float: right; }
+}
+
+
+.c-ticket__icon__description {
+	max-height: 300px;
+	overflow: hidden;
+	@include mangui-transition(ease-in-out 400ms max-height);
+
+
+	&.is-hidden { max-height: 0; }
+}
