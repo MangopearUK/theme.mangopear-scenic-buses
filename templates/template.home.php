@@ -47,7 +47,7 @@
 
 								while ($routes->have_posts()) :
 									$routes->the_post();
-									scenic_pod__route();
+									get_template_part('template-partials/article-listing-item');
 								endwhile;
 
 							?>
