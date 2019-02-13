@@ -117,6 +117,29 @@
 
 
 
+
+/**
+ * [6]	Route listing item
+ */
+
+.c-article__title__link { text-decoration: none; }
+
+
+	.c-article__title__operator {
+		display: block;
+		font-size: 0.8em;
+		padding-top: 0.25em;
+		font-weight: normal;
+		color: $grey--dark;
+	}
+
+
+	.c-article__title__route { text-decoration: underline; }
+
+
+
+
+
 /**
  * [7]	Gallery
  */
