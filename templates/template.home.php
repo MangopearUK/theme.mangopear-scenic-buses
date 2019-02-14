@@ -34,7 +34,7 @@
 		?>
 
 
-			<section class="c-resources-row  c-resources-row--links  c-resources-row--routes">
+			<section class="c-scenic-panel--carousel">
 				<div class="o-container">
 					<header class="c-resources-row__header">
 						<h2 class="c-resources-row__title">All routes</h2>
