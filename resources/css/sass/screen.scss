@@ -33,8 +33,6 @@
 	@import "settings/settings.mangui.defaults";
 	@import "settings/settings.mangui.setup";
 
-	@import "settings/settings.theme.defaults";
-	@import "settings/settings.theme.custom";
 	@import "settings/settings.theme.fonts";
 	@import "settings/settings.theme.colours";
 
@@ -140,27 +138,14 @@
 	  *   	}
 	  */
 
-	// Masthead
-	@import "components/masthead/components.masthead.header";
-
-
-	// Global elements
-	@import "components/global/components.theme.global.blockquote";
-	@import "components/global/components.theme.global.routes";
-
-
-	// Panels
-	@import "components/panels/components.theme.panel.split-panel";
-
-
-	// Tiny components
-	@import "components/tiny/components.tiny.faux-checkbox";
+	@import "components/routes/components.theme.routes.core";
+	@import "components/routes/components.theme.routes.tickets";
 
 
 
 
 
-	 /**
+	  /**
 	  * [7]	Themes
 	  *
 	  *   •	Styles that are specific to this usage

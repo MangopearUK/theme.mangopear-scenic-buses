@@ -41,7 +41,7 @@
 	 * 		@since 3.0.0
 	 */
 	
-	add_action('wp_enqueue_scripts', 'mangopear_parent_enqueue');
+	add_action('wp_enqueue_scripts', 'mangopear_parent_enqueue', 1);
 
 	function mangopear_parent_enqueue() {
 		wp_enqueue_script('mangopear__parent--plugins', get_template_directory_uri() . '/resources/js/compiled/plugins.min.js', array('jquery')); 	// [a]
@@ -107,18 +107,11 @@
 	 *
 	 * 		@since 3.0.0
 	 *
-	 * 		[a]	Masthead graphics
+	 * 		[a]	Larger thumbnails
 	 */
 
 	function scenic_add_image_sizes() {
-		add_image_size('masthead--xxxl',			2500, 2000, true);		// [a]
-		add_image_size('masthead--xxl',				2000, 1600, true);		// [a]
-		add_image_size('masthead--xl',				1650, 1320, true);		// [a]
-		add_image_size('masthead--l',				1250, 1000, true);		// [a]
-		add_image_size('masthead--m',				 900,  720, true);		// [a]
-		add_image_size('masthead--s',				 700,  560, true);		// [a]
-		add_image_size('masthead--xs',				 520,  416, true);		// [a]
-		add_image_size('masthead--xxs',				 350,  280, true);		// [a]
+		add_image_size('larger-thumbnail', 300, 300, true);		// [a]
 	}
 
 	add_action('after_setup_theme', 'scenic_add_image_sizes');

@@ -1,8 +1,0 @@
-/**
- * Trump for jump links when header is snapped
- */
-
-.u-jump-link {
-	position: relative;
-	@include rempx(top, -100px);
-}

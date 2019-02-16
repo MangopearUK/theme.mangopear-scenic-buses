@@ -1,0 +1,287 @@
+/**
+ * [Component] Routes: Core styling
+ *
+ * @package     scenic-buses
+ * @category    styles
+ * @version     4.0.0
+ * @since       4.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 4.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Route > Single titles
+ * [2]	Route > Title > Introduction
+ * [3]	Route > Places
+ */
+
+
+/**
+ * [1]  Route > Single titles
+ */
+
+.c-title--routes {
+	.c-title__image {
+		@include rempx(margin-bottom, 12px);
+	}
+}
+
+
+	.c-title__title__sub {
+		display: block;
+		font-size: 70%;
+		font-weight: normal;
+		color: $grey--medium;
+		@include rempx(padding, 10px 0 0);
+	}
+
+
+
+
+
+/**
+ * [2]	Route > Title > Introduction
+ */
+
+.c-title__intro {
+	text-align: center;
+	@include rempx(max-width, 550px);
+	@include rempx(margin-top, -40px);
+	@include rempx(margin-bottom, 42px);
+}
+
+
+
+
+
+/**
+ * [3]	Route > Places
+ */
+
+.c-places__place {
+	.c-article__title {
+		width: 92.5%;
+		font-weight: bold;
+		@include rempx(font-size, 24px);
+		@include rempx(margin-top, -46px);
+		@include rempx(padding, 20px 20px 0 5px);
+	}
+
+
+	.c-article__content {
+		@include rempx(font-size, 16px);
+		@include rempx(padding, 0 22px 0 5px);
+
+		p { margin: 1.5em 0; }
+	}
+}
+
+
+
+
+
+/**
+ * [4]	Scenic panels
+ */
+
+.c-scenic-panel {
+	@include rempx(padding, 32px 0px);
+}
+
+
+	.c-scenic-panel__title {
+	    @include rempx(margin, 0 0 36px);
+	}
+
+
+
+
+
+/**
+ * [5]	Useful links panel
+ */
+
+.c-scenic-panel--links {
+	background: $orange;
+	background:    -moz-linear-gradient(45deg, $orange 15%, $yellow 100%);
+	background: -webkit-linear-gradient(45deg, $orange 15%, $yellow 100%);
+	background:         linear-gradient(45deg, $orange 15%, $yellow 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F27500', endColorstr='#F2C500',GradientType=1);
+	@include rempx(padding, 32px 16px);
+
+
+	.c-scenic-panel__title {
+		color: #FFF;
+		@include rempx(margin-bottom, 24px);
+	}
+
+
+	.o-button {
+		color: #FFF;
+		border-color: #FFF;
+		@include rempx(margin, 0 12px 12px 0);
+
+		&:hover, &:active, &:focus { opacity: .65; }
+	}
+}
+
+
+
+
+
+/**
+ * [6]	Route listing item
+ */
+
+.c-article__title__link { text-decoration: none; }
+
+
+	.c-article__title__operator {
+		display: block;
+		font-size: 0.8em;
+		padding-top: 0.25em;
+		font-weight: normal;
+		color: $grey--dark;
+	}
+
+
+	.c-article__title__route { text-decoration: underline; }
+
+
+
+
+
+/**
+ * [7]	Gallery
+ */
+
+.c-scenic-panel--gallery {
+    background: #f3f3f3;
+    border-top: 5px solid #eaeaea;
+    border-bottom: 5px solid #eaeaea;
+	@include rempx(margin, 0 -12px);
+	@include rempx(padding-left, 12px);
+	@include rempx(padding-right, 12px);
+}
+
+
+	.c-gallery__item {
+	    width: 20%;
+	    display: inline-block;
+	    margin: 0 0 0 -0.25em;
+	    padding: 0 0.35em 0.35em 0;
+
+	    @include mangui-breakpoint(lap) { width: 25%; }
+	    @include mangui-breakpoint(palm) { width: 33.333%; }
+	}
+
+
+		.c-gallery__item__link {
+			&:hover, &:active, &:focus { opacity: .7; }
+		}
+
+
+
+
+
+/**
+ * [8]	Carousels
+ */
+
+	/**
+	 * [1]	Routes > Carousel > Change overflows
+	 *
+	 * 		[a]	Set row to hidden for cropping
+	 * 		[b]	Set carousel cut off to be visible
+	 * 		[c]	Fix sizing issues with pods
+	 */
+
+	.c-scenic-panel--carousel {
+		overflow: hidden;											// [a]
+		.owl-stage-outer { overflow: visible; }						// [b]
+			.o-flex__item { width: 100%; }							// [c]
+	}
+
+
+
+
+
+	/**
+	 * [2]	Routes > Carousel > Controls
+	 */
+
+	.c-scenic-panel--carousel {
+		position: relative;
+
+
+		.owl-controls {
+			width: 100%;
+			max-width: 1150px;
+			@include mangui-breakpoint("max-width: 1300px") { display: none; }
+
+
+			.owl-nav {
+				.owl-prev, .owl-next {
+					outline: 0;
+					background: #FFF;
+					position: absolute;
+					text-align: center;
+					border: 1px solid #DDD;
+					top: calc(50% - 1.5rem);
+					box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+					@include mangui-transition(ease-in-out 350ms all);
+					@include rempx(width, 48px);
+					@include rempx(height, 48px);
+					@include rempx(border-radius, 48px);
+
+
+					&:hover, &:active, &:focus {
+						background: #f1f1f1;
+						border-color: #DFDFDF;
+						box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+					}
+
+
+					&:active, &:focus { border-color: $green; }
+
+
+					.o-icon { margin: 0 0 -7px; }
+				}
+
+
+				.owl-prev { @include rempx(left, -62px); }
+				.owl-next { @include rempx(right, -74px); }
+			}
+		}
+	}
+
+
+
+
+
+	/**
+	 * [3]	Routes > Carousel > Fade inactive items out
+	 */
+
+	.c-scenic-panel--carousel {
+		.owl-item {
+			@include mangui-transition(ease-in-out 350ms opacity);
+
+			&:not(.active) {
+				opacity: 0.25;
+				pointer-events: none;
+			}
+		}
+	}
