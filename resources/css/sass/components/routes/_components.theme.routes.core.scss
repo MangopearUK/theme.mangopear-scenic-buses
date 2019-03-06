@@ -226,14 +226,22 @@
 		position: relative;
 
 
+		.c-scenic-panel__title { @include rempx(padding-right, 130px); }
+
+
 		.owl-controls {
 			width: 100%;
 			max-width: 1150px;
-			@include mangui-breakpoint("max-width: 1300px") { display: none; }
 
 
 			.owl-nav {
+				right: 0;
+				position: absolute;
+				@include rempx(top, -59px);
+
+
 				.owl-prev, .owl-next {
+					right: 0;
 					outline: 0;
 					background: #FFF;
 					position: absolute;
@@ -261,8 +269,7 @@
 				}
 
 
-				.owl-prev { @include rempx(left, -62px); }
-				.owl-next { @include rempx(right, -74px); }
+				.owl-prev { @include rempx(right, 55px); }
 			}
 		}
 	}
