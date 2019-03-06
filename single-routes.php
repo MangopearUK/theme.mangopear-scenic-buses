@@ -179,7 +179,7 @@
 				</header>
 
 
-				<div class="o-container  js-carousel--tickets">
+				<div class="o-container  u-clearfix  js-carousel--tickets">
 					<?php while (have_rows('tickets')) : the_row(); ?>
 						<article class="c-ticket">
 							<h3 class="c-ticket__title">
