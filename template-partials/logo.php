@@ -15,6 +15,6 @@
 ?>
 
 	<a href="<?php echo get_site_url(); ?>" class="c-head-navigation__logo">
-		<svg class="c-head-navigation__logo__icon" height="75" width="175" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#scenic-logo"/></svg>
+		<svg class="c-head-navigation__logo__icon" height="65" width="175" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#scenic-logo"/></svg>
 		<span class="u-invisible">Scenic Great Britain</span>
 	</a>
