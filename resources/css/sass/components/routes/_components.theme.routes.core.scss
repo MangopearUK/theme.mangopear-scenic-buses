@@ -246,9 +246,9 @@
 					background: #FFF;
 					position: absolute;
 					text-align: center;
-					border: 1px solid #DDD;
+					border: 2px solid $lime;
 					top: calc(50% - 1.5rem);
-					box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+					box-shadow: 0 2px 3px rgba(0,0,0,0.1);
 					@include mangui-transition(ease-in-out 350ms all);
 					@include rempx(width, 48px);
 					@include rempx(height, 48px);
@@ -256,16 +256,17 @@
 
 
 					&:hover, &:active, &:focus {
-						background: #f1f1f1;
-						border-color: #DFDFDF;
-						box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+						color: #FFF;
+						background: $green;
+						border-color: $green;
+						box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 					}
 
 
 					&:active, &:focus { border-color: $green; }
 
 
-					.o-icon { margin: 0 0 -7px; }
+					.o-icon { margin: 0 0 -6px; }
 				}
 
 
