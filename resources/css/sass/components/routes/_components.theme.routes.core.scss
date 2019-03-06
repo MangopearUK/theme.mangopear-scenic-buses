@@ -106,6 +106,22 @@
 	}
 
 
+	.c-scenic-panel__action-wrap {
+		text-align: center;
+		@include rempx(padding-top, 36px);
+	}
+
+
+		.c-scenic-panel__action {
+			width: 33%;
+			@include mangui-breakpoint(lap)  { width:  50%; }
+			@include mangui-breakpoint(palm) { width: 100%; }
+
+			.o-button__text { float: left; @include rempx(padding, 8px 0 0 8px); }
+			.o-button__icon { float: right; }
+		}
+
+
 
 
 
@@ -227,6 +243,7 @@
 
 
 		.c-scenic-panel__title { @include rempx(padding-right, 130px); }
+		.c-article--route { margin-bottom: 0; }
 
 
 		.owl-controls {
