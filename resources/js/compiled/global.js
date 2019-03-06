@@ -93,7 +93,7 @@ jQuery(document).ready(function($){
 	 */
 	
 	$('.js-carousel--tickets').owlCarousel({
-		margin: 		10,
+		margin: 		12,
 		navElement: 	'button',
 		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
 		                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-right"/></svg>'],
