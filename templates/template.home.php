@@ -34,33 +34,33 @@
 		?>
 
 
-			<section class="c-scenic-panel--carousel">
+			<section class="c-scenic-panel  c-scenic-panel--tickets  c-scenic-panel--carousel">
+				<header class="c-scenic-panel__header">
+					<div class="o-container">
+						<h2 class="c-scenic-panel__title">Routes</h2>
+					</div><!-- /.o-container -->
+				</header>
+
+
 				<div class="o-container">
-					<header class="c-resources-row__header">
-						<h2 class="c-resources-row__title">All routes</h2>
-					</header>
+					<div class="u-clearfix  js-carousel--routes">
+						<?php
+
+							while ($routes->have_posts()) :
+								$routes->the_post();
+								get_template_part('template-partials/article-listing-item');
+							endwhile;
+
+						?>
+					</div><!-- /.js-carousel--routes -->
 
 
-					<div class="c-resources__links  o-posts  o-posts--title-only">
-						<ul class="o-flex  o-posts__list  o-carousel--routes  js-carousel--routes">
-							<?php
-
-								while ($routes->have_posts()) :
-									$routes->the_post();
-									get_template_part('template-partials/article-listing-item');
-								endwhile;
-
-							?>
-						</ul>
-
-
-						<a href="/routes/" class="o-button  o-button--secondary" style="margin-top: 40px;">
+					<div class="c-scenic-panel__action-wrap">
+						<a class="o-button  o-button--primary  c-scenic-panel__action" href="/routes/">
 							<span class="o-button__text">View all routes</span>
-							<svg class="o-button__icon--right  o-icon--chevron--right" viewBox="0 0 16 16" width="14" height="14">
-								<path fill="currentColor" d="M.156 0l.125.125 7.906 7.875-8 8h5.625l6.594-6.594 1.438-1.406-1.438-1.406-6.563-6.594h-5.688z"></path>
-							</svg>
+							<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
 						</a>
-					</div><!-- /.c-resources__links -->
+					</div><!-- /.c-scenic-panel__action-wrap -->
 				</div><!-- /.o-container -->
 			</section>
 		<?php endif; ?>
