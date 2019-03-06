@@ -109,7 +109,7 @@
 										<article class="c-article  c-places__place">
 											<header class="c-article__header">
 												<img class="c-article__image" alt="<?php echo $location_term->name; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $place_image['sizes']['blog-lister']; ?>">
-												<h3 class="c-article__title"><a href="<?php echo get_term_link($location_term); ?>" class="c-article__title__link"><?php echo $location_term->name; ?></a></h3>
+												<h3 class="c-article__title"><a href="<?php echo get_term_link($location_term); ?>" class="c-article__title__link"><?php echo $location_term->name; ?>&nbsp;&raquo;</a></h3>
 											</header>
 
 											<div class="c-article__content"><?php the_field('description', $location_term); ?></div>
