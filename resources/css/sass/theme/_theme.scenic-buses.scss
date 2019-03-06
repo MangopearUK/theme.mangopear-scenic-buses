@@ -31,3 +31,56 @@
 	fill: $green;
 	@include rempx(margin, -8px 0 8px);
 }
+
+
+
+
+
+/**
+ * [2]	Footer
+ */
+
+@include mangui-breakpoint(desk) {
+	.c-footer__contact {
+		@include rempx(min-height, 550px);
+	}
+}
+
+
+	.c-footer__logo {
+	    @include rempx(margin, -25px 0 43px);
+	}
+
+
+	.c-footer__contact__item {
+	    @include rempx(margin, 0 0 40px);
+	}
+
+
+	.c-footer__social-link.c-footer__social-link {
+	    width: 100%;
+	    color: #FFF;
+	    border-color: rgba(255,255,255,0.4);
+	    @include rempx(margin, 0 0 12px);
+
+
+		.o-button__icon--right { float: right; }
+
+
+	    &:hover, &:active, &:focus {
+		    border-color: #FFF;
+		    background: rgba(255,255,255,.15);
+		}
+	}
+
+
+
+
+
+/**
+ * [3]	Footer content slot
+ */
+
+.o-content-slot--scenic-enrolment .o-content-slot__block-link {
+	background-image: url(../../images/content-slots/Are-you-an-operator-with-a-scenic-bus-route.jpg);
+}
