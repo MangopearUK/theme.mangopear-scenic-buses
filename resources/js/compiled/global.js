@@ -97,6 +97,8 @@ jQuery(document).ready(function($){
 		navElement: 	'button',
 		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
 		                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-right"/></svg>'],
+		loop: 			false,
+		navRewind: 		false,
 		responsiveClass:true,
 		responsive : {
 			0 : {

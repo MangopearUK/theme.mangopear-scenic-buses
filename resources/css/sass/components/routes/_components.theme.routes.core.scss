@@ -267,6 +267,12 @@
 
 
 					.o-icon { margin: 0 0 -6px; }
+
+
+					&.disabled {
+						opacity: 0;
+						pointer-events: none;
+					}
 				}
 
 
