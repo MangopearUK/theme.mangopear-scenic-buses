@@ -101,6 +101,7 @@
 					<a class="o-button  o-button--secondary" href="<?php the_field('timetable--url'); ?>" target="_blank">
 						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#timetable"/></svg>
 						<span class="o-button__text">View timetable</span>
+						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
 					</a>
 				<?php endif; ?>
 
@@ -110,6 +111,7 @@
 					<a class="o-button  o-button--secondary" href="<?php the_field('map--url'); ?>" target="_blank">
 						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#map"/></svg>
 						<span class="o-button__text">View route map</span>
+						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
 					</a>
 				<?php endif; ?>
 
@@ -123,6 +125,29 @@
 				<?php endif; ?>
 			</div><!-- /.o-container -->
 		</section>
+
+
+
+
+
+		<section class="c-scenic-panel  c-route__description">
+			<div class="o-container  o-container--optimise-readability">
+				<header class="c-route__description__header">
+					<h2 class="c-route__description__title">
+						Serving 
+						<strong class="c-route__description__title__embolden"><?php the_field('route-description'); ?></strong>
+					</h2>
+
+
+					<h3 class="c-route__description__frequency">This route runs <?php the_field('days-of-operation--detailed'); ?></h3>
+				</header>
+
+
+				<div class="c-route__description__body">
+					<?php the_field('route-description--enhanced'); ?>
+				</div>
+			</div><!-- /.o-container -->
+		</section><!-- /.c-scenic-panel -->
 
 
 
