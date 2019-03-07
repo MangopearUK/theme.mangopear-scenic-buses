@@ -130,6 +130,29 @@
 
 
 
+		<section class="c-scenic-panel  c-route__description">
+			<div class="o-container  o-container--optimise-readability">
+				<header class="c-route__description__header">
+					<h2 class="c-route__description__title">
+						Serving 
+						<strong class="c-route__description__title__embolden"><?php the_field('route-description'); ?></strong>
+					</h2>
+
+
+					<h3 class="c-route__description__frequency">This route runs <?php the_field('days-of-operation--detailed'); ?></h3>
+				</header>
+
+
+				<div class="c-route__description__body">
+					<?php the_field('route-description--enhanced'); ?>
+				</div>
+			</div><!-- /.o-container -->
+		</section><!-- /.c-scenic-panel -->
+
+
+
+
+
 		<?php if (have_rows('places')) : ?>
 			<section class="c-scenic-panel  c-scenic-panel--places  c-places">
 				<header class="c-scenic-panel__header">
