@@ -101,6 +101,7 @@
 					<a class="o-button  o-button--secondary" href="<?php the_field('timetable--url'); ?>" target="_blank">
 						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#timetable"/></svg>
 						<span class="o-button__text">View timetable</span>
+						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
 					</a>
 				<?php endif; ?>
 
@@ -110,6 +111,7 @@
 					<a class="o-button  o-button--secondary" href="<?php the_field('map--url'); ?>" target="_blank">
 						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#map"/></svg>
 						<span class="o-button__text">View route map</span>
+						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
 					</a>
 				<?php endif; ?>
 
