@@ -238,7 +238,7 @@
 
 
 
-		<?php if (have_rows('tickets')) : ?>
+		<?php $tickets = get_field('tickets'); if ($tickets) : ?>
 			<section class="c-scenic-panel  c-scenic-panel--tickets  c-scenic-panel--carousel">
 				<header class="c-scenic-panel__header">
 					<div class="o-container">
@@ -248,28 +248,28 @@
 
 
 				<div class="o-container  u-clearfix  js-carousel--tickets">
-					<?php while (have_rows('tickets')) : the_row(); ?>
+					<?php foreach ($tickets as $ticket) : ?>
 						<article class="c-ticket">
 							<h3 class="c-ticket__title">
-								<?php the_sub_field('title'); ?>
+								<?php the_field('title', $ticket); ?>
 							</h3>
 
 
-							<?php if (get_sub_field('best')) : ?>
+							<?php if (get_field('best', $ticket)) : ?>
 								<h4 class="c-ticket__title--sub">
-									Great for: <?php the_sub_field('best'); ?>
+									Great for: <?php the_field('best', $ticket); ?>
 								</h4>
 							<?php endif; ?>
 
 
-							<?php if (get_sub_field('description')) : ?>
+							<?php if (get_field('description', $ticket)) : ?>
 								<div class="o-post__excerpt">
-									<?php the_sub_field('description'); ?>
+									<?php the_field('description', $ticket); ?>
 								</div><!-- /.o-post__excerpt -->
 							<?php endif; ?>
 
 
-							<?php if (have_rows('prices')) : ?>
+							<?php if (have_rows('prices', $ticket)) : ?>
 								<table class="c-ticket__table">
 									<thead>
 										<tr class="c-ticket__row  c-ticket__row--header">
@@ -280,7 +280,7 @@
 
 
 									<tbody>
-										<?php while (have_rows('prices')) : the_row(); ?>
+										<?php while (have_rows('prices', $ticket)) : the_row(); ?>
 											<tr class="c-ticket__row">
 												<th class="c-ticket__cell" scope="row">
 													<?php the_sub_field('name'); ?>
@@ -307,7 +307,7 @@
 								 * Loop through purchasing options
 								 */
 								
-								$buying_options = get_sub_field('where');
+								$buying_options = get_field('where', $ticket);
 								if ($buying_options) :
 									echo '<div class="c-ticket__where">';
 										echo '<h4 class="c-ticket__where__title">How to buy</h4>';
@@ -328,17 +328,17 @@
 												case "app" :
 													$buy__icon = 'app';
 													$buy__text = 'On the app';
-													$details   = (get_sub_field('details--app')) ? $details = get_sub_field('details--app') : '';
+													$details   = (get_field('details--app', $ticket)) ? $details = get_field('details--app', $ticket) : '';
 													break;
 												case "smartcard" :
 													$buy__icon = 'smartcard';
 													$buy__text = 'Smartcard';
-													$details   = (get_sub_field('details--smartcard')) ? $details = get_sub_field('details--smartcard') : '';
+													$details   = (get_field('details--smartcard', $ticket)) ? $details = get_field('details--smartcard', $ticket) : '';
 													break;
 												case "ticket-office" :
 													$buy__icon = 'office';
 													$buy__text = 'Ticket office';
-													$details   = (get_sub_field('details--ticket-office')) ? $details = get_sub_field('details--ticket-office') : '';
+													$details   = (get_field('details--ticket-office', $ticket)) ? $details = get_field('details--ticket-office', $ticket) : '';
 													break;
 											endswitch; ?>
 
@@ -361,7 +361,7 @@
 								endif;
 							?>
 						</article>
-					<?php endwhile; ?>
+					<?php endforeach; ?>
 				</div><!-- /.o-container -->
 			</section>
 		<?php endif; ?>
