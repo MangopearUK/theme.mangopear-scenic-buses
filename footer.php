@@ -38,7 +38,7 @@
 
 						<p class="c-footer__contact__item">
 							<strong class="c-footer__contact__item-title">Email us at:</strong>
-							<a href="mailto:say.hi@mangopear.co.uk">scenic@mangopear.co.uk</a>
+							<a href="mailto:scenic@mangopear.co.uk">scenic@mangopear.co.uk</a>
 						</p>
 
 
