@@ -35,49 +35,6 @@
 			</div><!-- /.o-container -->
 
 
-			<?php $features = get_field('details'); if ($features) : ?>
-				<section class="c-route-features">
-					<div class="o-container">
-						<ul class="c-route-features__list">
-							<?php
-
-								/**
-								 * Loop through features, outputting correct content and icon
-								 */
-
-
-								foreach ($features as $feature) :
-								
-								switch ($feature) :
-									case "open-top"                  : $feature_icon = 'sun';                       $feature_label = 'Open top bus service';                              break;
-									case "bikes"                     : $feature_icon = 'bikes';                     $feature_label = 'Bikes can be carried';                              break;
-									case "commentary"                : $feature_icon = 'commentary';                $feature_label = 'Commentary available';                              break;
-									case "commentary--international" : $feature_icon = 'commentary--international'; $feature_label = 'Multilingual commentary available';                 break;
-									case "usb"                       : $feature_icon = 'usb';                       $feature_label = 'USB chargers on bus';                               break;
-									case "wifi"                      : $feature_icon = 'wifi';                      $feature_label = 'Free WiFi';                                         break;
-									case "tables"                    : $feature_icon = 'table';                     $feature_label = 'Tables to enjoy the journey with friends & family'; break;
-									case "contactless"               : $feature_icon = 'contactless';               $feature_label = 'Contactless payments';                              break;
-									case "waiting-rooms"             : $feature_icon = 'rooms';                     $feature_label = 'Waiting rooms available for passengers';            break;
-									case "frequent"                  : $feature_icon = 'clock';                     $feature_label = 'Frequent service';                                  break;
-									case "views--great"              : $feature_icon = 'view';                      $feature_label = 'Great views along the route';                       break;
-									case "views--sea"                : $feature_icon = 'boat';                      $feature_label = 'Sea views en route';                                break;
-									case "seaside"                   : $feature_icon = 'boat';                      $feature_label = 'Service runs to the seaside';                       break;
-									case "all-year"                  : $feature_icon = 'calendar';                  $feature_label = 'Service runs all year';                             break;
-									case "summer-only"               : $feature_icon = 'sun';                       $feature_label = 'Service only runs during the Summer';               break;
-								endswitch;
-
-							?>
-								<li class="c-route-features__item">
-									<svg class="c-route-features__item__icon" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE . '#' . $feature_icon; ?>"/></svg>
-									<span class="c-route-features__item__label"><?php echo $feature_label; ?></span>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				</section>
-			<?php endif; ?>
-
-
 			<?php if (get_the_post_thumbnail_url(get_the_ID())) : ?>
 				<img class="c-title__image" alt="<?php the_title(); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
 				     data-srcset="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--s'); ?> 500w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--m'); ?> 1000w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--l'); ?> 1500w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--xl'); ?>">
