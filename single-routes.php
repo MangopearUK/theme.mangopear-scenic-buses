@@ -252,116 +252,36 @@
 						<article class="c-ticket">
 							<h3 class="c-ticket__title">
 								<a href="<?php echo get_term_link($ticket, 'tickets'); ?>">
-									<?php the_field('title', $ticket); ?>
+									<?php the_field('title', $ticket); ?>&nbsp;&raquo;
 								</a>
 							</h3>
 
 
 							<?php if (get_field('best', $ticket)) : ?>
-								<h4 class="c-ticket__title--sub">
-									Great for: <?php the_field('best', $ticket); ?>
+								<h4 class="c-ticket__great-for">
+									<em>Great for</em> <strong><?php the_field('best', $ticket); ?></strong>
 								</h4>
 							<?php endif; ?>
 
 
 							<?php if (get_field('description', $ticket)) : ?>
-								<div class="o-post__excerpt">
+								<div class="o-post__excerpt  c-ticket__description">
 									<?php the_field('description', $ticket); ?>
 								</div><!-- /.o-post__excerpt -->
 							<?php endif; ?>
 
 
-							<?php if (have_rows('prices', $ticket)) : ?>
-								<table class="c-ticket__table">
-									<thead>
-										<tr class="c-ticket__row  c-ticket__row--header">
-											<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Variant</th>
-											<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Price</th>
-										</tr>
-									</thead>
-
-
-									<tbody>
-										<?php while (have_rows('prices', $ticket)) : the_row(); ?>
-											<tr class="c-ticket__row">
-												<th class="c-ticket__cell" scope="row">
-													<?php the_sub_field('name'); ?>
-
-													<?php if (get_sub_field('variant')) : ?>
-														<span class="c-ticket__cell__note">
-															<span class="u-hide"> - </span>
-															<?php the_sub_field('variant'); ?>
-														</span>
-													<?php endif; ?>
-												</th>
-
-												<td class="c-ticket__cell"><?php the_sub_field('price'); ?></td>
-											</tr>
-										<?php endwhile; ?>
-									</tbody>
-								</table>
+							<?php if (get_field('prices--from', $ticket)) : ?>
+								<div class="c-ticket__from-price">
+									Prices from <strong><?php the_field('prices--from', $ticket); ?></strong>
+								</div><!-- /.c-ticket__from-price -->
 							<?php endif; ?>
 
 
-							<?php
-
-								/**
-								 * Loop through purchasing options
-								 */
-								
-								$buying_options = get_field('where', $ticket);
-								if ($buying_options) :
-									echo '<div class="c-ticket__where">';
-										echo '<h4 class="c-ticket__where__title">How to buy</h4>';
-
-
-										foreach ($buying_options as $option) :
-											switch ($option) :
-												case "cash" :
-													$buy__icon = 'cash';
-													$buy__text = 'Cash (on bus)';
-													$details   = '';
-													break;
-												case "contactless" :
-													$buy__icon = 'contactless';
-													$buy__text = 'Contactless (on bus)';
-													$details   = '';
-													break;
-												case "app" :
-													$buy__icon = 'app';
-													$buy__text = 'On the app';
-													$details   = (get_field('details--app', $ticket)) ? $details = get_field('details--app', $ticket) : '';
-													break;
-												case "smartcard" :
-													$buy__icon = 'smartcard';
-													$buy__text = 'Smartcard';
-													$details   = (get_field('details--smartcard', $ticket)) ? $details = get_field('details--smartcard', $ticket) : '';
-													break;
-												case "ticket-office" :
-													$buy__icon = 'office';
-													$buy__text = 'Ticket office';
-													$details   = (get_field('details--ticket-office', $ticket)) ? $details = get_field('details--ticket-office', $ticket) : '';
-													break;
-											endswitch; ?>
-
-
-											<div class="c-ticket__icon">
-												<button class="o-button  o-button--secondary  c-ticket__icon__button">
-													<svg class="o-button__icon  o-button__icon--left" height="24" width="24" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#<?php echo $buy__icon; ?>"/></svg>
-													<span class="o-button__text"><?php echo $buy__text; ?></span>
-													<!--<?php if ($details) : ?><svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg><?php endif; ?>-->
-												</button>
-
-												<?php if ($details) : ?>
-													<!--<div class="c-ticket__icon__description  is-hidden"><?php echo $details; ?></div>-->
-												<?php endif; ?>
-											</div>
-
-
-										<?php endforeach;
-									echo '</div>';
-								endif;
-							?>
+							<a class="o-button  o-button--primary  c-ticket__action" href="<?php echo get_term_link($ticket, 'tickets'); ?>">
+								<span class="o-button__text">View prices &amp; more</span>
+								<svg class="o-button__icon  o-button__icon--right" height="26" width="26" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+							</a>
 						</article>
 					<?php endforeach; ?>
 				</div><!-- /.o-container -->

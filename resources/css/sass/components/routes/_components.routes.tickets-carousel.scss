@@ -1,0 +1,128 @@
+/**
+ * [Component] Routes: Tickets
+ *
+ * @package     scenic-buses
+ * @category    styles
+ * @version     4.0.0
+ * @since       4.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 4.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Wrapper
+ */
+
+
+/**
+ * [1]  Wrapper
+ *
+ *      @since 4.0.0
+ */
+
+.c-scenic-panel--tickets {
+    background: $green;
+    border-top: 4px solid $green;
+    border-bottom: 4px solid $green;
+    background: linear-gradient(45deg, $lime 15%, $green 100%);
+    @include rempx(margin, 0 -12px);
+
+
+    .c-scenic-panel__title {
+    	color: #FFF;
+    }
+
+
+    .owl-controls .owl-nav {
+    	.owl-prev, .owl-next {
+        	&:hover, &:active, &:focus {
+        		background: $green;
+        		border-color: #FFF;
+        	}
+        }
+    }
+}
+
+
+
+
+
+	/**
+	 * [2]  Carousel slide (Ticket information)
+	 */
+
+	.c-ticket {
+	    background: #FFF;
+	    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+	    @include rempx(padding, 20px);
+	    @include rempx(border-radius, 3px);
+	}
+
+
+		.c-ticket__title {
+		    font-weight: bold;
+   			@include rempx(margin, 8px 0 0);
+		}
+
+
+		.c-ticket__great-for {
+		    font-weight: normal;
+		    @include rempx(margin, 5px 0 0);
+		    @include rempx(font-size, 22px);
+
+
+		    em {
+			    color: #FFF;
+			    position: relative;
+		    	font-style: normal;
+			    display: inline-block;
+			    background: $orange;
+			    text-transform: uppercase;
+			    @include rempx(top, -2px);
+			    @include rempx(font-size, 14px);
+			    @include rempx(padding, 4px 8px);
+			    @include rempx(border-radius, 3px);
+			}
+		}
+
+
+		.c-ticket__description {
+			p {
+			    margin: 1em 0;
+			    line-height: 1.5;
+			}
+		}
+
+
+		.c-ticket__from-price {
+		    @include rempx(font-size, 20px);
+		    @include rempx(margin, -12px 0 -1px);
+
+
+			strong {
+			    position: relative;
+			    display: inline-block;
+			    @include rempx(font-size, 32px);
+			    @include rempx(padding-left, 2px);
+			}
+		}
+
+
+		.c-ticket__action {
+		    width: 100%;
+    		@include rempx(margin, 12px 0 0);
+
+    		.o-button__icon--right { float: right; }
+		}
