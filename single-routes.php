@@ -230,7 +230,7 @@
 
 							<?php if (get_field('prices--from', $ticket)) : ?>
 								<div class="c-ticket__from-price">
-									Prices from <strong><?php the_field('prices--from', $ticket); ?></strong>
+									Adult tickets from <strong><?php the_field('prices--from', $ticket); ?></strong>
 								</div><!-- /.c-ticket__from-price -->
 							<?php endif; ?>
 
