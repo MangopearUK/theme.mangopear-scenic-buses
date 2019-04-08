@@ -76,7 +76,7 @@
 		?>
 
 
-			<section class="c-scenic-panel  c-scenic-panel--tickets  c-scenic-panel--carousel">
+			<section class="c-scenic-panel  c-scenic-panel--routes  c-scenic-panel--carousel">
 				<header class="c-scenic-panel__header">
 					<div class="o-container">
 						<h2 class="c-scenic-panel__title">Routes</h2>
