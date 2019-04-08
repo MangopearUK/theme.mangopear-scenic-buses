@@ -251,7 +251,9 @@
 					<?php foreach ($tickets as $ticket) : ?>
 						<article class="c-ticket">
 							<h3 class="c-ticket__title">
-								<?php the_field('title', $ticket); ?>
+								<a href="<?php echo get_term_link($ticket, 'tickets'); ?>">
+									<?php the_field('title', $ticket); ?>
+								</a>
 							</h3>
 
 
