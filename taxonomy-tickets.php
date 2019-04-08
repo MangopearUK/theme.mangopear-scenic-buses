@@ -98,6 +98,76 @@
 							<?php endif; ?>
 						</div><!-- /.c-ticket-prices -->
 					</div><!-- /.o-grid__item -->
+
+
+
+					<div class="o-grid__item  u-one-half  u-palm--one-whole">
+						<div class="c-ticket-prices">
+							<header class="c-ticket-prices__header">
+								<h2 class="c-ticket-prices__title">How to buy</h2>
+							</header>
+
+
+							<?php
+
+								/**
+								 * Loop through purchasing options
+								 */
+								
+								$buying_options = get_field('where', $term_obj);
+								if ($buying_options) :
+									echo '<div class="c-ticket__where">';
+										foreach ($buying_options as $option) :
+											switch ($option) :
+												case "cash" :
+													$buy__icon = 'cash';
+													$buy__text = 'Cash (on bus)';
+													$details   = '<p>Cash payments can be taken onboard the bus.</p>';
+													break;
+												case "contactless" :
+													$buy__icon = 'contactless';
+													$buy__text = 'Contactless (on bus)';
+													$details   = '<p>Pay with your contactless card, Google Pay or Apple Pay onboard the bus.</p>';
+													break;
+												case "app" :
+													$buy__icon = 'app';
+													$buy__text = 'On the app';
+													$details   = (get_field('details--app', $term_obj)) ? $details = get_field('details--app', $term_obj) : '';
+													break;
+												case "smartcard" :
+													$buy__icon = 'smartcard';
+													$buy__text = 'Smartcard';
+													$details   = (get_field('details--smartcard', $term_obj)) ? $details = get_field('details--smartcard', $term_obj) : '';
+													break;
+												case "ticket-office" :
+													$buy__icon = 'office';
+													$buy__text = 'Ticket office';
+													$details   = (get_field('details--ticket-office', $term_obj)) ? $details = get_field('details--ticket-office', $term_obj) : '';
+													break;
+											endswitch; ?>
+
+
+											<div class="o-accordion  js-accordion  c-ticket-how">
+												<button class="o-accordion__action  js-accordion__action  o-button  o-button--primary" type="button" hidden>
+													<svg class="o-button__icon  o-button__icon--left" height="24" width="24" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#<?php echo $buy__icon; ?>"/></svg>
+													<span class="o-button__text"><?php echo $buy__text; ?></span>
+													<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#add"/></svg>
+												</button>
+
+
+												<div class="o-accordion__panel  js-accordion__panel">
+													<article class="o-accordion__content  js-accordion__content">
+														<?php echo $details; ?>
+													</article>
+												</div><!-- /.o-accordion__panel -->
+											</div><!-- /.o-accordion -->
+
+
+										<?php endforeach;
+									echo '</div>';
+								endif;
+							?>
+					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
 			</div><!-- /.o-container -->
 
