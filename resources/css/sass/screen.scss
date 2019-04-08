@@ -138,8 +138,11 @@
 	  *   	}
 	  */
 
-	@import "components/routes/components.theme.routes.core";
-	@import "components/routes/components.theme.routes.tickets";
+	@import "components/routes/components.routes.core";
+	@import "components/routes/components.routes.tickets-carousel";
+
+	@import "components/tickets/components.tickets.single";
+
 	@import "components/components.theme.destinations";
 
 

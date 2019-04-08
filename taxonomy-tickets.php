@@ -54,6 +54,60 @@
 
 
 
+		<section class="c-scenic-panel  c-scenic-panel--ticket-info">
+			<div class="o-container  o-container--optimise-readability">
+				<div class="o-grid">
+					<div class="o-grid__item  u-one-half  u-palm--one-whole">
+						<div class="c-ticket-prices">
+							<header class="c-ticket-prices__header">
+								<h2 class="c-ticket-prices__title">Ticket prices</h2>
+							</header>
+
+
+							<?php if (have_rows('prices', $term_obj)) : ?>
+								<div class="c-ticket__table-wrap">
+									<table class="c-ticket__table">
+										<thead>
+											<tr class="c-ticket__row  c-ticket__row--header">
+												<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Variant</th>
+												<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Price</th>
+											</tr>
+										</thead>
+
+
+										<tbody>
+											<?php while (have_rows('prices', $term_obj)) : the_row(); ?>
+												<tr class="c-ticket__row">
+													<th class="c-ticket__cell" scope="row">
+														<?php the_sub_field('name'); ?>
+
+														<?php if (get_sub_field('variant')) : ?>
+															<span class="c-ticket__cell__note">
+																<span class="u-hide"> - </span>
+																<?php the_sub_field('variant'); ?>
+															</span>
+														<?php endif; ?>
+													</th>
+
+													<td class="c-ticket__cell"><?php the_sub_field('price'); ?></td>
+												</tr>
+											<?php endwhile; ?>
+										</tbody>
+									</table>
+								</div><!-- /.c-ticket__table-wrap -->
+							<?php endif; ?>
+						</div><!-- /.c-ticket-prices -->
+					</div><!-- /.o-grid__item -->
+				</div><!-- /.o-grid -->
+			</div><!-- /.o-container -->
+
+
+		</section>
+
+
+
+
+
 		<?php if (have_posts()) : ?>
 			<div class="o-container">
 				<h2>Routes you can use this ticket on:</h2>
