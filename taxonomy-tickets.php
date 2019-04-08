@@ -195,6 +195,82 @@
 				<?php get_template_part('template-partials/pagination'); ?>
 			</div><!-- /.o-container -->
 		<?php endif; ?>
+
+
+
+
+
+		<?php
+
+			/**
+			 * Show other tickets from this operator
+			 */
+			
+			$operator_tickets = get_terms(
+				array(
+					'taxonomy'		=> 'tickets',
+					'exclude'		=> $term_obj->term_id,
+					'meta_query'	=> array(
+						array(
+							'key'		=> 'operator--brand-name',
+							'value'		=> get_field('operator--brand-name', $term_obj),
+							'compare'	=> 'LIKE'
+						)
+					)
+				)
+			);
+
+		?>
+
+			<?php if ($operator_tickets) : ?>
+				<section class="c-scenic-panel  c-scenic-panel--tickets  c-scenic-panel--carousel">
+					<header class="c-scenic-panel__header">
+						<div class="o-container">
+							<h2 class="c-scenic-panel__title">Other tickets from <?php echo $operator->name; ?></h2>
+						</div><!-- /.o-container -->
+					</header>
+
+
+					<div class="o-container  u-clearfix  js-carousel--tickets">
+						<?php foreach ($operator_tickets as $ticket) : ?>
+							<article class="c-ticket">
+								<h3 class="c-ticket__title">
+									<a href="<?php echo get_term_link($ticket, 'tickets'); ?>">
+										<?php the_field('title', $ticket); ?>&nbsp;&raquo;
+									</a>
+								</h3>
+
+
+								<?php if (get_field('best', $ticket)) : ?>
+									<h4 class="c-ticket__great-for">
+										<em>Great for</em> <strong><?php the_field('best', $ticket); ?></strong>
+									</h4>
+								<?php endif; ?>
+
+
+								<?php if (get_field('description', $ticket)) : ?>
+									<div class="o-post__excerpt  c-ticket__description">
+										<?php the_field('description', $ticket); ?>
+									</div><!-- /.o-post__excerpt -->
+								<?php endif; ?>
+
+
+								<?php if (get_field('prices--from', $ticket)) : ?>
+									<div class="c-ticket__from-price">
+										Adult tickets from <strong><?php the_field('prices--from', $ticket); ?></strong>
+									</div><!-- /.c-ticket__from-price -->
+								<?php endif; ?>
+
+
+								<a class="o-button  o-button--primary  c-ticket__action" href="<?php echo get_term_link($ticket, 'tickets'); ?>">
+									<span class="o-button__text">View prices &amp; more</span>
+									<svg class="o-button__icon  o-button__icon--right" height="26" width="26" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+								</a>
+							</article>
+						<?php endforeach; ?>
+					</div><!-- /.o-container -->
+				</section>
+			<?php endif; ?>
 	</main><!-- /.o-panel -->
 
 
