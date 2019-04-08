@@ -1,0 +1,186 @@
+/**
+ * [Component] Tickets: Single template
+ *
+ * @package     scenic-buses
+ * @category    styles
+ * @version     4.0.0
+ * @since       4.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 4.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Wrapper
+ */
+
+
+/**
+ * [1]  Wrapper
+ *
+ *      @since 4.0.0
+ */
+
+.c-scenic-panel--ticket-info {
+	background: $green;
+	border-top: 4px solid $green;
+	border-bottom: 4px solid $green;
+	background: linear-gradient(45deg, $lime 15%, $green 100%);
+	@include rempx(margin, 0 -12px);
+	@include rempx(padding, 0 12px 24px);
+}
+
+
+
+
+
+	/**
+	 * [2]  Title
+	 */
+
+	.c-ticket-prices__title {
+		color: #FFF;
+		@include rempx(margin, 25px 0 13px);
+	}
+
+
+
+
+
+			/**
+			 * [3]  Ticket price table
+			 */
+
+
+			.c-ticket__table-wrap {
+				background: #FFF;
+				box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+				@include rempx(padding, 0 0 5px);
+				@include rempx(border-radius, 3px);
+			}
+
+
+				.c-ticket__table {
+					margin: 0;
+				}
+
+
+					.c-ticket__row {
+
+					}
+
+
+						.c-ticket__cell {
+							width: 25%;
+							font-weight: bold;
+							text-align: center;
+							border-top: 2px solid $grey--medium;
+							@include rempx(padding, 6px 16px);
+
+
+							&[scope="row"] {
+								width: 75%;
+								text-align: left;
+							}
+
+
+							&--title {
+								color: #FFF;
+								border-top: 0;
+								background: mangui-shade($green, 20%);
+								border-radius: 0 3px 0 0;
+								@include rempx(padding, 8px 16px);
+
+
+								&:first-child {
+									text-align: left;
+									border-radius: 3px 0 0 0;
+								}
+							}
+						}
+
+
+							.c-ticket__cell__note {
+								display: block;
+								font-size: 0.85em;
+								font-style: italic;
+								font-weight: normal;
+								@include rempx(margin-top, -5px);
+							}
+
+
+
+
+
+			/**
+			 * [4]  How to buy
+			 */
+
+			.c-ticket-how {
+				@include rempx(margin, 0 0 10px);
+
+
+				.o-accordion__action {
+					margin: 0;
+					border: 0;
+					outline: 0;
+					width: 100%;
+					text-align: left;
+					background: #FFF;
+					color: $grey--dark;
+					border-radius: 4px;
+					box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+
+
+					&:hover, &:active, &:focus {
+						color: #FFF;
+						background: mangui-shade($green, 20%);
+
+						.o-button__icon--right { @include mangui-transform(scale(1.5)); }
+					}
+
+
+					.o-button__icon--right { float: right; }
+
+
+					&[aria-expanded="true"] {
+						color: #FFF;
+						background: mangui-shade($green, 20%);
+						border-radius: 4px 4px 0 0;
+
+
+						.o-button__icon--right { @include mangui-transform(rotate(45deg)); }
+
+						+ .o-accordion__panel { box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
+					}
+				}
+
+
+				.o-accordion__panel {
+					margin: 0;
+					background: #FFF;
+					line-height: 1.4;
+					border-radius: 0 0 4px 4px;
+					box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+					@include rempx(font-size, 16px);
+				}
+
+
+				.o-accordion__content {
+					margin: 0;
+					@include rempx(padding, 0 24px 18px);
+
+					p { margin: 1em 0 0; }
+				}
+			}

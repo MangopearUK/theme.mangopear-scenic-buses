@@ -35,49 +35,6 @@
 			</div><!-- /.o-container -->
 
 
-			<?php $features = get_field('details'); if ($features) : ?>
-				<section class="c-route-features">
-					<div class="o-container">
-						<ul class="c-route-features__list">
-							<?php
-
-								/**
-								 * Loop through features, outputting correct content and icon
-								 */
-
-
-								foreach ($features as $feature) :
-								
-								switch ($feature) :
-									case "open-top"                  : $feature_icon = 'sun';                       $feature_label = 'Open top bus service';                              break;
-									case "bikes"                     : $feature_icon = 'bikes';                     $feature_label = 'Bikes can be carried';                              break;
-									case "commentary"                : $feature_icon = 'commentary';                $feature_label = 'Commentary available';                              break;
-									case "commentary--international" : $feature_icon = 'commentary--international'; $feature_label = 'Multilingual commentary available';                 break;
-									case "usb"                       : $feature_icon = 'usb';                       $feature_label = 'USB chargers on bus';                               break;
-									case "wifi"                      : $feature_icon = 'wifi';                      $feature_label = 'Free WiFi';                                         break;
-									case "tables"                    : $feature_icon = 'table';                     $feature_label = 'Tables to enjoy the journey with friends & family'; break;
-									case "contactless"               : $feature_icon = 'contactless';               $feature_label = 'Contactless payments';                              break;
-									case "waiting-rooms"             : $feature_icon = 'rooms';                     $feature_label = 'Waiting rooms available for passengers';            break;
-									case "frequent"                  : $feature_icon = 'clock';                     $feature_label = 'Frequent service';                                  break;
-									case "views--great"              : $feature_icon = 'view';                      $feature_label = 'Great views along the route';                       break;
-									case "views--sea"                : $feature_icon = 'boat';                      $feature_label = 'Sea views en route';                                break;
-									case "seaside"                   : $feature_icon = 'boat';                      $feature_label = 'Service runs to the seaside';                       break;
-									case "all-year"                  : $feature_icon = 'calendar';                  $feature_label = 'Service runs all year';                             break;
-									case "summer-only"               : $feature_icon = 'sun';                       $feature_label = 'Service only runs during the Summer';               break;
-								endswitch;
-
-							?>
-								<li class="c-route-features__item">
-									<svg class="c-route-features__item__icon" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE . '#' . $feature_icon; ?>"/></svg>
-									<span class="c-route-features__item__label"><?php echo $feature_label; ?></span>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				</section>
-			<?php endif; ?>
-
-
 			<?php if (get_the_post_thumbnail_url(get_the_ID())) : ?>
 				<img class="c-title__image" alt="<?php the_title(); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
 				     data-srcset="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--s'); ?> 500w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--m'); ?> 1000w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--l'); ?> 1500w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--xl'); ?>">
@@ -251,115 +208,37 @@
 					<?php foreach ($tickets as $ticket) : ?>
 						<article class="c-ticket">
 							<h3 class="c-ticket__title">
-								<?php the_field('title', $ticket); ?>
+								<a href="<?php echo get_term_link($ticket, 'tickets'); ?>">
+									<?php the_field('title', $ticket); ?>&nbsp;&raquo;
+								</a>
 							</h3>
 
 
 							<?php if (get_field('best', $ticket)) : ?>
-								<h4 class="c-ticket__title--sub">
-									Great for: <?php the_field('best', $ticket); ?>
+								<h4 class="c-ticket__great-for">
+									<em>Great for</em> <strong><?php the_field('best', $ticket); ?></strong>
 								</h4>
 							<?php endif; ?>
 
 
 							<?php if (get_field('description', $ticket)) : ?>
-								<div class="o-post__excerpt">
+								<div class="o-post__excerpt  c-ticket__description">
 									<?php the_field('description', $ticket); ?>
 								</div><!-- /.o-post__excerpt -->
 							<?php endif; ?>
 
 
-							<?php if (have_rows('prices', $ticket)) : ?>
-								<table class="c-ticket__table">
-									<thead>
-										<tr class="c-ticket__row  c-ticket__row--header">
-											<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Variant</th>
-											<th scope="col" class="c-ticket__cell  c-ticket__cell--title">Price</th>
-										</tr>
-									</thead>
-
-
-									<tbody>
-										<?php while (have_rows('prices', $ticket)) : the_row(); ?>
-											<tr class="c-ticket__row">
-												<th class="c-ticket__cell" scope="row">
-													<?php the_sub_field('name'); ?>
-
-													<?php if (get_sub_field('variant')) : ?>
-														<span class="c-ticket__cell__note">
-															<span class="u-hide"> - </span>
-															<?php the_sub_field('variant'); ?>
-														</span>
-													<?php endif; ?>
-												</th>
-
-												<td class="c-ticket__cell"><?php the_sub_field('price'); ?></td>
-											</tr>
-										<?php endwhile; ?>
-									</tbody>
-								</table>
+							<?php if (get_field('prices--from', $ticket)) : ?>
+								<div class="c-ticket__from-price">
+									Adult tickets from <strong><?php the_field('prices--from', $ticket); ?></strong>
+								</div><!-- /.c-ticket__from-price -->
 							<?php endif; ?>
 
 
-							<?php
-
-								/**
-								 * Loop through purchasing options
-								 */
-								
-								$buying_options = get_field('where', $ticket);
-								if ($buying_options) :
-									echo '<div class="c-ticket__where">';
-										echo '<h4 class="c-ticket__where__title">How to buy</h4>';
-
-
-										foreach ($buying_options as $option) :
-											switch ($option) :
-												case "cash" :
-													$buy__icon = 'cash';
-													$buy__text = 'Cash (on bus)';
-													$details   = '';
-													break;
-												case "contactless" :
-													$buy__icon = 'contactless';
-													$buy__text = 'Contactless (on bus)';
-													$details   = '';
-													break;
-												case "app" :
-													$buy__icon = 'app';
-													$buy__text = 'On the app';
-													$details   = (get_field('details--app', $ticket)) ? $details = get_field('details--app', $ticket) : '';
-													break;
-												case "smartcard" :
-													$buy__icon = 'smartcard';
-													$buy__text = 'Smartcard';
-													$details   = (get_field('details--smartcard', $ticket)) ? $details = get_field('details--smartcard', $ticket) : '';
-													break;
-												case "ticket-office" :
-													$buy__icon = 'office';
-													$buy__text = 'Ticket office';
-													$details   = (get_field('details--ticket-office', $ticket)) ? $details = get_field('details--ticket-office', $ticket) : '';
-													break;
-											endswitch; ?>
-
-
-											<div class="c-ticket__icon">
-												<button class="o-button  o-button--secondary  c-ticket__icon__button">
-													<svg class="o-button__icon  o-button__icon--left" height="24" width="24" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#<?php echo $buy__icon; ?>"/></svg>
-													<span class="o-button__text"><?php echo $buy__text; ?></span>
-													<!--<?php if ($details) : ?><svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg><?php endif; ?>-->
-												</button>
-
-												<?php if ($details) : ?>
-													<!--<div class="c-ticket__icon__description  is-hidden"><?php echo $details; ?></div>-->
-												<?php endif; ?>
-											</div>
-
-
-										<?php endforeach;
-									echo '</div>';
-								endif;
-							?>
+							<a class="o-button  o-button--primary  c-ticket__action" href="<?php echo get_term_link($ticket, 'tickets'); ?>">
+								<span class="o-button__text">View prices &amp; more</span>
+								<svg class="o-button__icon  o-button__icon--right" height="26" width="26" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+							</a>
 						</article>
 					<?php endforeach; ?>
 				</div><!-- /.o-container -->
