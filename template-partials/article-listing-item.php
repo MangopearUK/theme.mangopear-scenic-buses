@@ -16,7 +16,7 @@
 
 	<article class="c-article  c-article--route">
 		<header class="c-article__header">
-			<img class="c-article__image" alt="<?php the_title(); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'blog-lister'); ?>">
+			<img class="c-article__image" alt="<?php the_title(); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php $featured_image = get_field('photo--featured'); echo $featured_image['sizes']['blog-lister']; ?>">
 
 
 			<h2 class="h3  c-article__title">
