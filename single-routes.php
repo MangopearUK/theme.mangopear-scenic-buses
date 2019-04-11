@@ -35,9 +35,9 @@
 			</div><!-- /.o-container -->
 
 
-			<?php if (get_the_post_thumbnail_url(get_the_ID())) : ?>
-				<img class="c-title__image" alt="<?php the_title(); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-				     data-srcset="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--s'); ?> 500w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--m'); ?> 1000w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--l'); ?> 1500w, <?php echo get_the_post_thumbnail_url(get_the_ID(), 'title--xl'); ?>">
+			<?php if (get_field('photo--featured')) : $featured_image = get_field('photo--featured'); ?>
+				<img class="c-title__image" alt="<?php echo $featured_image['alt']; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+				     data-srcset="<?php echo $featured_image['sizes']['title--s']; ?> 500w, <?php echo $featured_image['sizes']['title--m']; ?> 1000w, <?php echo $featured_image['sizes']['title--l']; ?> 1500w, <?php echo $featured_image['sizes']['title--xl']; ?>">
 			<?php endif; ?>
 		</header>
 
