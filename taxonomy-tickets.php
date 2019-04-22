@@ -55,9 +55,9 @@
 
 
 		<section class="c-scenic-panel  c-scenic-panel--ticket-info">
-			<div class="o-container  o-container--optimise-readability">
+			<div class="o-container">
 				<div class="o-grid">
-					<div class="o-grid__item  u-one-half  u-palm--one-whole">
+					<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
 						<div class="c-ticket-prices">
 							<header class="c-ticket-prices__header">
 								<h2 class="c-ticket-prices__title">Ticket prices</h2>
@@ -101,7 +101,7 @@
 
 
 
-					<div class="o-grid__item  u-one-half  u-palm--one-whole">
+					<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
 						<div class="c-ticket-prices">
 							<header class="c-ticket-prices__header">
 								<h2 class="c-ticket-prices__title">How to buy</h2>
@@ -167,6 +167,38 @@
 									echo '</div>';
 								endif;
 							?>
+						</div><!-- /.c-ticket-prices -->
+					</div><!-- /.o-grid__item -->
+
+
+
+
+
+					<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
+							<div class="c-ticket-prices">
+								<header class="c-ticket-prices__header">
+									<h2 class="c-ticket-prices__title">Ticket restrictions</h2>
+								</header>
+
+
+								<?php if (have_rows('restrictions', $term_obj)) : ?>
+									<?php while (have_rows('restrictions', $term_obj)) : the_row(); ?>
+										<div class="o-accordion  js-accordion  c-ticket-how">
+											<button class="o-accordion__action  js-accordion__action  o-button  o-button--primary" type="button" hidden>
+												<span class="o-button__text"><?php echo get_the_title(get_sub_field('route')); ?></span>
+												<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#add"/></svg>
+											</button>
+
+
+											<div class="o-accordion__panel  js-accordion__panel">
+												<article class="o-accordion__content  js-accordion__content">
+													<p><?php the_sub_field('information'); ?></p>
+												</article>
+											</div><!-- /.o-accordion__panel -->
+										</div><!-- /.o-accordion -->
+									<?php endwhile; ?>
+								<?php endif; ?>
+							</div><!-- /.c-ticket-prices -->
 					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
 			</div><!-- /.o-container -->
