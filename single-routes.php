@@ -39,6 +39,14 @@
 				<div class="c-title__image-wrap">
 					<img class="c-title__image" alt="<?php echo $featured_image['alt']; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
 					     data-srcset="<?php echo $featured_image['sizes']['title--s']; ?> 500w, <?php echo $featured_image['sizes']['title--m']; ?> 1000w, <?php echo $featured_image['sizes']['title--l']; ?> 1500w, <?php echo $featured_image['sizes']['title--xl']; ?>">
+					
+					<?php if (get_field('copyright', $featured_image['id'])) : ?>
+						<span class="c-copyright-label  c-copyright-label--featured-image">
+							<?php if (get_field('copyright__url', $featured_image['id'])) : ?><a href="<?php the_field('copyright__url', $featured_image['id']); ?>" target="_blank"><?php endif; ?>
+								&copy; <?php the_field('copyright', $featured_image['id']) ?>
+							<?php if (get_field('copyright__url', $featured_image['id'])) : ?></a><?php endif; ?>
+						</span>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 		</header>
@@ -138,6 +146,15 @@
 											<header class="c-article__header">
 												<img class="c-article__image" alt="<?php echo $location_term->name; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $place_image['sizes']['blog-lister']; ?>">
 												<h3 class="c-article__title"><a href="<?php echo get_term_link($location_term); ?>" class="c-article__title__link"><?php echo $location_term->name; ?>&nbsp;&raquo;</a></h3>
+
+
+												<?php if (get_field('copyright', $place_image['id'])) : ?>
+													<span class="c-copyright-label  c-copyright-label--listing-image">
+														<?php if (get_field('copyright__url', $place_image['id'])) : ?><a href="<?php the_field('copyright__url', $place_image['id']); ?>" target="_blank"><?php endif; ?>
+															&copy; <?php the_field('copyright', $place_image['id']) ?>
+														<?php if (get_field('copyright__url', $place_image['id'])) : ?></a><?php endif; ?>
+													</span>
+												<?php endif; ?>
 											</header>
 
 											<div class="c-article__content"><?php echo $place_description; ?></div>
@@ -151,6 +168,15 @@
 											<header class="c-article__header">
 												<img class="c-article__image" alt="<?php the_sub_field('title'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $place_image['sizes']['blog-lister']; ?>">
 												<h3 class="c-article__title"><?php the_sub_field('title'); ?></h3>
+
+
+												<?php if (get_field('copyright', $place_image['id'])) : ?>
+													<span class="c-copyright-label  c-copyright-label--listing-image">
+														<?php if (get_field('copyright__url', $place_image['id'])) : ?><a href="<?php the_field('copyright__url', $place_image['id']); ?>" target="_blank"><?php endif; ?>
+															&copy; <?php the_field('copyright', $place_image['id']) ?>
+														<?php if (get_field('copyright__url', $place_image['id'])) : ?></a><?php endif; ?>
+													</span>
+												<?php endif; ?>
 											</header>
 
 											<div class="c-article__content"><?php the_sub_field('description'); ?></div>
@@ -186,7 +212,10 @@
 									<noscript><img class="c-gallery__image" src="<?php echo $image['sizes']['larger-thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"></noscript>
 								</a>
 
-								<figcaption class="wp-caption-text  c-route__gallery__caption  u-hide"><?php echo $image['caption']; ?></figcaption>
+								<figcaption class="wp-caption-text  c-route__gallery__caption  u-hide">
+									<?php echo $image['caption']; ?>
+									<?php if (get_field('copyright', $image['id'])) : ?>&copy; <?php the_field('copyright', $image['id']) ?><?php endif; ?>
+								</figcaption>
 							</figure><!-- /.c-gallery__item -->
 						<?php endforeach; ?>
 					</div><!-- /.c-gallery -->
