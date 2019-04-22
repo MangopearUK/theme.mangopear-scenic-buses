@@ -130,8 +130,9 @@
 
 
 									<?php if ($place_type == 'load') : ?>
-										<?php $location_term = get_term(get_sub_field('location'), 'route__locations'); ?>
-										<?php $place_image = get_field('image', $location_term); ?>
+										<?php $location_term =     get_term(get_sub_field('location'), 'route__locations'); ?>
+										<?php $place_image =       (get_sub_field('image'))       ? get_sub_field('image')       : get_field('image', $location_term); ?>
+										<?php $place_description = (get_sub_field('description')) ? get_sub_field('description') : get_field('description', $location_term); ?>
 
 										<article class="c-article  c-places__place">
 											<header class="c-article__header">
@@ -139,7 +140,7 @@
 												<h3 class="c-article__title"><a href="<?php echo get_term_link($location_term); ?>" class="c-article__title__link"><?php echo $location_term->name; ?>&nbsp;&raquo;</a></h3>
 											</header>
 
-											<div class="c-article__content"><?php the_field('description', $location_term); ?></div>
+											<div class="c-article__content"><?php echo $place_description; ?></div>
 										</article>
 
 
