@@ -41,6 +41,15 @@
 					<span class="c-article__title__operator"> from <?php $operator = get_field('operator'); echo $operator->name; ?></span>
 				</a>
 			</h2>
+
+
+			<?php if (get_field('copyright', $article_image['id'])) : ?>
+				<span class="c-copyright-label  c-copyright-label--listing-image">
+					<?php if (get_field('copyright__url', $article_image['id'])) : ?><a href="<?php the_field('copyright__url', $article_image['id']); ?>" target="_blank"><?php endif; ?>
+						&copy; <?php the_field('copyright', $article_image['id']) ?>
+					<?php if (get_field('copyright__url', $article_image['id'])) : ?></a><?php endif; ?>
+				</span>
+			<?php endif; ?>
 		</header>
 
 
