@@ -135,13 +135,22 @@
 				<section class="c-comments__comments">
 					<ul class="c-comments__list">
 						<?php foreach ($comments as $comment) : ?>
+							<?php $comment_rating = get_field('comments__rating', $comment); ?>
 							<li class="c-comments__item" id="comment-<?php comment_ID(); ?>">
 								<article class="c-comments__comment">
 									<div class="c-comments__comment__content">
-										<h3 class="c-comments__title"><?php the_field('comments__title', $comment); ?></h3>
+										<?php if (get_field('comments__title', $comment) OR get_field('comments__rating', $comment)) : ?>
+											<h3 class="c-comment__title">
+												<?php if ($comment_rating) : ?>
+													<span class="c-comment__title__stars" data-rating="<?php echo round($comment_rating['value'], 0); ?>">
+														<?php echo $comment_rating['label']; ?>
+													</span>
+												<?php endif; ?>
 
 
-										<div class="c-comments__rating"><?php the_field('comments__rating', $comment); ?></div>
+												<?php if (get_field('comments__title', $comment)) : the_field('comments__title', $comment); endif; ?>
+											</h3>
+										<?php endif; ?>
 
 
 										<?php
