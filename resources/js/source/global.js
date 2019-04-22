@@ -58,6 +58,8 @@ jQuery(document).ready(function($){
 
 	/**
 	 * [3]	Tickets & route carousels
+	 *
+	 * 		[a]	Set LazyLoadXT to load images outside of viewport
 	 */
 	
 	$('.js-carousel--tickets, .js-carousel--routes').owlCarousel({
@@ -76,5 +78,10 @@ jQuery(document).ready(function($){
 			900 : { items: 3 }
 		}
 	});
+
+
+	$.extend($.lazyLoadXT, {					// [a]
+		edgeX:  200000,							// [a]
+	});											// [a]
 	
 });
