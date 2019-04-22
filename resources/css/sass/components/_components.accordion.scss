@@ -83,6 +83,12 @@
 	.o-accordion__action {
 		&[aria-expanded] {
 			display: block;
+			display: flex;
+			align-items: center;
+			@include rempx(padding, 11px 24px 12px);
+
+
+			.o-button__icon--right { @include rempx(width, 30px); }
 
 
 			+ .o-accordion__panel {
@@ -94,7 +100,7 @@
 				overflow-x: hidden;
 				visibility: hidden;
 				-webkit-overflow-scrolling: touch;
-				@include mangui-transition(ease-in-out 200ms all);
+				@include mangui-transition(ease-in-out 400ms all);
 
 
 				.o-accordion__content {

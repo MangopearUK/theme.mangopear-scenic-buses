@@ -241,6 +241,23 @@
 								<span class="o-button__text">View prices &amp; more</span>
 								<svg class="o-button__icon  o-button__icon--right" height="26" width="26" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
 							</a>
+
+
+							<?php
+
+								/**
+								 * Search restrictions for current route
+								 */
+								
+								foreach (get_field('restrictions', $ticket) as $restriction) :
+									if ($restriction['route'] == get_the_ID()) :
+										echo '<div class="c-ticket__restrictions">';
+											echo '<p>' . $restriction['information'] . '</p>';
+										echo '</div>';
+									endif;
+								endforeach;
+
+							?>
 						</article>
 					<?php endforeach; ?>
 				</div><!-- /.o-container -->
