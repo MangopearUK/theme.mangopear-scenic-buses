@@ -32,6 +32,7 @@
 	 * [12]	Remove support for 4.4's responsive images.
 	 * [13]	Add definition for our SVG sprite document
 	 * [14]	Define search bar string
+	 * [15]	Disable ACF styles on front end
 	 */
 	
 
@@ -230,3 +231,21 @@
 	
 	define(SEARCH_BAR_STRING, 'Search routes or destinations');
 	define(BROWSER_TAB_COLOUR, '#17912F');
+
+
+
+
+
+	/**
+	 * [15]	Disable ACF styles on front end
+	 */
+	
+	add_action('wp_print_styles', 'my_deregister_styles', 100);
+
+
+	function my_deregister_styles() {
+		wp_deregister_style('acf');
+		wp_deregister_style('acf-field-group');
+		wp_deregister_style('acf-global');
+		wp_deregister_style('acf-input');
+	}
