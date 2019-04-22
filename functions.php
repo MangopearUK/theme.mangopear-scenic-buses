@@ -34,6 +34,7 @@
 	 * [14]	Define search bar string
 	 * [15]	Disable ACF styles on front end
 	 * [16]	Calculate average rating for route, store as meta
+	 * [17]	Output rating stars
 	 */
 	
 
@@ -249,6 +250,7 @@
 		wp_deregister_style('acf-field-group');
 		wp_deregister_style('acf-global');
 		wp_deregister_style('acf-input');
+	}
 
 
 
@@ -319,4 +321,33 @@
 		delete_post_meta($route_id, 'scenic_review_rating');												// [s]
 		update_post_meta($route_id, 'scenic_review_rating', $average_rating);								// [t]
 	}																										// [i]
+
+
+
+
+
+	/**
+	 * [17]	Output rating stars
+	 *
+	 * 		@since 4.0.0
+	 *
+	 * 		[a]	Get average rating post meta
+	 * 		[b]	Round to whole number
+	 * 		[c]	Output wrapper
+	 * 		[d]	Loop through rating value (0-5) and output corresponding number of stars
+	 * 		[e]	Output star svg element
+	 */
+	
+	function scenic_output_rating_stars($route_id) {
+		$rating = get_post_meta($route_id, 'scenic_review_rating', 1);																// [a]
+		$rating_rounded = round($rating['value'], 0);																				// [b]
+
+
+		echo '<span class="c-comment__title__stars" data-rating="' . $rating_rounded . '">';										// [c]
+
+			for ($i = 1; $i <= $rating_rounded; $i++) :																				// [d]
+				echo '<svg height="24" width="24" role="presentation"><use xlink:href="' . SCENIC_SPRITE . '#star"></use></svg>';	// [e]
+			endfor;																													// [d]
+
+		echo '</span>';																												// [c]
 	}
