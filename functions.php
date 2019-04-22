@@ -32,6 +32,9 @@
 	 * [12]	Remove support for 4.4's responsive images.
 	 * [13]	Add definition for our SVG sprite document
 	 * [14]	Define search bar string
+	 * [15]	Disable ACF styles on front end
+	 * [16]	Calculate average rating for route, store as meta
+	 * [17]	Output rating stars
 	 */
 	
 
@@ -230,3 +233,121 @@
 	
 	define(SEARCH_BAR_STRING, 'Search routes or destinations');
 	define(BROWSER_TAB_COLOUR, '#17912F');
+
+
+
+
+
+	/**
+	 * [15]	Disable ACF styles on front end
+	 */
+	
+	add_action('wp_print_styles', 'my_deregister_styles', 100);
+
+
+	function my_deregister_styles() {
+		wp_deregister_style('acf');
+		wp_deregister_style('acf-field-group');
+		wp_deregister_style('acf-global');
+		wp_deregister_style('acf-input');
+	}
+
+
+
+
+
+	/**
+	 * [16]	Calculate average rating for route, store as meta
+	 *
+	 * 		@since 4.0.0
+	 *
+	 * 		[a]	Hook into comment creation action - this is the stage the acf 
+	 * 			fields are populated (not wp_insert_comment)
+	 * 		[b]	Hook into comment status change (i.e. if comment is trashed)
+	 *
+	 * 		[c]	Pull in vars from action [a]
+	 * 		[d]	Turn comment_id into obj
+	 * 		[e]	Hook into our bespoke function
+	 *
+	 * 		[f]	Pull in vars from action [b]
+	 * 		[d]	Turn comment_id into obj
+	 * 		[h]	Hook into our bespoke function
+	 *
+	 * 		[j]	Set empty array, to be populated later
+	 * 		[k]	Get comments relating to post ID of route
+	 * 		[l]	Loop through comments in [b]
+	 * 		[m]	Get the rating values
+	 * 		[n]	Push the rating value (int) to [a] array
+	 * 		[o]	Filter review array to remove empty values
+	 * 		[p]	Calculate review average
+	 * 		[r]	Round average to two decimal places
+	 * 		[s]	Delete previous post meta entry
+	 * 		[t]	Save as post meta
+	 */
+	
+	add_action('comment_post', 	        'scenic_update_rating_average_on_publish',       99, 3);			// [a]
+	add_action('wp_set_comment_status', 'scenic_update_rating_average_on_status_change', 99, 2);			// [b]
+
+
+	function scenic_update_rating_average_on_publish($comment_id, $comment_approved, $comment_data) {		// [c]
+		$comment_obj = get_comment($comment_id);															// [d]
+		scenic_calculate_rating($comment_obj);																// [e]
+	}																										// [c]
+
+
+	function scenic_update_rating_average_on_status_change($comment_id, $comment_status) {					// [f]
+		$comment_obj = get_comment($comment_id);															// [g]
+		scenic_calculate_rating($comment_obj);																// [h]
+	}																										// [f]
+
+
+	function scenic_calculate_rating($comment_obj) {														// [i]
+		$route_id = $comment_obj->comment_post_ID;															// [j]
+		$all_reviews = array();																				// [k]
+		$post_reviews = get_comments(array('post_id' => $route_id));										// [l]
+
+
+		foreach ($post_reviews as $review) {																// [m]
+			$review_rating = get_field('comments__rating', $review);										// [n]
+			$all_reviews[] = $review_rating['value'];														// [o]
+		}																									// [m]
+
+
+		$all_reviews = array_filter($all_reviews, function($x) { return $x !== ''; });						// [p]
+		$average_rating = array_sum($all_reviews) / count($all_reviews);									// [q]
+		$average_rating = number_format((float)$average_rating, 1, '.', '');								// [r]
+
+
+		delete_post_meta($route_id, 'scenic_review_rating');												// [s]
+		update_post_meta($route_id, 'scenic_review_rating', $average_rating);								// [t]
+	}																										// [i]
+
+
+
+
+
+	/**
+	 * [17]	Output rating stars
+	 *
+	 * 		@since 4.0.0
+	 *
+	 * 		[a]	Get average rating post meta
+	 * 		[b]	Round to whole number
+	 * 		[c]	Output wrapper
+	 * 		[d]	Loop through rating value (0-5) and output corresponding number of stars
+	 * 		[e]	Output star svg element
+	 */
+	
+	function scenic_output_rating_stars($route_id) {
+		$rating = get_post_meta($route_id, 'scenic_review_rating', 1);																// [a]
+		$rating_rounded = round($rating['value'], 0);																				// [b]
+
+
+		echo '<span class="c-comment__title__stars" data-rating="' . $rating_rounded . '">';										// [c]
+
+			for ($i = 1; $i <= $rating_rounded; $i++) :																				// [d]
+				echo '<svg height="24" width="24" role="presentation"><use xlink:href="' . SCENIC_SPRITE . '#star"></use></svg>';	// [e]
+			endfor;																													// [d]
+
+		echo '</span>';																												// [c]
+	}

@@ -25,6 +25,7 @@
  * [1]  Route > Single titles
  * [2]	Route > Title > Introduction
  * [3]	Route > Places
+ * [11]	Route > Reviews
  */
 
 
@@ -102,7 +103,7 @@
 
 
 	.c-scenic-panel__title {
-	    @include rempx(margin, 0 0 36px);
+		@include rempx(margin, 0 0 36px);
 	}
 
 
@@ -184,9 +185,9 @@
  */
 
 .c-scenic-panel--gallery {
-    background: #f3f3f3;
-    border-top: 5px solid #eaeaea;
-    border-bottom: 5px solid #eaeaea;
+	background: #f3f3f3;
+	border-top: 5px solid #eaeaea;
+	border-bottom: 5px solid #eaeaea;
 	@include rempx(margin, 0 -12px);
 	@include rempx(padding-left, 12px);
 	@include rempx(padding-right, 12px);
@@ -194,13 +195,13 @@
 
 
 	.c-gallery__item {
-	    width: 20%;
-	    display: inline-block;
-	    margin: 0 0 0 -0.25em;
-	    padding: 0 0.35em 0.35em 0;
+		width: 20%;
+		display: inline-block;
+		margin: 0 0 0 -0.25em;
+		padding: 0 0.35em 0.35em 0;
 
-	    @include mangui-breakpoint(lap) { width: 25%; }
-	    @include mangui-breakpoint(palm) { width: 33.333%; }
+		@include mangui-breakpoint(lap) { width: 25%; }
+		@include mangui-breakpoint(palm) { width: 33.333%; }
 	}
 
 
@@ -326,32 +327,32 @@
  */
 
 .c-route-features {
-    @include rempx(padding, 0 12px);
-    @include mangui-breakpoint(portable) { display: none; }
+	@include rempx(padding, 0 12px);
+	@include mangui-breakpoint(portable) { display: none; }
 }
 
 
 	.c-route-features__list {
-	    margin: 0;
-	    padding: 0;
-	    text-align: center;
+		margin: 0;
+		padding: 0;
+		text-align: center;
 	}
 
 
 		.c-route-features__item {
-		    color: #FFF;
-		    background: $green;
-		    white-space: nowrap;
-		    display: inline-block;
-		    @include rempx(margin, 4px 2px);
-    		@include rempx(padding, 6px 15px);
+			color: #FFF;
+			background: $green;
+			white-space: nowrap;
+			display: inline-block;
+			@include rempx(margin, 4px 2px);
+			@include rempx(padding, 6px 15px);
 		}
 
 
 			.c-route-features__item__icon {
-			    display: inline-block;
-			    vertical-align: middle;
-			    @include rempx(margin, -2px 6px 2px 0);
+				display: inline-block;
+				vertical-align: middle;
+				@include rempx(margin, -2px 6px 2px 0);
 			}
 
 
@@ -363,28 +364,156 @@
  */
 
 .c-copyright-label {
-    color: #FFF;
-    z-index: 999;
-    position: absolute;
-    background: rgba(0,0,0,0.6);
-    @include rempx(font-size, 12px);
-    @include rempx(padding, 3px 10px 4px);
+	color: #FFF;
+	z-index: 999;
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	@include rempx(font-size, 12px);
+	@include rempx(padding, 3px 10px 4px);
 
 
-    a {
-    	color: #FFF;
-    }
+	a {
+		color: #FFF;
+	}
 }
 
 
 	.c-copyright-label--featured-image {
-	    right: 0;
-	    border-radius: 0 0 0 4px;
+		right: 0;
+		border-radius: 0 0 0 4px;
 	}
 
 
 	.c-copyright-label--listing-image {
-	    top: 0;
-	    right: 0;
-	    border-radius: 0 0 0 4px;
+		top: 0;
+		right: 0;
+		border-radius: 0 0 0 4px;
 	}
+
+
+
+
+
+/**
+ * [11]	Route > Reviews
+ *
+ * 		@since 4.0.0
+ */
+
+.c-comment__title {
+	font-weight: bold;
+}
+
+
+	.c-comment__title__stars {
+		color: #9c830c;
+		position: relative;
+		@include rempx(top, 6px);
+		@include rempx(margin-right, 20px);
+
+
+		svg {
+			@include rempx(width, 32px);
+			@include rempx(height, 32px);
+			@include rempx(margin-right, -3px);
+		}
+	}
+
+
+
+
+
+.c-comments__header__ratings {
+	@include rempx(margin, 0 0 0 36px);
+
+
+	.c-comment__title__stars {
+	    margin-right: 0;
+	}
+
+
+	.c-comments__header__ratings__total {
+	    font-weight: normal;
+	    letter-spacing: 0em;
+		@include rempx(font-size, 20px);
+	}
+}
+
+
+
+
+
+.acf-field .description {
+	@include rempx(margin, 0 0 12px);
+}
+
+
+.acf-field[data-name="comments__rating"] {
+	ul {
+		padding: 0;
+		@include rempx(margin, 0 0 24px);
+	}
+
+
+		li {
+			display: inline-block;
+			@include rempx(padding, 0 12px 0 0);
+
+
+			label {
+				margin: 0;
+				cursor: pointer;
+				white-space: nowrap;
+				background: $grey--light;
+				box-shadow: 0 0 0 3px rgba(0,0,0,0);
+				@include rempx(padding, 8px 20px 0);
+				@include rempx(border-radius, 30px);
+				@include mangui-transition(ease-in-out 400ms all);
+
+
+				&.selected {
+					color: #FFF;
+					background: $green;
+
+
+					&:hover, &:active, &:focus {
+						color: #FFF;
+						background: $green;
+					}
+
+
+					input[type="radio"] {
+						background: $green;
+						border-color: #FFF;
+					}
+				}
+
+
+				&:hover, &:active, &:focus {
+					color: #FFF;
+					background: $green;
+				}
+
+
+				&:focus {
+					box-shadow: 0 0 0 3px $lime;
+				}
+			}
+
+
+			input[type="radio"] {
+				outline: 0;
+				background: #FFF;
+				border: 2px solid $lime;
+				-webkit-appearance: button;
+				@include rempx(width, 18px);
+				@include rempx(height, 18px);
+				@include rempx(margin, 0 9px 2px 0);
+				@include rempx(border-radius, 20px);
+				@include mangui-transition(ease-in-out 400ms all);
+
+
+				&:focus { box-shadow: 0 0 0 3px $lime; }
+			}
+		}
+}

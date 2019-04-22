@@ -36,7 +36,17 @@
 	<section class="o-panel  o-panel--comments">
 		<div class="o-container">
 			<header class="c-comments__header">
-				<h2 class="c-comments__header__title"><?php comments_number('No reviews', '1 review', '% reviews'); ?></h2>
+				<h2 class="c-comments__header__title">
+					<?php comments_number('No reviews', '1 review', '% reviews'); ?>
+
+
+					<?php if (get_post_meta(get_the_ID(), 'scenic_review_rating', 1) != 'nan') : ?>
+						<span class="c-comments__header__ratings">
+							<?php scenic_output_rating_stars(get_the_ID()); ?>
+							<span class="c-comments__header__ratings__total">(<?php echo get_post_meta(get_the_ID(), 'scenic_review_rating', 1); ?>)</span>
+						</span>
+					<?php endif; ?>
+				</h2>
 
 
 				<?php if ($post->comment_status == 'open') : ?>
@@ -135,13 +145,22 @@
 				<section class="c-comments__comments">
 					<ul class="c-comments__list">
 						<?php foreach ($comments as $comment) : ?>
+							<?php $comment_rating = get_field('comments__rating', $comment); ?>
 							<li class="c-comments__item" id="comment-<?php comment_ID(); ?>">
 								<article class="c-comments__comment">
 									<div class="c-comments__comment__content">
-										<h3 class="c-comments__title"><?php the_field('comments__title', $comment); ?></h3>
+										<?php if (get_field('comments__title', $comment) OR get_field('comments__rating', $comment)) : ?>
+											<h3 class="c-comment__title">
+												<?php if ($comment_rating) : ?>
+													<span class="c-comment__title__stars" data-rating="<?php echo round($comment_rating['value'], 0); ?>">
+														<?php echo $comment_rating['label']; ?>
+													</span>
+												<?php endif; ?>
 
 
-										<div class="c-comments__rating"><?php the_field('comments__rating', $comment); ?></div>
+												<?php if (get_field('comments__title', $comment)) : the_field('comments__title', $comment); endif; ?>
+											</h3>
+										<?php endif; ?>
 
 
 										<?php
