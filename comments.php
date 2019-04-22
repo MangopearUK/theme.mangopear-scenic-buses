@@ -36,7 +36,17 @@
 	<section class="o-panel  o-panel--comments">
 		<div class="o-container">
 			<header class="c-comments__header">
-				<h2 class="c-comments__header__title"><?php comments_number('No reviews', '1 review', '% reviews'); ?></h2>
+				<h2 class="c-comments__header__title">
+					<?php comments_number('No reviews', '1 review', '% reviews'); ?>
+
+
+					<?php if (get_post_meta(get_the_ID(), 'scenic_review_rating', 1) != 'nan') : ?>
+						<span class="c-comments__header__ratings">
+							<?php scenic_output_rating_stars(get_the_ID()); ?>
+							<span class="c-comments__header__ratings__total">(<?php echo get_post_meta(get_the_ID(), 'scenic_review_rating', 1); ?>)</span>
+						</span>
+					<?php endif; ?>
+				</h2>
 
 
 				<?php if ($post->comment_status == 'open') : ?>
