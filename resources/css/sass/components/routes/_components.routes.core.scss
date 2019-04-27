@@ -127,32 +127,19 @@
 
 
 /**
- * [5]	Useful links panel
+ * [5]	Route > Description > Links
  */
 
-.c-scenic-panel--links {
-	background: $orange;
-	background:    -moz-linear-gradient(45deg, $orange 15%, $yellow 100%);
-	background: -webkit-linear-gradient(45deg, $orange 15%, $yellow 100%);
-	background:         linear-gradient(45deg, $orange 15%, $yellow 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F27500', endColorstr='#F2C500',GradientType=1);
-	@include rempx(padding, 32px 16px);
-
-
-	.c-scenic-panel__title {
-		color: #FFF;
-		@include rempx(margin-bottom, 24px);
-	}
-
-
-	.o-button {
-		color: #FFF;
-		border-color: #FFF;
-		@include rempx(margin, 0 12px 12px 0);
-
-		&:hover, &:active, &:focus { opacity: .65; }
-	}
+.c-route__description__links {
+    border-top: 3px solid $grey--light;
+    border-bottom: 3px solid $grey--light;
+    @include rempx(margin, 0 -12px);
+    @include rempx(padding, 0 12px);
 }
+
+
+	.c-route__description__links__title   { @include rempx(margin, 28px 0); }
+	.c-route__description__link--operator { @include rempx(margin, 26px 0 26px); }
 
 
 

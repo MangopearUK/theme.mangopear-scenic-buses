@@ -55,48 +55,6 @@
 
 
 
-		<section class="c-scenic-panel  c-scenic-panel--links">
-			<header class="c-scenic-panel__header">
-				<div class="o-container">
-					<h2 class="c-scenic-panel__title">Useful links</h2>
-				</div><!-- /.o-container -->
-			</header>
-
-
-			<div class="o-container">
-				<?php if (get_field('timetable--url')) : ?>
-					<a class="o-button  o-button--secondary" href="<?php the_field('timetable--url'); ?>" target="_blank">
-						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#timetable"/></svg>
-						<span class="o-button__text">View timetable</span>
-						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-					</a>
-				<?php endif; ?>
-
-
-
-				<?php if (get_field('map--url')) : ?>
-					<a class="o-button  o-button--secondary" href="<?php the_field('map--url'); ?>" target="_blank">
-						<svg class="o-button__icon  o-button__icon--left" height="32" width="32" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#map"/></svg>
-						<span class="o-button__text">View route map</span>
-						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-					</a>
-				<?php endif; ?>
-
-
-
-				<?php if (get_field('url--operator')) : ?>
-					<a class="o-button  o-button--secondary" href="<?php the_field('url--operator'); ?>" target="_blank">
-						<span class="o-button__text">View operator's website</span>
-						<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-					</a>
-				<?php endif; ?>
-			</div><!-- /.o-container -->
-		</section>
-
-
-
-
-
 		<section class="c-scenic-panel  c-route__description">
 			<div class="o-container  o-container--optimise-readability">
 				<header class="c-route__description__header">
@@ -113,6 +71,41 @@
 				<div class="c-route__description__body">
 					<?php the_field('route-description--enhanced'); ?>
 				</div>
+
+
+
+
+
+				<div class="c-route__description__links">
+					<h3 class="c-route__description__links__title">Timetables &amp; more:</h3>
+
+
+					<?php if (get_field('timetable--url')) : ?>
+						<a class="o-button  o-button--primary" href="<?php the_field('timetable--url'); ?>" target="_blank">
+							<svg class="o-button__icon  o-button__icon--left  is-animated" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#timetable"/></svg>
+							<span class="o-button__text">View timetable</span>
+							<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+						</a>
+					<?php endif; ?>
+
+
+					<?php if (get_field('map--url')) : ?>
+						<a class="o-button  o-button--primary" href="<?php the_field('map--url'); ?>" target="_blank">
+							<svg class="o-button__icon  o-button__icon--left  is-animated" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#map"/></svg>
+							<span class="o-button__text">View route map</span>
+							<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+						</a>
+					<?php endif; ?>
+
+
+					<?php if (get_field('url--operator')) : ?>
+						<p class="c-route__description__link  c-route__description__link--operator">
+							<strong>For more information about this service <a href="<?php the_field('url--operator'); ?>" target="_blank">visit <?php echo $operator->name; ?>'s website</a>.</strong>
+						</p>
+					<?php endif; ?>
+				</div><!-- /.c-route__description__links -->
+
+
 			</div><!-- /.o-container -->
 		</section><!-- /.c-scenic-panel -->
 
