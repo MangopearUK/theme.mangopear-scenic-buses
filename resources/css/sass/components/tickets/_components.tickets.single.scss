@@ -151,7 +151,7 @@
 					}
 
 
-					.o-button__icon--right { float: right; }
+					.o-button__text { flex-grow: 1; }
 
 
 					&[aria-expanded="true"] {

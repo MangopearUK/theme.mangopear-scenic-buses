@@ -175,11 +175,28 @@
 
 
 					<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
-						<?php if (have_rows('restrictions', $term_obj)) : ?>
+						<?php if (have_rows('restrictions', $term_obj) OR get_field('more-information', $term_obj)) : ?>
 							<div class="c-ticket-prices">
 								<header class="c-ticket-prices__header">
 									<h2 class="c-ticket-prices__title">Ticket restrictions</h2>
 								</header>
+
+
+								<?php if (get_field('more-information', $term_obj)) : ?>
+									<div class="o-accordion  js-accordion  c-ticket-how">
+										<button class="o-accordion__action  js-accordion__action  o-button  o-button--primary" type="button" hidden>
+											<span class="o-button__text">More information</span>
+											<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#add"/></svg>
+										</button>
+
+
+										<div class="o-accordion__panel  js-accordion__panel">
+											<article class="o-accordion__content  js-accordion__content">
+												<?php the_field('more-information', $term_obj); ?>
+											</article>
+										</div><!-- /.o-accordion__panel -->
+									</div><!-- /.o-accordion -->
+								<?php endif; ?>
 
 
 								<?php while (have_rows('restrictions', $term_obj)) : the_row(); ?>
