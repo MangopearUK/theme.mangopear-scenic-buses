@@ -100,7 +100,7 @@
 
 					<?php if (get_field('url--operator')) : ?>
 						<p class="c-route__description__link  c-route__description__link--operator">
-							<strong>For more information about this service <a href="<?php the_field('url--operator'); ?>" target="_blank">visit <?php echo $operator->name; ?>'s website</a>.</strong>
+							<strong>For more information about this service <a href="<?php the_field('url--operator'); ?>" target="_blank">visit the <?php echo $operator->name; ?> website</a>.</strong>
 						</p>
 					<?php endif; ?>
 				</div><!-- /.c-route__description__links -->
