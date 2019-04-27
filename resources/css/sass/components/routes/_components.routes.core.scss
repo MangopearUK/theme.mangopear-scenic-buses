@@ -33,6 +33,7 @@
  * [9]	Route features
  * [10]	Copyright information for media
  * [11]	Route > Reviews
+ * [12]	Route > Description > Disclaimer
  */
 
 
@@ -511,3 +512,29 @@
 			}
 		}
 }
+
+
+
+
+
+/**
+ * [12]	Route > Description > Disclaimer
+ */
+
+.c-route__description__disclaimer {
+    background: $grey--light;
+    @include rempx(font-size, 16px);
+    @include rempx(padding, 24px 30px);
+    @include rempx(margin, 36px -12px);
+
+
+    a {
+	    font-weight: bold;
+	    color: $green;
+
+	    &:hover, &:active, &:focus {
+	    	color: $grey--darker;
+	    }
+	}
+}
+

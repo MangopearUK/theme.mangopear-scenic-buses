@@ -106,6 +106,11 @@
 				</div><!-- /.c-route__description__links -->
 
 
+				<p class="c-route__description__disclaimer">
+					We can't guarantee that all information on this website is 100% accurate. You <strong>must always</strong> check with the operator's website before travelling.
+					We can't be held responsible for any costs incurred because of inaccurate or misleading information.
+					For more information, please read our <a href="https://mangopear.co.uk/legal-stuff/terms-conditions/" target="_blank">terms and conditions</a>.
+				</p>
 			</div><!-- /.o-container -->
 		</section><!-- /.c-scenic-panel -->
 
