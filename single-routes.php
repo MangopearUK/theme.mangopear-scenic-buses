@@ -258,6 +258,23 @@
 							<?php endif; ?>
 
 
+							<?php if (get_field('more-information', $ticket)) : ?>
+								<div class="o-accordion  js-accordion  c-ticket-how  c-ticket-how--in-carousel">
+									<button class="o-accordion__action  js-accordion__action  o-button  o-button--primary" type="button" hidden>
+										<span class="o-button__text">More information</span>
+										<svg class="o-button__icon  o-button__icon--right" height="24" width="24" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#add"/></svg>
+									</button>
+
+
+									<div class="o-accordion__panel  js-accordion__panel">
+										<article class="o-accordion__content  js-accordion__content">
+											<?php the_field('more-information', $ticket); ?>
+										</article>
+									</div><!-- /.o-accordion__panel -->
+								</div><!-- /.o-accordion -->
+							<?php endif; ?>
+
+
 							<?php if (get_field('prices--from', $ticket)) : ?>
 								<div class="c-ticket__from-price">
 									Adult tickets from <strong><?php the_field('prices--from', $ticket); ?></strong>

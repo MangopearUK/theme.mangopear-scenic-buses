@@ -106,6 +106,53 @@
 		}
 
 
+
+
+
+		.c-ticket-how.c-ticket-how--in-carousel {
+		    @include rempx(margin, -1px -8px 12px);
+
+
+		    .o-accordion__panel {
+			    box-shadow: none;
+		    	border: 2px solid transparent;
+		    }
+
+
+		    	.o-accordion__content {
+		    		line-height: 1.7;
+				    @include rempx(font-size, 15px);
+				    @include rempx(padding, 0 16px 18px);
+		    	}
+
+
+			.o-accordion__action {
+			    box-shadow: none;
+			    background: $grey--light;
+			    @include rempx(padding, 8px 12px 9px 18px);
+
+
+				&:hover, &:active, &:focus, &:focus-within {
+				    color: #FFF;
+				    background: $green;
+				}
+
+
+				&[aria-expanded="true"] {
+				    background: $green;
+
+					+ .o-accordion__panel {
+						box-shadow: none;
+						border-color: $grey--light;
+					}
+				}
+			}
+		}
+
+
+
+
+
 		.c-ticket__restrictions {
 		    background: $red;
 		    line-height: 1.3;
