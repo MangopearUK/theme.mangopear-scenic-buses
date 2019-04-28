@@ -54,6 +54,11 @@
 
 
 		<div class="c-article__content">
+			<p class="c-route-destinations">
+				Serving <?php echo get_field('route-description'); ?>.
+			</p>
+
+
 			<p class="c-route-description">
 				<?php echo get_field('route-description--marketing'); ?>
 			</p>
