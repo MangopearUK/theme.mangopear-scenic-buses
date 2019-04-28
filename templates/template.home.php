@@ -79,7 +79,7 @@
 			<section class="c-scenic-panel  c-scenic-panel--routes  c-scenic-panel--carousel">
 				<header class="c-scenic-panel__header">
 					<div class="o-container">
-						<h2 class="c-scenic-panel__title">Routes</h2>
+						<h2 class="c-scenic-panel__title">Recently added routes</h2>
 					</div><!-- /.o-container -->
 				</header>
 

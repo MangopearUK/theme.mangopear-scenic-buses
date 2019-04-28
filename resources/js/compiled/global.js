@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
 	 * 		[a]	Set LazyLoadXT to load images outside of viewport
 	 */
 	
-	$('.js-carousel--tickets, .js-carousel--routes').owlCarousel({
+	$('.js-carousel--routes').owlCarousel({
 		margin: 		12,
 		navElement: 	'button',
 		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
@@ -78,6 +78,29 @@ jQuery(document).ready(function($){
 			900 : { items: 3 }
 		}
 	});
+
+	
+	setTimeout(
+		function() {
+			$('.js-carousel--tickets').owlCarousel({
+				margin: 		12,
+				navElement: 	'button',
+				navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
+				                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-right"/></svg>'],
+				loop: 			false,
+				nav: 			true,
+				navRewind: 		false,
+				autoHeight: 	true,
+				responsiveClass:true,
+				responsive : {
+					  0 : { items: 1 },
+					600 : { items: 2 },
+					900 : { items: 3 }
+				}
+			});
+		},
+		200
+	);
 
 
 	$.extend($.lazyLoadXT, {					// [a]

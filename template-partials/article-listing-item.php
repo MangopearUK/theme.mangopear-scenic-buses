@@ -54,7 +54,14 @@
 
 
 		<div class="c-article__content">
-			<?php echo wpautop(get_field('route-description--marketing')); ?>
+			<p class="c-route-destinations">
+				Serving <?php echo get_field('route-description'); ?>.
+			</p>
+
+
+			<p class="c-route-description">
+				<?php echo get_field('route-description--marketing'); ?>
+			</p>
 
 
 			<a href="<?php the_permalink(); ?>" class="o-button  o-button--secondary  c-article__link">
