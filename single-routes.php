@@ -204,16 +204,22 @@
 				<div class="o-container">
 					<div class="c-gallery">
 						<?php foreach ($gallery as $image) : ?>
+							<?php $caption   = ($image['caption']) ? $image['caption'] . '.' : ''; ?>
+							<?php $copyright = (get_field('copyright', $image['id'])) ? ' &copy;&nbsp;' . get_field('copyright', $image['id']) . '.' : ''; ?>
+
+
 							<figure class="c-gallery__item">
-								<a href="<?php echo $image['url']; ?>" data-width="<?php echo $image['width']; ?>" data-height="<?php echo $image['height']; ?>" class="c-gallery__image-link">
+								<a href="<?php echo $image['url']; ?>" data-width="<?php echo $image['width']; ?>" data-height="<?php echo $image['height']; ?>" class="c-gallery__image-link" <?php if ($caption OR $copyright) { echo 'data-caption="' . $caption . $copyright . '"'; } ?>>
 									<img class="c-gallery__image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $image['sizes']['larger-thumbnail']; ?>" alt="<?php echo $image['alt']; ?>">
 									<noscript><img class="c-gallery__image" src="<?php echo $image['sizes']['larger-thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"></noscript>
 								</a>
 
-								<figcaption class="wp-caption-text  c-route__gallery__caption  u-hide">
-									<?php echo $image['caption']; ?>
-									<?php if (get_field('copyright', $image['id'])) : ?>&copy; <?php the_field('copyright', $image['id']) ?><?php endif; ?>
-								</figcaption>
+								<?php if ($caption OR $copyright) : ?>
+									<figcaption class="wp-caption-text  c-route__gallery__caption  u-hide">
+										<?php echo $caption; ?>
+										<?php echo $copyright; ?>
+									</figcaption>
+								<?php endif; ?>
 							</figure><!-- /.c-gallery__item -->
 						<?php endforeach; ?>
 					</div><!-- /.c-gallery -->
