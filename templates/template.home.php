@@ -23,12 +23,12 @@
 		<header class="c-scenic-welcome">
 			<div class="o-container  c-scenic-welcome__container">
 				<div class="c-scenic-welcome__image-wrap">
-					<img class="c-scenic-welcome__image" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo get_stylesheet_directory_uri(); ?>/resources/images/home/welcome-to-scenic-buses.jpg">
+					<img class="c-scenic-welcome__image" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/resources/images/home/welcome-to-scenic-buses--mobile.jpg 800w, <?php echo get_stylesheet_directory_uri(); ?>/resources/images/home/welcome-to-scenic-buses.jpg">
 				</div><!-- /.c-scenic-welcome__image-wrap -->
 
 
 				<div class="c-scenic-welcome__content">
-					<h1 class="c-scenic-welcome__title"><em class="u-palm--hide">Welcome to <br></em><strong>Scenic Buses</strong></h1>
+					<h1 class="c-scenic-welcome__title"><em>Welcome to <br></em><strong>Scenic Buses</strong></h1>
 					<p class="c-scenic-welcome__intro">Home to Britain's most scenic bus services. <br><strong>Find your next adventure.</strong></p>
 
 

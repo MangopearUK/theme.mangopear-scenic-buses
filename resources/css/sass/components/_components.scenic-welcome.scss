@@ -35,13 +35,16 @@
 .c-scenic-welcome {
 	background: #FFF;
 	border-bottom: 4px solid $grey--light;
-	@include rempx(padding, 24px 0);
+	@include rempx(padding, 24px 12px);
+	@include mangui-breakpoint("max-width: 800px") { @include rempx(padding-top, 12px); }
 }
 
 
-	.c-scenic-welcome__container {
-		display: flex;
-		align-items: center;
+	@include mangui-breakpoint("min-width: 800px") {
+		.c-scenic-welcome__container {
+			display: flex;
+			align-items: center;
+		}
 	}
 
 
@@ -53,7 +56,7 @@
 	 */
 	
 	.c-scenic-welcome__image-wrap {
-
+		@include mangui-breakpoint("min-width: 800px") { max-width: 45%; }
 	}
 
 
@@ -67,11 +70,22 @@
 	.c-scenic-welcome__content {
 	    flex-grow: 1;
 		@include rempx(min-width, 300px);
-		@include rempx(padding, 24px 18px 24px 48px);
+		@include rempx(padding, 24px 6px 24px 48px);
+		@include mangui-breakpoint("max-width: 1200px") { @include rempx(padding-left, 24px); }
+		@include mangui-breakpoint("max-width:  800px") { @include rempx(padding-left, 6px); }
+
+
+		@include mangui-breakpoint("max-width: 1000px) and (min-width: 800px") {
+			.o-form--search {
+			    display: block;
+				.o-form__action { @include rempx(padding, 4px 0 0); }
+			}
+		}
 	}
 
 
 		.c-scenic-welcome__title {
+			margin-top: 0.25em;
 		    font-weight: normal;
 
 
@@ -82,4 +96,9 @@
 			    text-transform: lowercase;
 				@include rempx(margin-bottom, -4px);
 			}
+		}
+
+
+		.c-scenic-welcome__intro {
+			@include mangui-breakpoint("max-width: 800px") { margin-bottom: 0.5em; }
 		}
