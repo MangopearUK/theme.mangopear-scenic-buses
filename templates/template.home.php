@@ -56,49 +56,63 @@
 
 
 
-		<?php
-
-			$routes_args = array(
-				'post_type'			=> 'routes',
-				'posts_per_page'	=> -1
-			);
+		<?php if (have_rows('route-row', 'option')) : ?>
+			<?php while (have_rows('route-row', 'option')) : the_row(); ?>
+				<?php $term = (get_sub_field('type') == 'collection') ? get_sub_field('collection') : get_sub_field('location'); ?>
 
 
-			$routes = new WP_Query($routes_args);
-			if ($routes->have_posts()) :
+				<?php
 
-		?>
-
-
-			<section class="c-scenic-panel  c-scenic-panel--routes  c-scenic-panel--carousel">
-				<header class="c-scenic-panel__header">
-					<div class="o-container">
-						<h2 class="c-scenic-panel__title">Recently added routes</h2>
-					</div><!-- /.o-container -->
-				</header>
-
-
-				<div class="o-container">
-					<div class="u-clearfix  js-carousel--routes">
-						<?php
-
-							while ($routes->have_posts()) :
-								$routes->the_post();
-								get_template_part('template-partials/article-listing-item');
-							endwhile;
-
-						?>
-					</div><!-- /.js-carousel--routes -->
+					$routes_args = array(
+						'post_type'			=>  'routes',
+						'posts_per_page'	=>  6,
+						'tax_query' 		=>  array(
+													array(
+														'taxonomy' => $term->taxonomy,
+														'field'    => 'slug',
+														'terms'    => $term->slug,
+													),
+												),
+					);
 
 
-					<div class="c-scenic-panel__action-wrap">
-						<a class="o-button  o-button--primary  c-scenic-panel__action" href="/routes/">
-							<span class="o-button__text">View all routes</span>
-							<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-						</a>
-					</div><!-- /.c-scenic-panel__action-wrap -->
-				</div><!-- /.o-container -->
-			</section>
+					$routes = new WP_Query($routes_args);
+					if ($routes->have_posts()) :
+
+				?>
+
+
+					<section class="c-scenic-panel  c-scenic-panel--routes  c-scenic-panel--carousel">
+						<header class="c-scenic-panel__header">
+							<div class="o-container">
+								<h2 class="c-scenic-panel__title"><?php echo $term->name; ?></h2>
+							</div><!-- /.o-container -->
+						</header>
+
+
+						<div class="o-container">
+							<div class="u-clearfix  js-carousel--routes">
+								<?php
+
+									while ($routes->have_posts()) :
+										$routes->the_post();
+										get_template_part('template-partials/article-listing-item');
+									endwhile;
+
+								?>
+							</div><!-- /.js-carousel--routes -->
+
+
+							<div class="c-scenic-panel__action-wrap">
+								<a class="o-button  o-button--primary  c-scenic-panel__action" href="<?php echo get_term_link($term); ?>">
+									<span class="o-button__text">View all routes</span>
+									<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
+								</a>
+							</div><!-- /.c-scenic-panel__action-wrap -->
+						</div><!-- /.o-container -->
+					</section>
+				<?php endif; ?>
+			<?php endwhile; ?>
 		<?php endif; ?>
 	</main><!-- /.o-panel -->
 
