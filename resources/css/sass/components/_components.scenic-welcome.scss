@@ -1,0 +1,85 @@
+/**
+ * [Component] Home page welcome banner
+ *
+ * @package     scenic-buses
+ * @category    styles
+ * @version     4.0.0
+ * @since       4.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 4.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Wrapper
+ */
+
+
+/**
+ * [1]  Wrapper
+ *
+ *      @since 4.0.0
+ */
+
+.c-scenic-welcome {
+	background: #FFF;
+	border-bottom: 4px solid $grey--light;
+	@include rempx(padding, 24px 0);
+}
+
+
+	.c-scenic-welcome__container {
+		display: flex;
+		align-items: center;
+	}
+
+
+
+
+
+	/**
+	 * [2]	Image
+	 */
+	
+	.c-scenic-welcome__image-wrap {
+
+	}
+
+
+
+
+
+	/**
+	 * [3]	Content
+	 */
+	
+	.c-scenic-welcome__content {
+	    flex-grow: 1;
+		@include rempx(min-width, 300px);
+		@include rempx(padding, 24px 18px 24px 48px);
+	}
+
+
+		.c-scenic-welcome__title {
+		    font-weight: normal;
+
+
+			em {
+			    display: block;
+			    font-size: .75em;
+			    color: $grey--medium;
+			    text-transform: lowercase;
+				@include rempx(margin-bottom, -4px);
+			}
+		}

@@ -20,24 +20,18 @@
 
 
 	<main class="o-panel  o-panel--gutterless" id="main">
-		<header class="c-title  c-title--routes">
-			<div class="o-container">
-				<h1 class="c-title__title">
-					Scenic Great Britain
-				</h1>
+		<header class="c-scenic-welcome">
+			<div class="o-container  c-scenic-welcome__container">
+				<div class="c-scenic-welcome__image-wrap">
+					<img class="c-scenic-welcome__image" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo get_stylesheet_directory_uri(); ?>/resources/images/home/welcome-to-scenic-buses.jpg">
+				</div><!-- /.c-scenic-welcome__image-wrap -->
 
 
-				<div class="o-container  c-title__intro">
-					<p style="text-align: center;">
-						Welcome to the home of Britain's most scenic bus services. <br>
-						<strong>Find your next adventure!</strong>
-					</p>
-				</div>
-			</div><!-- /.o-container -->
+				<div class="c-scenic-welcome__content">
+					<h1 class="c-scenic-welcome__title"><em class="u-palm--hide">Welcome to <br></em><strong>Scenic Buses</strong></h1>
+					<p class="c-scenic-welcome__intro">Home to Britain's most scenic bus services. <br><strong>Find your next adventure.</strong></p>
 
 
-			<section class="c-title__search" style="margin: 0;">
-				<div class="o-container  o-container--optimise-readability">
 					<form class="o-form  o-form--search" role="search" action="<?php bloginfo('url'); ?>">
 						<input type="hidden" value="Search">
 
@@ -54,9 +48,9 @@
 							</button>
 						</div>
 					</form>
-				</div><!-- /.o-container -->
-			</section><!-- /.c-title__search -->
-		</header>
+				</div><!-- /.c-scenic-welcome__content -->
+			</div><!-- /.o-container -->
+		</header><!-- /.c-scenic-welcome -->
 
 
 
