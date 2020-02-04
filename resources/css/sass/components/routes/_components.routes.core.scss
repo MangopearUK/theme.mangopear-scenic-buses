@@ -22,7 +22,7 @@
 /**
  * CONTENTS
  *
- * [1]  Route > Single titles
+ * [1]	Route > Title
  * [2]	Route > Title > Introduction
  * [3]	Route > Places
  * [4]	Scenic panels
@@ -41,35 +41,193 @@
  * [1]  Route > Single titles
  */
 
-.c-title--routes {
-	.c-title__image {
-		@include rempx(margin-bottom, 12px);
-	}
+.c-route-title {
+	@include rempx(margin, 12px 0 0);
+	@include mangui-breakpoint("max-width: 800px") { @include rempx(margin-top, -10px); }
+	@include mangui-breakpoint("max-width: 634px") { @include rempx(margin, -12px -12px 0); }
 }
 
 
-	.c-title__title__sub {
-		display: block;
-		font-size: 70%;
-		font-weight: normal;
-		color: $grey--medium;
-		@include rempx(padding, 10px 0 0);
+	.c-route-title__grid-item--image {
+		width: 40%;
+		@include mangui-breakpoint("max-width: 1500px") { width:  45%; }
+		@include mangui-breakpoint("max-width: 1300px") { width:  50%; }
+		@include mangui-breakpoint("max-width:  800px") { width: 100%; }
 	}
 
 
+		.c-route-title__image {
+			position: relative;
+			@include rempx(height, 600px);
+
+			@include mangui-breakpoint("max-width: 1500px") { @include rempx(height, 565px); }
+			@include mangui-breakpoint("max-width: 1100px") { @include rempx(height, 515px); }
+
+			@include mangui-breakpoint("max-width: 1000px") {
+				@include rempx(height, 485px);
+				@include rempx(margin-right, -15px);
+			}
+
+			@include mangui-breakpoint("max-width: 800px") {
+				margin: 0 auto;
+				@include rempx(height, 415px);
+				@include rempx(max-width, 710px);
+			}
+
+			@include mangui-breakpoint("max-width: 500px") { @include rempx(height, 350px); }
+			@include mangui-breakpoint("max-width: 410px") { @include rempx(height, 300px); }
+			@include mangui-breakpoint("max-width: 385px") { @include rempx(height, 270px); }
+			@include mangui-breakpoint("max-width: 360px") { @include rempx(height, 240px); }
+		}
+
+
+			.c-route-title__image-wrap {
+				right: 0;
+				height: 100%;
+				position: absolute;
+				@include rempx(width, 726px);
+
+				@include mangui-breakpoint("max-width: 1700px") { width: calc(50vw - 8.125rem); }
+				@include mangui-breakpoint("max-width: 1500px") { width: 45vw; }
+				@include mangui-breakpoint("max-width: 1300px") { width: 49vw; }
+				@include mangui-breakpoint("max-width: 1100px") { width: 50vw; }
+
+				@include mangui-breakpoint("max-width: 800px") {
+					width: 100%;
+					right: auto;
+					@include rempx(max-width, 710px);
+				}
+			}
+
+
+				.c-route-title__image-asset {
+					top: 0;
+					right: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					position: absolute;
+
+					@include mangui-breakpoint("min-width: 1001px") {
+						border: 8px solid #fcfcfc;
+						box-shadow: 54px 54px 0 -42px rgba($lime, 0.55);
+					}
+
+					@include mangui-breakpoint("max-width: 1000px) and (min-width: 711px") {
+						border: 6px solid #fcfcfc;
+						box-shadow: 32px 32px 0 -24px rgba($lime, 0.55);
+					}
+				}
 
 
 
-/**
- * [2]	Route > Title > Introduction
- */
 
-.c-title__intro {
-	text-align: center;
-	@include rempx(max-width, 550px);
-	@include rempx(margin-top, -40px);
-	@include rempx(margin-bottom, 42px);
-}
+
+	/**
+	 * [2]	Route > Title > Introduction
+	 */
+
+	.c-route-title__grid-item--content {
+		width: 60%;
+		@include mangui-breakpoint("max-width: 1500px") { width:  55%; }
+		@include mangui-breakpoint("max-width: 1300px") { width:  50%; }
+		@include mangui-breakpoint("max-width:  800px") { width: 100%; }
+	}
+
+
+		.c-route-title__content {
+			position: relative;
+
+			@include mangui-breakpoint("max-width: 800px) and (min-width: 635px") {
+				@include rempx(max-width, 550px);
+				@include rempx(margin, -108px auto 0);
+			}
+
+
+			@include mangui-breakpoint("max-width: 634px) and (min-width: 501px") { @include rempx(margin, -102px 24px 0); }
+			@include mangui-breakpoint("max-width: 500px) and (min-width: 370px") { @include rempx(margin, -83px 24px 0); }
+			@include mangui-breakpoint("max-width: 370px") { @include rempx(margin, 0 12px); }
+		}
+
+
+			.c-route-title__title {
+				@include rempx(font-size, 44px);
+				@include rempx(margin, 91px 0 0);
+
+				@include mangui-breakpoint("max-width: 1000px") {
+					@include rempx(font-size, 37px);
+					@include rempx(margin-top, 41px);
+				}
+
+				@include mangui-breakpoint("max-width: 800px) and (min-width: 370px") {
+					color: #FFF;
+					background: rgba($lime, .65);
+					text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+					@include rempx(margin, 0 -24px 0);
+					@include rempx(padding, 14px 24px 16px);
+				}
+
+				@include mangui-breakpoint("max-width: 500px) and (min-width: 370px") {
+					@include rempx(font-size, 32px);
+					@include rempx(padding, 10px 24px 11px);
+				}
+
+				@include mangui-breakpoint("max-width: 370px") {
+					@include rempx(font-size, 32px);
+					@include rempx(margin-top, 12px);
+				}
+			}
+
+
+				.c-route-title__operator {
+					display: block;
+					font-weight: normal;
+					color: $grey--dark;
+					letter-spacing: -0.05em;
+					@include rempx(font-size, 24px);
+					@include rempx(padding, 3px 0 0 1px);
+
+					@include mangui-breakpoint("max-width: 1000px") { @include rempx(font-size, 21px); }
+
+					@include mangui-breakpoint("max-width: 800px) and (min-width: 370px") {
+						color: rgba(white, 0.85);
+						@include rempx(padding, 0 0 3px);
+					}
+
+					@include mangui-breakpoint("max-width: 500px") { @include rempx(font-size, 18px); }
+
+
+					a {
+						color: inherit;
+						text-decoration-color: $grey--light;
+
+						@include mangui-breakpoint("max-width: 800px) and (min-width: 370px") {
+							color: #FFF;
+							font-weight: bold;
+							text-decoration-color: rgba(white, 0.85);
+						}
+
+
+						&:hover, &:active, &:focus {
+							color: $green;
+							text-decoration-color: $lime;
+
+							@include mangui-breakpoint("max-width: 800px) and (min-width: 370px") {
+								color: $grey--darker;
+								text-decoration-color: $grey--medium;
+							}
+						}
+					}
+				}
+
+
+			.c-route-title__intro {
+				line-height: 1.65;
+				@include rempx(font-size, 17px);
+				@include rempx(max-width, 550px);
+
+				@include mangui-breakpoint("max-width: 1000px") { @include rempx(font-size, 15px); }
+			}
 
 
 
@@ -139,10 +297,10 @@
  */
 
 .c-route__description__links {
-    border-top: 3px solid $grey--light;
-    border-bottom: 3px solid $grey--light;
-    @include rempx(margin, 0 -12px);
-    @include rempx(padding, 0 12px);
+	border-top: 3px solid $grey--light;
+	border-bottom: 3px solid $grey--light;
+	@include rempx(margin, 0 -12px);
+	@include rempx(padding, 0 12px);
 }
 
 
@@ -438,13 +596,13 @@
 
 
 	.c-comment__title__stars {
-	    margin-right: 0;
+		margin-right: 0;
 	}
 
 
 	.c-comments__header__ratings__total {
-	    font-weight: normal;
-	    letter-spacing: 0em;
+		font-weight: normal;
+		letter-spacing: 0em;
 		@include rempx(font-size, 20px);
 	}
 }
@@ -537,19 +695,18 @@
  */
 
 .c-route__description__disclaimer {
-    background: $grey--light;
-    @include rempx(font-size, 16px);
-    @include rempx(padding, 24px 30px);
-    @include rempx(margin, 36px -12px);
+	background: $grey--light;
+	@include rempx(font-size, 16px);
+	@include rempx(padding, 24px 30px);
+	@include rempx(margin, 36px -12px);
 
 
-    a {
-	    font-weight: bold;
-	    color: $green;
+	a {
+		font-weight: bold;
+		color: $green;
 
-	    &:hover, &:active, &:focus {
-	    	color: $grey--darker;
-	    }
+		&:hover, &:active, &:focus {
+			color: $grey--darker;
+		}
 	}
 }
-

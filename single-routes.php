@@ -15,40 +15,53 @@
 
 	get_header();
 
+
+	/**
+	 * Fetch data for page title
+	 */
+	
+	$featured_image = get_field('photo--featured');
+	$featured_image_position = (get_field('photo--featured__position')) ? 'object-position: ' . get_field('photo--featured__position') : '';
+
+
+	$route_name_number = (get_field('identifier') == 'brand') 
+						     ? '<strong>' . get_field('identifier--brand') . '</strong>' 
+						     : 'Route <strong>' . get_field('identifier--number') . '</strong>';
+	$operator = get_field('operator');
+
 ?>
 
 
 	<main class="o-main" id="main">
-		<header class="c-title  c-title--routes">
+		<header class="c-route-title">
 			<div class="o-container">
-				<?php $route_name_number = (get_field('identifier') == 'brand') ? get_field('identifier--brand') : 'Route ' . get_field('identifier--number'); ?>
+				<div class="o-grid  o-grid--wide">
+					<div class="o-grid__item  c-route-title__grid-item--image">
+						<?php if ($featured_image) : ?>
+							<div class="c-route-title__image">
+								<div class="c-route-title__image-wrap">
+									<img class="c-route-title__image-asset" alt="<?php echo $featured_image['alt']; ?>" data-srcset="<?php echo $featured_image['sizes']['scenic-title--small']; ?> 400w, <?php echo $featured_image['sizes']['scenic-title--large']; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="<?php echo $featured_image_position; ?>">
+								</div><!-- /.c-route-title__image-wrap -->
+							</div><!-- /.c-route-title__image -->
+						<?php endif; ?>
+					</div><!-- /.o-grid__item -->
 
-				<h1 class="c-title__title">
-					<?php echo $route_name_number; ?>
-					<span class="c-title__title__sub"> from <?php $operator = get_field('operator'); ?> <a href="<?php echo get_term_link($operator); ?>"><?php echo $operator->name; ?></a></span>
-				</h1>
+
+					<div class="o-grid__item  c-route-title__grid-item--content">
+						<div class="c-route-title__content">
+							<h1 class="c-route-title__title">
+								<?php echo $route_name_number; ?>
+								<?php if ($operator) : ?><span class="c-route-title__operator"> from <a href="<?php echo get_term_link($operator); ?>"><?php echo $operator->name; ?></a></span><?php endif; ?>
+							</h1>
 
 
-				<div class="o-container  c-title__intro">
-					<?php the_field('route-description--marketing'); ?>
-				</div>
+							<p class="c-route-title__intro">
+								<?php the_field('route-description--marketing'); ?>
+							</p>
+						</div><!-- /.c-route-title__content -->
+					</div><!-- /.o-grid__item -->
+				</div><!-- /.o-grid -->
 			</div><!-- /.o-container -->
-
-
-			<?php if (get_field('photo--featured')) : $featured_image = get_field('photo--featured'); ?>
-				<div class="c-title__image-wrap">
-					<img class="c-title__image" alt="<?php echo $featured_image['alt']; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-					     data-srcset="<?php echo $featured_image['sizes']['title--s']; ?> 500w, <?php echo $featured_image['sizes']['title--m']; ?> 1000w, <?php echo $featured_image['sizes']['title--l']; ?> 1500w, <?php echo $featured_image['sizes']['title--xl']; ?>">
-					
-					<?php if (get_field('copyright', $featured_image['id'])) : ?>
-						<span class="c-copyright-label  c-copyright-label--featured-image">
-							<?php if (get_field('copyright__url', $featured_image['id'])) : ?><a href="<?php the_field('copyright__url', $featured_image['id']); ?>" target="_blank"><?php endif; ?>
-								&copy; <?php the_field('copyright', $featured_image['id']) ?>
-							<?php if (get_field('copyright__url', $featured_image['id'])) : ?></a><?php endif; ?>
-						</span>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
 		</header>
 
 
