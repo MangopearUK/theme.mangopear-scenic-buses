@@ -111,10 +111,14 @@
 	 * 		@since 3.0.0
 	 *
 	 * 		[a]	Larger thumbnails
+	 * 		[b]	Scenic page titles
 	 */
 
 	function scenic_add_image_sizes() {
-		add_image_size('larger-thumbnail', 300, 300, true);		// [a]
+		add_image_size('larger-thumbnail', 300, 300, true);			// [a]
+
+		add_image_size('scenic-title--large', 710, 600, true);		// [b]
+		add_image_size('scenic-title--small', 400, 340, true);		// [b]
 	}
 
 	add_action('after_setup_theme', 'scenic_add_image_sizes');
