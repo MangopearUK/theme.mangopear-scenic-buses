@@ -55,6 +55,12 @@
 							</h1>
 
 
+							<h2 class="c-route-title__destinations">
+								<strong class="c-route-title__destinations-line--main"><?php the_field('route-description'); ?></strong>
+								<span class="c-route-title__destinations-line--byline"><?php the_field('route-description__byline'); ?></span>
+							</h2>
+
+
 							<p class="c-route-title__intro">
 								<?php the_field('route-description--marketing'); ?>
 							</p>
