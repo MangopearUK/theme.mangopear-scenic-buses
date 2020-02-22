@@ -33,7 +33,7 @@
 
 
 	<main class="o-main" id="main">
-		<header class="c-route-title">
+		<section class="c-route-title">
 			<div class="o-container">
 				<div class="o-grid  o-grid--wide">
 					<div class="o-grid__item  c-route-title__grid-item--image">
@@ -68,7 +68,7 @@
 					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
 			</div><!-- /.o-container -->
-		</header>
+		</section>
 
 
 
