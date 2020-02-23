@@ -72,6 +72,19 @@
 							<p class="c-route-title__intro">
 								<?php the_field('route-description--marketing'); ?>
 							</p>
+
+
+
+
+
+							<div class="u-clearfix  c-route-title__frequencies">
+								<?php if (get_field('frequency')) : ?>
+									<p class="c-route-title__frequency">
+										<span class="c-route-title__frequency__up-to">Runs up to </span>
+										<strong class="c-route-title__frequency__label"><?php the_field('frequency'); ?></strong>
+									</p>
+								<?php endif; ?>
+							</div><!-- /.c-route-title__frequencies -->
 						</div><!-- /.c-route-title__content -->
 					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
