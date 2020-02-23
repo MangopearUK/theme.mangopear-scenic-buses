@@ -51,7 +51,7 @@
 
 
 					<div class="o-grid__item  c-route-title__grid-item--content">
-						<div class="c-route-title__content">
+						<header class="c-route-title__header">
 							<h1 class="c-route-title__title">
 								<?php echo $route_name_number; ?>
 								<?php if ($operator) : ?><span class="c-route-title__operator"> from <a href="<?php echo get_term_link($operator); ?>"><?php echo $operator->name; ?></a></span><?php endif; ?>
@@ -62,8 +62,13 @@
 								<strong class="c-route-title__destinations-line--main"><?php the_field('route-description'); ?></strong>
 								<span class="c-route-title__destinations-line--byline"><?php the_field('route-description__byline'); ?></span>
 							</h2>
+						</header><!-- /.c-route-title__content -->
 
 
+
+
+
+						<div class="c-route-title__content">
 							<p class="c-route-title__intro">
 								<?php the_field('route-description--marketing'); ?>
 							</p>
