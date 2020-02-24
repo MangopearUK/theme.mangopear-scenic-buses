@@ -78,6 +78,24 @@
 
 
 							<div class="u-clearfix  c-route-title__frequencies">
+								<?php if (in_array('all-year', get_field('period'))) : ?>
+									<p class="c-route-title__seasons  c-route-title__seasons--all-year">
+										<svg class="o-button__icon  o-button__icon--left" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#sun"/></svg>
+										<span class="o-button__text">All year service</span>
+									</p>
+								<?php elseif (in_array('summer', get_field('period'))) : ?>
+									<p class="c-route-title__seasons  c-route-title__seasons--summer">
+										<svg class="o-button__icon  o-button__icon--left" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#sun"/></svg>
+										<span class="o-button__text">Summer only service</span>
+									</p>
+								<?php elseif (in_array('spring-summer', get_field('period'))) : ?>
+									<p class="c-route-title__seasons  c-route-title__seasons--spring-summer">
+										<svg class="o-button__icon  o-button__icon--left" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#sun"/></svg>
+										<span class="o-button__text">Spring &amp; Summer</span>
+									</p>
+								<?php endif; ?>
+
+
 								<?php if (get_field('frequency')) : ?>
 									<p class="c-route-title__frequency">
 										<span class="c-route-title__frequency__up-to">Runs up to </span>
