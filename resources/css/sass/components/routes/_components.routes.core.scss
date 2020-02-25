@@ -136,6 +136,12 @@
 
 
 		.c-route-title__content {
+			@include mangui-breakpoint("max-width: 634px) and (min-width: 501px") { @include rempx(margin, 0 24px); }
+			@include mangui-breakpoint("max-width: 500px") { @include rempx(margin, 0 12px); }
+		}
+
+
+		.c-route-title__header {
 			position: relative;
 
 			@include mangui-breakpoint("max-width: 800px) and (min-width: 635px") {
@@ -145,7 +151,7 @@
 
 
 			@include mangui-breakpoint("max-width: 634px) and (min-width: 501px") { @include rempx(margin, -102px 24px 0); }
-			@include mangui-breakpoint("max-width: 500px) and (min-width: 370px") { @include rempx(margin, -83px 24px 0); }
+			@include mangui-breakpoint("max-width: 500px) and (min-width: 370px") { @include rempx(margin, -83px 12px 0); }
 			@include mangui-breakpoint("max-width: 370px") { @include rempx(margin, 0 12px); }
 		}
 
@@ -254,9 +260,55 @@
 				line-height: 1.65;
 				@include rempx(font-size, 17px);
 				@include rempx(max-width, 550px);
+				@include rempx(margin, 32px 0 26px);
 
 				@include mangui-breakpoint("max-width: 1000px") { @include rempx(font-size, 15px); }
 			}
+
+
+
+
+			.c-route-title__frequencies {
+					@include rempx(margin, 26px 0);
+			}
+
+
+				.c-route-title__frequency {
+					margin: 0;
+					font-size: 1.45em;
+					display: inline-block;
+					letter-spacing: -0.025em;
+				}
+
+
+					.c-route-title__frequency__up-to {
+						position: absolute;
+						color: $grey--medium;
+						letter-spacing: 0.05em;
+						text-transform: uppercase;
+						@include rempx(font-size, 10px);
+						@include rempx(margin, -1px 0 0 1px);
+					}
+
+
+				.c-route-title__seasons {
+					color: #FFF;
+					font-weight: bold;
+					vertical-align: top;
+					display: inline-block;
+					@include rempx(font-size, 14px);
+					@include rempx(border-radius, 4px);
+					@include rempx(margin, 2px 24px 0 0);
+					@include rempx(padding, 2px 12px 6px 10px);
+
+
+					&--summer { background: $orange; }
+					&--all-year { background: $green; }
+					&--spring-summer { background: #1e90ff; }
+
+
+					.o-button__icon { @include rempx(margin, 1px 4px -1px 0); }
+				}
 
 
 
@@ -603,7 +655,7 @@
 
 
 	.c-comment__title__stars {
-		color: #9c830c;
+		color: $lime;
 		position: relative;
 		@include rempx(top, 6px);
 		@include rempx(margin-right, 20px);
