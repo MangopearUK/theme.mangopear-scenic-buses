@@ -29,6 +29,9 @@
 						     : 'Route <strong>' . get_field('identifier--number') . '</strong>';
 	$operator = get_field('operator');
 
+
+	$star_rating = get_post_meta(get_the_ID(), 'scenic_review_rating', 1);
+
 ?>
 
 
@@ -103,6 +106,15 @@
 									</p>
 								<?php endif; ?>
 							</div><!-- /.c-route-title__frequencies -->
+
+
+
+
+
+							<p class="c-route-title__reviews">
+								<?php if ($star_rating && $star_rating != 'nan') { scenic_output_rating_stars(get_the_ID()); } ?>
+								<strong class="c-route-title__reviews__count"><?php comments_number('No reviews', '1 review', '% reviews'); ?></strong>
+							</p><!-- /.c-route-title__reviews -->
 						</div><!-- /.c-route-title__content -->
 					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
