@@ -29,11 +29,14 @@
 						     : 'Route <strong>' . get_field('identifier--number') . '</strong>';
 	$operator = get_field('operator');
 
+
+	$star_rating = get_post_meta(get_the_ID(), 'scenic_review_rating', 1);
+
 ?>
 
 
 	<main class="o-main" id="main">
-		<header class="c-route-title">
+		<section class="c-route-title">
 			<div class="o-container">
 				<div class="o-grid  o-grid--wide">
 					<div class="o-grid__item  c-route-title__grid-item--image">
@@ -47,8 +50,11 @@
 					</div><!-- /.o-grid__item -->
 
 
+
+
+
 					<div class="o-grid__item  c-route-title__grid-item--content">
-						<div class="c-route-title__content">
+						<header class="c-route-title__header">
 							<h1 class="c-route-title__title">
 								<?php echo $route_name_number; ?>
 								<?php if ($operator) : ?><span class="c-route-title__operator"> from <a href="<?php echo get_term_link($operator); ?>"><?php echo $operator->name; ?></a></span><?php endif; ?>
@@ -59,16 +65,61 @@
 								<strong class="c-route-title__destinations-line--main"><?php the_field('route-description'); ?></strong>
 								<span class="c-route-title__destinations-line--byline"><?php the_field('route-description__byline'); ?></span>
 							</h2>
+						</header><!-- /.c-route-title__content -->
 
 
+
+
+
+						<div class="c-route-title__content">
 							<p class="c-route-title__intro">
 								<?php the_field('route-description--marketing'); ?>
 							</p>
+
+
+
+
+
+							<div class="u-clearfix  c-route-title__frequencies">
+								<?php if (in_array('all-year', get_field('period'))) : ?>
+									<p class="c-route-title__seasons  c-route-title__seasons--all-year">
+										<svg class="o-button__icon  o-button__icon--left" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#sun"/></svg>
+										<span class="o-button__text">All year service</span>
+									</p>
+								<?php elseif (in_array('summer', get_field('period'))) : ?>
+									<p class="c-route-title__seasons  c-route-title__seasons--summer">
+										<svg class="o-button__icon  o-button__icon--left" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#sun"/></svg>
+										<span class="o-button__text">Summer only service</span>
+									</p>
+								<?php elseif (in_array('spring-summer', get_field('period'))) : ?>
+									<p class="c-route-title__seasons  c-route-title__seasons--spring-summer">
+										<svg class="o-button__icon  o-button__icon--left" height="28" width="28" role="presentation"><use xlink:href="<?php echo SCENIC_SPRITE; ?>#sun"/></svg>
+										<span class="o-button__text">Spring &amp; Summer</span>
+									</p>
+								<?php endif; ?>
+
+
+								<?php if (get_field('frequency')) : ?>
+									<p class="c-route-title__frequency">
+										<span class="c-route-title__frequency__up-to">Runs up to </span>
+										<strong class="c-route-title__frequency__label"><?php the_field('frequency'); ?></strong>
+									</p>
+								<?php endif; ?>
+							</div><!-- /.c-route-title__frequencies -->
+
+
+
+
+
+							<p class="c-route-title__reviews">
+								<?php if ($star_rating && $star_rating != 'nan') { scenic_output_rating_stars(get_the_ID()); } ?>
+								<strong class="c-route-title__reviews__count"><?php comments_number('No reviews', '1 review', '% reviews'); ?></strong>
+							</p><!-- /.c-route-title__reviews -->
 						</div><!-- /.c-route-title__content -->
 					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
 			</div><!-- /.o-container -->
-		</header>
+		</section>
 
 
 
@@ -76,17 +127,6 @@
 
 		<section class="c-scenic-panel  c-route__description">
 			<div class="o-container  o-container--optimise-readability">
-				<header class="c-route__description__header">
-					<h2 class="c-route__description__title">
-						Serving 
-						<strong class="c-route__description__title__embolden"><?php the_field('route-description'); ?></strong>
-					</h2>
-
-
-					<h3 class="c-route__description__frequency">This route runs <?php the_field('days-of-operation--detailed'); ?></h3>
-				</header>
-
-
 				<div class="c-route__description__body">
 					<?php the_field('route-description--enhanced'); ?>
 				</div>
