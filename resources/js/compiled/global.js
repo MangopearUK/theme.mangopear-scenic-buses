@@ -65,8 +65,8 @@ jQuery(document).ready(function($){
 	$('.js-carousel--routes').owlCarousel({
 		margin: 		12,
 		navElement: 	'button',
-		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
-		                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-right"/></svg>'],
+		navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-core.svg#arrow--left"/></svg>',
+		                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-core.svg#arrow--right"/></svg>'],
 		loop: 			false,
 		nav: 			true,
 		navRewind: 		false,
@@ -85,8 +85,8 @@ jQuery(document).ready(function($){
 			$('.js-carousel--tickets').owlCarousel({
 				margin: 		12,
 				navElement: 	'button',
-				navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-left"/></svg>',
-				                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-icons.svg#arrow-right"/></svg>'],
+				navText:        ['<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-core.svg#arrow--left"/></svg>',
+				                 '<svg class="o-icon" height="24" width="24" role="presentation"><use xlink:href="/sprites/mangopear-core.svg#arrow--right"/></svg>'],
 				loop: 			false,
 				nav: 			true,
 				navRewind: 		false,
