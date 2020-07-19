@@ -111,7 +111,7 @@
  */
 
 .c-route-title__operator {
-    color: #c3ef95;
+    color: $green--pastel;
 
 
 	a {
@@ -142,7 +142,7 @@
     color: #fff;
 
     a {
-    	color: $lime;
+    	color: $green--pastel;
     	&:hover, &:focus, &:active { color: #fff; }
     }
 }
