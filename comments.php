@@ -33,7 +33,7 @@
 ?>
 
 
-	<section class="o-panel  o-panel--comments">
+	<section class="o-panel  o-panel--comments" id="reviews">
 		<div class="o-container">
 			<header class="c-comments__header">
 				<h2 class="c-comments__header__title">
