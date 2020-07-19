@@ -38,7 +38,6 @@
 
 				<a href="<?php the_permalink(); ?>" class="c-article__title__link">
 					<strong class="c-article__title__route"><?php echo $route_name_number; ?></strong>
-					<span class="c-article__title__operator"> from <?php $operator = get_field('operator'); echo $operator->name; ?></span>
 				</a>
 			</h2>
 
@@ -55,18 +54,12 @@
 
 		<div class="c-article__content">
 			<p class="c-route-destinations">
-				Serving <?php echo get_field('route-description'); ?>.
+				<?php echo get_field('route-description'); ?>.
 			</p>
 
 
 			<p class="c-route-description">
 				<?php echo get_field('route-description--marketing'); ?>
 			</p>
-
-
-			<a href="<?php the_permalink(); ?>" class="o-button  o-button--secondary  c-article__link">
-				<span class="o-button__text">View route</span>
-				<svg class="o-button__icon  o-button__icon--right" height="22" width="22" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-			</a>
 		</div>
 	</article>

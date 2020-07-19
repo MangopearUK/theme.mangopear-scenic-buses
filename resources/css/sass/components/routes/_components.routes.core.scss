@@ -269,7 +269,7 @@
 
 
 			.c-route-title__frequencies {
-					@include rempx(margin, 26px 0);
+
 			}
 
 
@@ -396,34 +396,86 @@
  * [6]	Route listing item
  */
 
-.c-article__title__link { text-decoration: none; }
+.c-article__header {
+	overflow: hidden;
 
-
-	.c-article__title__operator {
-		display: block;
-		font-size: 0.8em;
-		padding-top: 0.25em;
-		font-weight: normal;
-		color: $grey--dark;
+	.c-article__image {
+		transform-origin: 50% 50%;
+		transition: ease-in-out 700ms all;
 	}
 
 
-	.c-article__title__route { text-decoration: underline; }
+	&:hover {
+		.c-article__image {
+			filter: blur(4px);
+			transform: scale(1.03);
+		}
+	}
+}
 
 
+.c-article__title {
+	position: unset;
+	background: none;
+	@include rempx(margin-top, -62px);
+}
+
+	.c-article__title__link {
+		color: #fff;
+		text-decoration: none;
+		text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+
+
+		&::before {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 5;
+			content: '';
+			position: absolute;
+			transition: ease-in-out 700ms background;
+		}
+
+
+		&:hover, &:active, &:focus {
+			&::before { background: rgba(black, .175); }
+		}
+	}
+
+
+		.c-article__title__operator {
+			display: block;
+			font-size: 0.8em;
+			padding-top: 0.25em;
+			font-weight: normal;
+			color: $grey--dark;
+		}
+
+
+		.c-article__title__route {
+			z-index: 10;
+			position: relative;
+			border-bottom: 8px solid $grey--lighter;
+		}
+
+
+.c-article__content {
 	.c-route-destinations {
-		font-size: .95em;
-		line-height: 1.5;
-		font-weight: bold;
-		@include rempx(margin, 30px 0 18px);
+	    line-height: 1.2;
+	    font-weight: bold;
+	    letter-spacing: -0.02em;
+		@include rempx(font-size, 18px);
+		@include rempx(margin, 17px 0 10px);
 	}
 
 
 	.c-route-description {
-		line-height: 1.65;
-		font-size: 0.95em;
-		@include rempx(margin, 18px 0 30px);
+	    margin: 0;
+	    line-height: 1.6;
+		@include rempx(font-size, 14px);
 	}
+}
 
 
 
