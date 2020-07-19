@@ -96,3 +96,65 @@
 .c-title__image-wrap {
 	margin-bottom: 0;
 }
+
+
+.c-route__description {
+    padding-top: 0;
+}
+
+
+
+
+
+/**
+ * [5]	Masthead
+ */
+
+.c-route-title__operator {
+    color: #c3ef95;
+
+
+	a {
+	    font-weight: bold;
+	    text-decoration-color: rgba(255,255,255,.5);
+
+
+	    &:hover, &:focus, &:active {
+	    	color: #fff;
+	    	text-decoration-color: rgba(255,255,255,.7);
+	    }
+	}
+}
+
+
+.c-route-title__destinations {
+    color: #fff;
+}
+
+
+.c-route-title__intro {
+    color: #fff;
+}
+
+
+.c-masthead__reviews {
+    margin: 0;
+    color: #fff;
+
+    a {
+    	color: $lime;
+    	&:hover, &:focus, &:active { color: #fff; }
+    }
+}
+
+
+.c-masthead .c-masthead__title {
+    margin-top: 36px;
+}
+
+
+.c-masthead__image {
+	@include mangui-breakpoint(desk) {
+	    margin: 0 0 -100px;
+	}
+}

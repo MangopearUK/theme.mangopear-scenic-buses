@@ -13,6 +13,16 @@
 	 */
 
 
+	/**
+	 * Add body class for mega header
+	 */
+	
+	add_filter('body_class', function($classes){
+		$classes[] = 'has-mega-title';
+		return $classes;
+	});
+
+
 	get_header();
 
 
@@ -36,36 +46,32 @@
 
 
 	<main class="o-main" id="main">
-		<section class="c-route-title">
-			<div class="o-container">
-				<div class="o-grid  o-grid--wide">
-					<div class="o-grid__item  c-route-title__grid-item--image">
-						<?php if ($featured_image) : ?>
-							<div class="c-route-title__image">
-								<div class="c-route-title__image-wrap">
-									<img class="c-route-title__image-asset" alt="<?php echo $featured_image['alt']; ?>" data-srcset="<?php echo $featured_image['sizes']['scenic-title--small']; ?> 400w, <?php echo $featured_image['sizes']['scenic-title--large']; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="<?php echo $featured_image_position; ?>">
-								</div><!-- /.c-route-title__image-wrap -->
-							</div><!-- /.c-route-title__image -->
-						<?php endif; ?>
+		<header class="c-masthead">
+			<div class="o-container  u-clearfix">
+				<div class="o-grid  o-grid--rev">
+					<div class="o-grid__item  u-one-half  u-portable--one-whole">
+						<div class="c-masthead__image">
+							<div class="c-masthead__image__pad-out">
+								<img class="c-masthead__image-asset" alt="<?php echo $featured_image['alt']; ?>" data-srcset="<?php echo $featured_image['sizes']['scenic-title--small']; ?> 400w, <?php echo $featured_image['sizes']['scenic-title--large']; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="<?php echo $featured_image_position; ?>">
+							</div><!-- /.c-route-title__image-wrap -->
+						</div><!-- /.images -->
 					</div><!-- /.o-grid__item -->
 
 
 
 
 
-					<div class="o-grid__item  c-route-title__grid-item--content">
-						<header class="c-route-title__header">
-							<h1 class="c-route-title__title">
-								<?php echo $route_name_number; ?>
-								<?php if ($operator) : ?><span class="c-route-title__operator"> from <a href="<?php echo get_term_link($operator); ?>"><?php echo $operator->name; ?></a></span><?php endif; ?>
-							</h1>
+					<div class="o-grid__item  u-one-half  u-portable--one-whole">
+						<h1 class="c-masthead__title">
+							<?php echo $route_name_number; ?>
+							<?php if ($operator) : ?><span class="c-route-title__operator"> from <a href="<?php echo get_term_link($operator); ?>"><?php echo $operator->name; ?></a></span><?php endif; ?>
+						</h1>
 
 
-							<h2 class="c-route-title__destinations">
-								<strong class="c-route-title__destinations-line--main"><?php the_field('route-description'); ?></strong>
-								<span class="c-route-title__destinations-line--byline"><?php the_field('route-description__byline'); ?></span>
-							</h2>
-						</header><!-- /.c-route-title__content -->
+						<h2 class="c-route-title__destinations">
+							<strong class="c-route-title__destinations-line--main"><?php the_field('route-description'); ?></strong>
+							<span class="c-route-title__destinations-line--byline"><?php the_field('route-description__byline'); ?></span>
+						</h2>
 
 
 
@@ -75,9 +81,6 @@
 							<p class="c-route-title__intro">
 								<?php the_field('route-description--marketing'); ?>
 							</p>
-
-
-
 
 
 							<div class="u-clearfix  c-route-title__frequencies">
@@ -108,18 +111,15 @@
 							</div><!-- /.c-route-title__frequencies -->
 
 
-
-
-
-							<p class="c-route-title__reviews">
+							<p class="c-masthead__reviews">
 								<?php if ($star_rating && $star_rating != 'nan') { scenic_output_rating_stars(get_the_ID()); } ?>
-								<strong class="c-route-title__reviews__count"><?php comments_number('No reviews', '1 review', '% reviews'); ?></strong>
+								<strong class="c-route-title__reviews__count"><?php comments_number('No reviews - <a href="#reviews">Add your own</a>', '1 review', '% reviews'); ?></strong>
 							</p><!-- /.c-route-title__reviews -->
 						</div><!-- /.c-route-title__content -->
 					</div><!-- /.o-grid__item -->
 				</div><!-- /.o-grid -->
 			</div><!-- /.o-container -->
-		</section>
+		</header>
 
 
 
