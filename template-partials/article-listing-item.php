@@ -30,7 +30,7 @@
 				$article_image = (get_field('photo--listings')) ? get_field('photo--listings') : get_field('photo--featured');
 
 			?>
-			<img class="c-article__image" alt="<?php the_title(); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $article_image['sizes']['blog-lister']; ?>">
+			<img class="c-article__image" alt="<?php the_title(); ?>" src="<?php echo $article_image['sizes']['blog-lister']; ?>">
 
 
 			<h2 class="h3  c-article__title">
