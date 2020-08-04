@@ -202,7 +202,7 @@
 										<article class="c-article  c-places__place">
 											<header class="c-article__header">
 												<img class="c-article__image" alt="<?php echo $location_term->name; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $place_image['sizes']['blog-lister']; ?>">
-												<h3 class="c-article__title"><a href="<?php echo get_term_link($location_term); ?>" class="c-article__title__link"><?php echo $location_term->name; ?>&nbsp;&raquo;</a></h3>
+												<h3 class="c-article__title"><a href="<?php echo get_term_link($location_term); ?>" class="c-article__title__link"><strong class="c-article__title__route"><?php echo $location_term->name; ?>&nbsp;&raquo;</strong></a></h3>
 
 
 												<?php if (get_field('copyright', $place_image['id'])) : ?>
@@ -224,7 +224,7 @@
 										<article class="c-article  c-places__place">
 											<header class="c-article__header">
 												<img class="c-article__image" alt="<?php the_sub_field('title'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $place_image['sizes']['blog-lister']; ?>">
-												<h3 class="c-article__title"><?php the_sub_field('title'); ?></h3>
+												<h3 class="c-article__title"><strong class="c-article__title__route  c-article__title__route--no-link"><?php the_sub_field('title'); ?></strong></h3>
 
 
 												<?php if (get_field('copyright', $place_image['id'])) : ?>
