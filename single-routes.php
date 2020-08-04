@@ -157,11 +157,24 @@
 					<?php endif; ?>
 
 
-					<?php if (get_field('url--operator')) : ?>
-						<p class="c-route__description__link  c-route__description__link--operator">
-							<strong>For more information about this service <a href="<?php the_field('url--operator'); ?>" target="_blank">visit the <?php echo $operator->name; ?> website</a>.</strong>
-						</p>
-					<?php endif; ?>
+					<?php
+
+						/**
+						 * Output contact details
+						 */
+						
+						$opco__website = get_field('url--operator');
+						$opco__phone   = get_field('phone');
+
+						$string__start   = ($opco__phone OR $opco__website) ? '<p class="c-route__description__link  c-route__description__link--operator"><strong>For more information about this service ' : '';
+						$string__website = ($opco__website) ? '<a href="' . $opco__website . '" target="_blank">visit the ' . $operator->name . ' website</a>' : '';
+						$string__connect = ($opco__phone && $opco__website) ? ' or ' : '';
+						$string__phone   = ($opco__phone)   ? 'call ' . $operator->name . ' on <a href="tel:' . $opco__phone . '">' . $opco__phone . '</a>' : '';
+						$string__end     = ($opco__phone OR $opco__website) ? '.</strong></p>' : '';
+
+						echo $string__start . $string__website . $string__connect . $string__phone . $string__end;
+
+					?>
 				</div><!-- /.c-route__description__links -->
 
 
