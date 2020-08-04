@@ -24,7 +24,6 @@
  *
  * [1]	Route > Title
  * [2]	Route > Title > Introduction
- * [3]	Route > Places
  * [4]	Scenic panels
  * [5]	Route > Description > Links
  * [6]	Route listing item
@@ -310,32 +309,6 @@
 
 					.o-button__icon { @include rempx(margin, 1px 4px -1px 0); }
 				}
-
-
-
-
-
-/**
- * [3]	Route > Places
- */
-
-.c-places__place {
-	.c-article__title {
-		width: 92.5%;
-		font-weight: bold;
-		@include rempx(font-size, 24px);
-		@include rempx(margin-top, -46px);
-		@include rempx(padding, 20px 20px 0 5px);
-	}
-
-
-	.c-article__content {
-		@include rempx(font-size, 16px);
-		@include rempx(padding, 0 22px 0 5px);
-
-		p { margin: 1.5em 0; }
-	}
-}
 
 
 
