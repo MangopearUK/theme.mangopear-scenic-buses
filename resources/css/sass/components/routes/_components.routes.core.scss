@@ -401,6 +401,7 @@
 
 
 .c-article__title {
+	width: 100%;
 	position: unset;
 	background: none;
 	@include rempx(margin-top, -62px);
@@ -440,9 +441,17 @@
 
 
 		.c-article__title__route {
+			bottom: 0;
 			z-index: 10;
-			position: relative;
+			max-width: 90%;
+			line-height: 1;
+			position: absolute;
+			display: inline-block;
 			border-bottom: 8px solid $grey--lighter;
+			@include rempx(padding, 0 0 4px);
+
+
+			&--no-link { color: #fff; }
 		}
 
 
