@@ -101,14 +101,6 @@
 
 								?>
 							</div><!-- /.js-carousel--routes -->
-
-
-							<div class="c-scenic-panel__action-wrap">
-								<a class="o-button  o-button--primary  c-scenic-panel__action" href="<?php echo get_term_link($term); ?>">
-									<span class="o-button__text">View all routes</span>
-									<svg class="o-button__icon  o-button__icon--right" height="32" width="32" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-								</a>
-							</div><!-- /.c-scenic-panel__action-wrap -->
 						</div><!-- /.o-container -->
 					</section>
 				<?php endif; ?>
