@@ -1,0 +1,66 @@
+/**
+ * Setting up default transition values
+ *
+ * [1]	Default transition duration
+ */
+
+$transition--default: 350ms;
+
+
+
+
+
+/**
+ * Breakpoints
+ */
+
+$mangui-breakpoints:	(
+							'palm' '(max-width: 520px)',
+							'lap' '(min-width: 521px) and (max-width: 1149px)',
+							'portable' '(max-width: 1149px)',
+							'desk' '(min-width: 1150px)'
+						);
+
+$breakpoints:			(
+							'palm' '(max-width: 520px)',
+							'lap' '(min-width: 521px) and (max-width: 1149px)',
+							'portable' '(max-width: 1149px)',
+							'desk' '(min-width: 1150px)'
+						);
+
+
+
+
+/**
+ * Fonts
+ */
+
+$font-core: Merriweather, sans-serif;
+$font-campton: Campton, $font-core;
+$font-headings: $font-campton;
+$font--playfair: $font-core;
+
+
+@font-face {
+	font-style: 100;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--extra-light.woff);
+}
+
+@font-face {
+	font-style: 300;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--light.woff);
+}
+
+@font-face {
+	font-style: 400;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--book.woff);
+}
+
+@font-face {
+	font-style: 500;
+	font-family: 'Campton';
+	src: url(../../fonts/campton/campton--semibold.woff);
+}

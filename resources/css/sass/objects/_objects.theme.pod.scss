@@ -1,0 +1,24 @@
+/**
+ * A designed pod
+ */
+
+.o-pod {
+	background: #FFF;
+	border: 1px solid $grey--light;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+
+.o-pod--padded {
+	@include rempx(padding, 20px 40px);	
+}
+
+
+.o-pod--spaced {
+	@include rempx(margin, 40px 0);	
+}
+
+
+	.o-pod--spaced-bottom {
+		@include rempx(margin-bottom, 40px);
+	}

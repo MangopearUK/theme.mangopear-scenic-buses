@@ -1,0 +1,39 @@
+/**
+ * Media object (overrides)
+ */
+
+.o-media__title {
+	font-style: italic;
+	@include rempx(font-size, 21px);
+}
+
+ .o-media__body {
+    p {
+        text-align: left;
+    }
+}
+
+
+.o-media__button {
+	font-style: italic;
+	@include rempx(font-size, 18px);
+
+
+	.o-button__icon {
+		@include rempx(margin-top, 3px);
+	}
+}
+
+
+.o-media__image-link {
+	display: block;
+	background: #FFF;
+	border: 1px solid $grey--medium;
+	@include rempx(padding, 3px);
+	@include mangui-transition(ease-in-out border $transition--default);
+
+
+	&:hover {
+		border-color: $blue--light;
+	}
+}

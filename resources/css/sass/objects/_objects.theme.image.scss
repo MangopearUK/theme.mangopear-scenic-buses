@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+
+.o-image {
+
+
+	/**
+	 * Alignment classes
+	 */
+	
+	&.o-image--align-left,
+	&.alignleft {
+		float: left;
+	}
+	
+	&.o-image--align-right,
+	&.alignright {
+		float: right;
+	}
+}
+
+
+	.o-image--styled {
+		display: inline-block;
+		@include rempx(margin, 20px);
+
+
+		&.alignright,
+		&.o-image--align-right {
+			margin-right: 0;
+		}
+
+
+		&.alignleft,
+		&.o-image--align-left {
+			margin-left: 0;
+		}
+	}
+
+
+	.o-image--with-border {
+		background: #FFF;
+		border: 1px solid $blue--dark;
+		@include rempx(padding, 3px);
+	}

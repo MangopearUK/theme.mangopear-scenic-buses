@@ -1,0 +1,82 @@
+/**
+ * Panel
+ *
+ * A panel will consist of a container (possibly more than one) which will contain a title and the content for the panel.
+ *
+ * This is a simple object
+ */
+
+
+.o-panel {
+	@include rempx(padding, $mangui-vertical-rhythm*2 $mangui-vertical-rhythm);
+	@extend %u-clearfix;
+}
+
+
+	.o-panel__heading {
+		position: relative;
+		text-align: center;
+		@include rempx(margin-top, -6px);
+		@include rempx(margin-bottom, $mangui-vertical-rhythm*2);
+		@include rempx(padding-bottom, $mangui-vertical-rhythm);
+
+
+		&::before {
+			left: 50%;
+			bottom: 0;
+			content: '';
+			opacity: 0.3;
+			position: absolute;
+			border-top: 5px solid;
+			@include rempx(width, 50px);
+			@include rempx(margin-left, -25px);
+		}
+	}
+
+
+	.o-panel__button-wrapper {
+		text-align: center;
+		@include rempx(margin-top, $mangui-vertical-rhythm);
+	}
+
+
+
+
+
+/**
+ * Panel with greater padding
+ */
+
+.o-panel--wide {
+	@include rempx(padding, $mangui-vertical-rhythm*4 $mangui-vertical-rhythm*4);
+
+
+	@include mangui-breakpoint(palm) {
+		@include rempx(padding-left, $mangui-vertical-rhythm*2);
+		@include rempx(padding-right, $mangui-vertical-rhythm*2);
+	}
+}
+
+
+
+
+
+/**
+ * Panel with lesser padding
+ */
+
+.o-panel--narrow {
+	@include rempx(padding, $mangui-vertical-rhythm $mangui-vertical-rhythm/2);
+}
+
+
+
+
+
+/**
+ * Panel with lesser padding
+ */
+
+.o-panel--gutterless {
+	padding: 0;
+}

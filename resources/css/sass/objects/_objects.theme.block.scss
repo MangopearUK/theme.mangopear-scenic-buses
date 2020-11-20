@@ -1,0 +1,57 @@
+/**
+ * Our source panel
+ * Hildon taste panel
+ * Health benefits panel
+ */
+
+.o-block {
+	.o-block__header {
+		position: relative;
+		@include rempx(margin-bottom, 30px);
+
+
+		@include mangui-breakpoint(desk) {
+			@include rempx(margin-left, -30px);
+			@include rempx(margin-right, -30px);
+		}
+
+		@include mangui-breakpoint(palm) {
+			@include rempx(margin-left, -20px);
+			@include rempx(margin-right, -20px);
+		}
+	}
+
+
+	.o-block__content {
+		margin: 0;
+	}
+	
+
+	@include mangui-breakpoint(desk) {
+		.o-block__title {
+			margin: 0;
+			bottom: 0;
+			color: #FFF;
+			line-height: 1.2;
+			position: absolute;
+			@include rempx(left, 30px);
+			@include rempx(right, 30px);
+			@include rempx(bottom, 23px);
+
+
+			.c-title__overflow {
+				&::after,
+				&::before {
+					top: 44%;
+					border-top: 2px solid #FFF;
+				}
+			}
+		}
+
+
+		.c-our__image-resource {
+			max-width: 150%;
+			@include rempx(margin, 40px -30px -96px);
+		}
+	}
+}

@@ -1,0 +1,426 @@
+/**
+ * [Component] Global > Routes
+ *
+ * @category	Component
+ * @package		scenic-buses
+ * @author		Andi North <andi@mangopear.co.uk>
+ * @copyright	2018 Mangopear creative
+ * @license   	GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ * @since   	1.0.0
+ * @version   	1.0.0
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]	Routes > Carousel > Change overflows
+ * [2]	Routes > Carousel > Controls
+ * [3]	Routes > Carousel > Fade inactive items out
+ * [4]	Routes > Carousel > Places of interest
+ * [5]	Route > Single template > Header
+ * [6]	Route > Single template > Gallery
+ * [7]	Route > Single template > Fares & tickets
+ * [8]	Route > Single template > Fares & tickets > How to buy
+ */
+
+
+/**
+ * [1]	Routes > Carousel > Change overflows
+ *
+ * 		[a]	Set row to hidden for cropping
+ * 		[b]	Set carousel cut off to be visible
+ * 		[c]	Fix sizing issues with pods
+ */
+
+.c-resources-row--routes {
+	overflow: hidden;											// [a]
+	.owl-stage-outer { overflow: visible; }						// [b]
+		.o-flex__item { width: 100%; }							// [c]
+}
+
+
+
+
+
+/**
+ * [2]	Routes > Carousel > Controls
+ */
+
+.c-resources-row--routes {
+	padding-top: 0;
+	position: relative;
+
+
+	.owl-controls {
+		width: 100%;
+		max-width: 1150px;
+		@include mangui-breakpoint("max-width: 1300px") { display: none; }
+
+
+		.owl-nav {
+			.owl-prev, .owl-next {
+				outline: 0;
+				background: #FFF;
+				position: absolute;
+				text-align: center;
+				border: 1px solid #DDD;
+				top: calc(50% - 1.5rem);
+				box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+				@include mangui-transition(ease-in-out 350ms all);
+				@include rempx(width, 48px);
+				@include rempx(height, 48px);
+				@include rempx(border-radius, 48px);
+
+
+				&:hover, &:active, &:focus {
+					background: #f1f1f1;
+					border-color: #DFDFDF;
+					box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+				}
+
+
+				&:active, &:focus { border-color: $scenic-green--medium; }
+
+
+				.o-icon { margin: 0 0 -7px; }
+			}
+
+
+			.owl-prev { @include rempx(left, -62px); }
+			.owl-next { @include rempx(right, -74px); }
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [3]	Routes > Carousel > Fade inactive items out
+ */
+
+.c-resources-row--routes {
+	.owl-item {
+		@include mangui-transition(ease-in-out 350ms opacity);
+
+		&:not(.active) {
+			opacity: 0.25;
+			pointer-events: none;
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [4]	Routes > Carousel > Places of interest
+ */
+
+.c-resources-row--places {
+	.c-resources__links .o-posts__item {
+		&:hover, &:active, &:focus {
+			.o-post__title__sub { color: $grey--dark; }
+		}
+	}
+}
+
+
+
+
+
+/**
+ * [5]	Routes > Single template > Header
+ */
+
+.c-route__header {
+	border-bottom: 5px solid $grey--lighter;
+	@include rempx(padding, 0 24px 30px);
+}
+
+
+	.c-route__destinations-title {
+		font-weight: 300;
+		line-height: 1.2;
+		color: $grey--dark;
+		text-align: center;
+		@include rempx(font-size, 36px);
+		@include rempx(margin, 30px 0 26px);
+	}
+
+
+		.c-route__destinations-title__intro {
+			color: $grey--medium;
+		}
+
+
+	.c-route__header__operator,
+	.c-route__header__days {
+		margin: 0;
+		text-align: center;
+	}
+
+
+	.c-route__header__actions {
+		@include rempx(margin, 31px 0 0);
+	}
+
+
+		.c-route__header__actions-wrap {
+			@include mangui-breakpoint("min-width: 551px") { display: flex; }
+		}
+
+
+			.c-route__link {
+				display: flex;
+				flex-grow:  1;
+				background: #FFF;
+				color: $grey--dark;
+				justify-content: center;
+				font-family: $font-campton;
+				border: 1px solid $grey--light;
+				@include rempx(font-size, 18px);
+				@include rempx(line-height, 36px);
+				@include rempx(padding, 12px 12px);
+				@include mangui-transition(ease-in-out 350ms all);
+
+
+				&:hover, &:focus, &:active {
+					color: $scenic-green--medium;
+					border-color: $scenic-green--medium;
+				}
+
+
+				&--timetable + .c-route__link--map { @include mangui-breakpoint("min-width: 551px") { @include rempx(margin-left, 10px); } }
+				&--map { @include mangui-breakpoint("max-width: 550px") { @include rempx(margin-top, 10px); } }
+			}
+
+
+		.c-route__header__actions__disclaimer {
+			font-weight: bold;
+			text-align: center;
+			background: $grey--lighter;
+			border: 1px solid $grey--light;
+			@include rempx(font-size, 12px);
+			@include rempx(margin, 10px 0 0);
+			@include rempx(padding, 3px 20px);
+		}
+
+
+
+
+
+/**
+ * [6]	Route > Single template > Gallery
+ */
+
+.c-route__gallery {
+	@include rempx(padding, 10px 24px);
+}
+
+
+	.c-route__gallery__images {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		@include rempx(margin, -10px -5px 30px);
+	}
+
+
+		.c-route__gallery__item {
+			margin: 0;
+			@include rempx(padding, 5px);
+
+			width: calc(100% / 7);
+			@include mangui-breakpoint("max-width: 1000px") { width: calc(100% / 6); }
+			@include mangui-breakpoint("max-width:  840px") { width: calc(100% / 5); }
+			@include mangui-breakpoint("max-width:  675px") { width: calc(100% / 4); }
+			@include mangui-breakpoint("max-width:  520px") { width: calc(100% / 3); }
+			@include mangui-breakpoint("max-width:  380px") { width: calc(100% / 2); }
+		}
+
+
+			.c-route__gallery__image-link {
+				@include mangui-transition(ease-in-out 350ms opacity);
+				&:hover, &:active, &:focus { opacity: .6; }
+			}
+
+
+
+
+
+/**
+ * [7]	Route > Single template > Fares & tickets
+ */
+
+.c-resources-row--tickets {
+	border-top: 5px solid #EEE;
+}
+
+
+	.c-tickets__table {
+		border-top: 1px solid #E5E5E5;
+		border-bottom: 1px solid #E5E5E5;
+		@include rempx(font-size, 13px);
+		@include rempx(margin, 0 -23px);
+
+
+		th:last-child, td:last-child {
+			font-weight: bold;
+			@include rempx(padding, 4px 23px 4px 5px);
+		}
+
+
+		th:first-child { @include rempx(padding, 4px 5px 4px 23px); }
+		tbody th, tbody td { border-top: 1px solid #E5E5E5; }
+
+
+		.c-tickets__cell--title {
+			background: #F5F5F5;
+			color: $scenic-green--dark;
+			@include rempx(font-size, 14px);
+		}
+
+
+		.c-tickets__cell[scope="row"] {
+			color: $grey--dark;
+
+
+			.c-ticket__cell__note {
+				display: block;
+				font-weight: normal;
+				color: $grey--medium;
+				@include rempx(font-size, 11px);
+				@include rempx(margin, -4px 0 0);
+			}
+		}
+	}
+
+
+
+
+
+/**
+ * [8]	Route > Single template > Fares & tickets > How to buy
+ */
+
+.c-tickets__where {
+
+}
+
+
+	.c-tickets__where__title {
+		font-weight: normal;
+		color: $scenic-green--dark;
+		@include rempx(margin, 13px 0 0);
+	}
+
+
+	.c-tickets__icons {
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		@include rempx(margin, 5px -10px -11px);
+	}
+
+
+		.c-tickets__icon {
+			color: $grey--dark;
+			position: relative;
+			width: calc(50% - 4px);
+			border: 1px solid #E3E3E3;
+			@include rempx(margin, 2px);
+			@include rempx(padding, 0 10px 4px);
+
+
+			.o-button__icon {
+				color: $scenic-green--medium;
+				@include rempx(margin, 4px 5px -8px 0);
+			}
+
+
+			.o-button__text {
+				font-weight: bold;
+				@include rempx(font-size, 12px);
+			}
+		}
+
+
+			.c-tickets__details {
+				position: absolute;
+				@include rempx(top, 3px);
+				@include rempx(right, -4px);
+				@include rempx(margin, -1px 0 0);
+
+
+				.c-tickets__details__button {
+					outline: 0;
+					background: #FFF;
+					font-weight: bold;
+					border-radius: 20px;
+					color: $scenic-green--medium;
+					border: 1px solid $grey--light;
+					box-shadow: 0 0 0 2px transparent;
+					@include rempx(width, 20px);
+					@include rempx(height, 20px);
+					@include rempx(font-size, 12px);
+					@include rempx(line-height, 18px);
+					@include rempx(margin, 0 0 0 -30px);
+					@include mangui-transition(ease-in-out 400ms all);
+
+
+					&:hover, &:active, &:focus { border-color: $scenic-green--dark; background: $scenic-green--medium; color: #FFF; }
+					&:active, &:focus { box-shadow: 0 0 0 2px $scenic-green--light; }
+
+
+					.c-tickets__details__button__icon {
+
+					}
+				}
+
+
+				.c-tickets__details__button__tooltip {
+					margin: 0;
+					opacity: 0;
+					z-index: 9999;
+					background: #FFF;
+					line-height: 1.3;
+					position: absolute;
+					pointer-events: none;
+					border: 1px solid $grey--medium;
+					box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+					@include rempx(right, -12px);
+					@include rempx(width, 202px);
+					@include rempx(bottom, 32px);
+					@include rempx(padding, 10px);
+					@include rempx(font-size, 12px);
+					@include mangui-transition(ease-in-out 400ms opacity);
+
+
+					&::after {
+						content: '';
+						background: #FFF;
+						position: absolute;
+						transform: rotate(45deg);
+						border-right: 1px solid $grey--medium;
+						border-bottom: 1px solid $grey--medium;
+						@include rempx(right, 25px);
+						@include rempx(width, 10px);
+						@include rempx(bottom, -6px);
+						@include rempx(height, 10px);
+					}
+
+
+					&.is-visible {
+						opacity: 1;
+						pointer-events: auto;
+					}
+
+
+					p { margin: 0; }
+				}
+			}
